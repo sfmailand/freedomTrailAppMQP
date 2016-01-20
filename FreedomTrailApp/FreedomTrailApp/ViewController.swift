@@ -20,6 +20,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
+    @IBOutlet weak var textLabel: UILabel!
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            textLabel.text = "First selected";
+        case 1:
+            textLabel.text = "Second Segment selected";
+        default:
+            break; 
+        }
+    }
 }
 
