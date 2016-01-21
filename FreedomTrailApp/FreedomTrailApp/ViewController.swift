@@ -20,16 +20,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var containerViewA: UIView!
+    @IBOutlet weak var containerViewB: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
-    @IBOutlet weak var textLabel: UILabel!
+    
+    
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            textLabel.text = "First selected";
+            UIView.animateWithDuration(0.5, animations: {
+                self.containerViewA.alpha = 1
+                self.containerViewB.alpha = 0
+            })
         case 1:
-            textLabel.text = "Second Segment selected";
+            UIView.animateWithDuration(0.5, animations: {
+                self.containerViewA.alpha = 0
+                self.containerViewB.alpha = 1
+            })
         default:
             break; 
         }

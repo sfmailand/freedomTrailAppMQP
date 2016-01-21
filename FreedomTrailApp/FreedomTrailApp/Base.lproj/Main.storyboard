@@ -27,27 +27,71 @@
                                     <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="aIf-cZ-YXG"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJW-ec-ExN">
-                                <rect key="frame" x="238" y="102" width="125" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-Pk-d4b">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="Cwf-VV-leJ" kind="embed" id="yho-sd-KiN"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YVQ-Ss-hqh">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FaF-Tu-ZjJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <subviews>
+                                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUR-cL-KZD">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                                <connections>
+                                                    <segue destination="zLp-96-IHa" kind="embed" id="sop-v9-74e"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gJW-ec-ExN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wsj-cQ-LL6"/>
                             <constraint firstItem="Dho-wf-WU9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nxJ-jn-3hI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerViewA" destination="vFW-Pk-d4b" id="pbB-US-Jey"/>
+                        <outlet property="containerViewB" destination="iUR-cL-KZD" id="xXX-X3-EB5"/>
                         <outlet property="segmentedControl" destination="Dho-wf-WU9" id="mNF-AO-9kQ"/>
-                        <outlet property="textLabel" destination="gJW-ec-ExN" id="TyQ-Yw-WbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="230" y="273"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="py1-Nw-vSg">
+            <objects>
+                <viewController id="Cwf-VV-leJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sOs-PD-RGu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9JW-JD-eeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="1068"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Exa-0V-Sfr">
+            <objects>
+                <viewController id="zLp-96-IHa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hkr-qz-IHy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwV-KM-OSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067" y="23"/>
         </scene>
     </scenes>
 </document>
