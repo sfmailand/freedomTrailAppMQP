@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zza-cb-H9a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j8w-Na-69j">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Location Table View Controller-->
+        <!--Freedom Trail Locations-->
         <scene sceneID="JUL-XD-pGj">
             <objects>
                 <tableViewController id="Zza-cb-H9a" customClass="LocationTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="90" id="DMV-Is-8fn" customClass="LocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMV-Is-8fn" id="axO-hV-ZU7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -35,6 +35,7 @@
                                 <connections>
                                     <outlet property="locationNameLabel" destination="qeZ-1e-ipU" id="mnF-d2-nGm"/>
                                     <outlet property="locationPhoto" destination="ZPM-yW-VkW" id="ZEp-ax-Z7Z"/>
+                                    <segue destination="gVG-x6-l9b" kind="show" id="Sii-ym-Uay"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -43,8 +44,70 @@
                             <outlet property="delegate" destination="Zza-cb-H9a" id="7gk-U8-wRZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-aS-B0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="279"/>
+        </scene>
+        <!--Location Detail View Controller-->
+        <scene sceneID="Koh-lk-nFQ">
+            <objects>
+                <viewController id="gVG-x6-l9b" customClass="LocationDetailViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iFU-HE-ZgJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="BH8-Ig-pWH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ebc-bS-vbm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
+                                <rect key="frame" x="213" y="72" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="kbW-Vn-6lW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="175" id="kpn-C9-he3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-SO-3ZF">
+                                <rect key="frame" x="20" y="255" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2PV-H6-Mxq" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="4aq-7X-Rm3"/>
+                            <constraint firstItem="2PV-H6-Mxq" firstAttribute="top" secondItem="iFU-HE-ZgJ" secondAttribute="bottom" constant="8" id="Gyr-yE-IIN"/>
+                            <constraint firstItem="Kjv-SO-3ZF" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="kpt-DY-53Y"/>
+                            <constraint firstItem="Kjv-SO-3ZF" firstAttribute="top" secondItem="2PV-H6-Mxq" secondAttribute="bottom" constant="8" id="yBD-i4-pVb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
+                        <outlet property="locationPhoto" destination="2PV-H6-Mxq" id="p2S-Mb-Ev8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eli-wM-tOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="279"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3i2-Eb-0zx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j8w-Na-69j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zyF-iN-LTv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zza-cb-H9a" kind="relationship" relationship="rootViewController" id="O2w-Wa-g9D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o14-lN-xM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-196" y="279"/>
         </scene>
