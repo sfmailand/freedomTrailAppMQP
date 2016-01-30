@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F77EC4EA1C50067800E88B2C"
+               BlueprintIdentifier = "F795E2BF1C5C4C0E00843632"
                BuildableName = "FreedomTrailApp.app"
                BlueprintName = "FreedomTrailApp"
                ReferencedContainer = "container:FreedomTrailApp.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F77EC4EA1C50067800E88B2C"
+            BlueprintIdentifier = "F795E2BF1C5C4C0E00843632"
             BuildableName = "FreedomTrailApp.app"
             BlueprintName = "FreedomTrailApp"
             ReferencedContainer = "container:FreedomTrailApp.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F77EC4EA1C50067800E88B2C"
+            BlueprintIdentifier = "F795E2BF1C5C4C0E00843632"
             BuildableName = "FreedomTrailApp.app"
             BlueprintName = "FreedomTrailApp"
             ReferencedContainer = "container:FreedomTrailApp.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F77EC4EA1C50067800E88B2C"
+            BlueprintIdentifier = "F795E2BF1C5C4C0E00843632"
             BuildableName = "FreedomTrailApp.app"
             BlueprintName = "FreedomTrailApp"
             ReferencedContainer = "container:FreedomTrailApp.xcodeproj">

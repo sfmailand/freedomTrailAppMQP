@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F77EC4EF1C50067800E88B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EC4EE1C50067800E88B2C /* AppDelegate.swift */; };
-		F77EC4F11C50067800E88B2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EC4F01C50067800E88B2C /* ViewController.swift */; };
-		F77EC4F41C50067800E88B2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77EC4F21C50067800E88B2C /* Main.storyboard */; };
-		F77EC4F61C50067800E88B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77EC4F51C50067800E88B2C /* Assets.xcassets */; };
-		F77EC4F91C50067800E88B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77EC4F71C50067800E88B2C /* LaunchScreen.storyboard */; };
+		F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C31C5C4C0E00843632 /* AppDelegate.swift */; };
+		F795E2C61C5C4C0E00843632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C51C5C4C0E00843632 /* ViewController.swift */; };
+		F795E2C91C5C4C0E00843632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2C71C5C4C0E00843632 /* Main.storyboard */; };
+		F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CA1C5C4C0E00843632 /* Assets.xcassets */; };
+		F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */; };
+		F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F77EC4EB1C50067800E88B2C /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F77EC4EE1C50067800E88B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F77EC4F01C50067800E88B2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F77EC4F31C50067800E88B2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F77EC4F51C50067800E88B2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F77EC4F81C50067800E88B2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F77EC4FA1C50067800E88B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F795E2C31C5C4C0E00843632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F795E2C51C5C4C0E00843632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F795E2C81C5C4C0E00843632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F795E2CA1C5C4C0E00843632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F795E2CD1C5C4C0E00843632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F795E2CF1C5C4C0E00843632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F77EC4E81C50067800E88B2C /* Frameworks */ = {
+		F795E2BD1C5C4C0E00843632 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,31 +37,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F77EC4E21C50067800E88B2C = {
+		F795E2B71C5C4C0E00843632 = {
 			isa = PBXGroup;
 			children = (
-				F77EC4ED1C50067800E88B2C /* FreedomTrailApp */,
-				F77EC4EC1C50067800E88B2C /* Products */,
+				F795E2C21C5C4C0E00843632 /* FreedomTrailApp */,
+				F795E2C11C5C4C0E00843632 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F77EC4EC1C50067800E88B2C /* Products */ = {
+		F795E2C11C5C4C0E00843632 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F77EC4EB1C50067800E88B2C /* FreedomTrailApp.app */,
+				F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F77EC4ED1C50067800E88B2C /* FreedomTrailApp */ = {
+		F795E2C21C5C4C0E00843632 /* FreedomTrailApp */ = {
 			isa = PBXGroup;
 			children = (
-				F77EC4EE1C50067800E88B2C /* AppDelegate.swift */,
-				F77EC4F01C50067800E88B2C /* ViewController.swift */,
-				F77EC4F21C50067800E88B2C /* Main.storyboard */,
-				F77EC4F51C50067800E88B2C /* Assets.xcassets */,
-				F77EC4F71C50067800E88B2C /* LaunchScreen.storyboard */,
-				F77EC4FA1C50067800E88B2C /* Info.plist */,
+				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
+				F795E2C51C5C4C0E00843632 /* ViewController.swift */,
+				F795E2C71C5C4C0E00843632 /* Main.storyboard */,
+				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
+				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
+				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
+				F795E2CF1C5C4C0E00843632 /* Info.plist */,
 			);
 			path = FreedomTrailApp;
 			sourceTree = "<group>";
@@ -67,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F77EC4EA1C50067800E88B2C /* FreedomTrailApp */ = {
+		F795E2BF1C5C4C0E00843632 /* FreedomTrailApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F77EC4FD1C50067800E88B2C /* Build configuration list for PBXNativeTarget "FreedomTrailApp" */;
+			buildConfigurationList = F795E2D21C5C4C0E00843632 /* Build configuration list for PBXNativeTarget "FreedomTrailApp" */;
 			buildPhases = (
-				F77EC4E71C50067800E88B2C /* Sources */,
-				F77EC4E81C50067800E88B2C /* Frameworks */,
-				F77EC4E91C50067800E88B2C /* Resources */,
+				F795E2BC1C5C4C0E00843632 /* Sources */,
+				F795E2BD1C5C4C0E00843632 /* Frameworks */,
+				F795E2BE1C5C4C0E00843632 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -81,26 +84,25 @@
 			);
 			name = FreedomTrailApp;
 			productName = FreedomTrailApp;
-			productReference = F77EC4EB1C50067800E88B2C /* FreedomTrailApp.app */;
+			productReference = F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F77EC4E31C50067800E88B2C /* Project object */ = {
+		F795E2B81C5C4C0E00843632 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Sam Mailand";
 				TargetAttributes = {
-					F77EC4EA1C50067800E88B2C = {
+					F795E2BF1C5C4C0E00843632 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = CR8GZTEH8U;
 					};
 				};
 			};
-			buildConfigurationList = F77EC4E61C50067800E88B2C /* Build configuration list for PBXProject "FreedomTrailApp" */;
+			buildConfigurationList = F795E2BB1C5C4C0E00843632 /* Build configuration list for PBXProject "FreedomTrailApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,54 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = F77EC4E21C50067800E88B2C;
-			productRefGroup = F77EC4EC1C50067800E88B2C /* Products */;
+			mainGroup = F795E2B71C5C4C0E00843632;
+			productRefGroup = F795E2C11C5C4C0E00843632 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F77EC4EA1C50067800E88B2C /* FreedomTrailApp */,
+				F795E2BF1C5C4C0E00843632 /* FreedomTrailApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F77EC4E91C50067800E88B2C /* Resources */ = {
+		F795E2BE1C5C4C0E00843632 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77EC4F91C50067800E88B2C /* LaunchScreen.storyboard in Resources */,
-				F77EC4F61C50067800E88B2C /* Assets.xcassets in Resources */,
-				F77EC4F41C50067800E88B2C /* Main.storyboard in Resources */,
+				F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */,
+				F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */,
+				F795E2C91C5C4C0E00843632 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F77EC4E71C50067800E88B2C /* Sources */ = {
+		F795E2BC1C5C4C0E00843632 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77EC4F11C50067800E88B2C /* ViewController.swift in Sources */,
-				F77EC4EF1C50067800E88B2C /* AppDelegate.swift in Sources */,
+				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
+				F795E2C61C5C4C0E00843632 /* ViewController.swift in Sources */,
+				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F77EC4F21C50067800E88B2C /* Main.storyboard */ = {
+		F795E2C71C5C4C0E00843632 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F77EC4F31C50067800E88B2C /* Base */,
+				F795E2C81C5C4C0E00843632 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F77EC4F71C50067800E88B2C /* LaunchScreen.storyboard */ = {
+		F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F77EC4F81C50067800E88B2C /* Base */,
+				F795E2CD1C5C4C0E00843632 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -163,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F77EC4FB1C50067800E88B2C /* Debug */ = {
+		F795E2D01C5C4C0E00843632 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -207,7 +210,7 @@
 			};
 			name = Debug;
 		};
-		F77EC4FC1C50067800E88B2C /* Release */ = {
+		F795E2D11C5C4C0E00843632 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,55 +247,49 @@
 			};
 			name = Release;
 		};
-		F77EC4FE1C50067800E88B2C /* Debug */ = {
+		F795E2D31C5C4C0E00843632 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smailand.FreedomTrailApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
-		F77EC4FF1C50067800E88B2C /* Release */ = {
+		F795E2D41C5C4C0E00843632 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smailand.FreedomTrailApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F77EC4E61C50067800E88B2C /* Build configuration list for PBXProject "FreedomTrailApp" */ = {
+		F795E2BB1C5C4C0E00843632 /* Build configuration list for PBXProject "FreedomTrailApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F77EC4FB1C50067800E88B2C /* Debug */,
-				F77EC4FC1C50067800E88B2C /* Release */,
+				F795E2D01C5C4C0E00843632 /* Debug */,
+				F795E2D11C5C4C0E00843632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F77EC4FD1C50067800E88B2C /* Build configuration list for PBXNativeTarget "FreedomTrailApp" */ = {
+		F795E2D21C5C4C0E00843632 /* Build configuration list for PBXNativeTarget "FreedomTrailApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F77EC4FE1C50067800E88B2C /* Debug */,
-				F77EC4FF1C50067800E88B2C /* Release */,
+				F795E2D31C5C4C0E00843632 /* Debug */,
+				F795E2D41C5C4C0E00843632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F77EC4E31C50067800E88B2C /* Project object */;
+	rootObject = F795E2B81C5C4C0E00843632 /* Project object */;
 }

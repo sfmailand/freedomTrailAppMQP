@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  FreedomTrailApp
 //
-//  Created by Sam Mailand on 1/20/16.
+//  Created by Sam Mailand on 1/29/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
