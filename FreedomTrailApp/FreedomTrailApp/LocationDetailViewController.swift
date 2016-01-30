@@ -20,7 +20,10 @@ class LocationDetailViewController: UIViewController {
         super.viewDidLoad()
         
         locationLabel.text = location!.name
-        locationPhoto.image = location!.photo
+        
+        if((location!.photo) != nil){
+            locationPhoto.image = location!.photo
+        }
         
     }
 
