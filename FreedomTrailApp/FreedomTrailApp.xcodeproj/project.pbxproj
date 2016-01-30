@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C31C5C4C0E00843632 /* AppDelegate.swift */; };
-		F795E2C61C5C4C0E00843632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C51C5C4C0E00843632 /* ViewController.swift */; };
 		F795E2C91C5C4C0E00843632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2C71C5C4C0E00843632 /* Main.storyboard */; };
 		F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CA1C5C4C0E00843632 /* Assets.xcassets */; };
 		F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */; };
 		F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */; };
+		F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D71C5C530900843632 /* LocationTableViewController.swift */; };
+		F795E2DA1C5C535900843632 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D91C5C535900843632 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795E2C31C5C4C0E00843632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F795E2C51C5C4C0E00843632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F795E2C81C5C4C0E00843632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F795E2CA1C5C4C0E00843632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F795E2CD1C5C4C0E00843632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F795E2CF1C5C4C0E00843632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		F795E2D71C5C530900843632 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		F795E2D91C5C535900843632 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
-				F795E2C51C5C4C0E00843632 /* ViewController.swift */,
 				F795E2C71C5C4C0E00843632 /* Main.storyboard */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
+				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
+				F795E2D91C5C535900843632 /* Location.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
 				F795E2CF1C5C4C0E00843632 /* Info.plist */,
@@ -138,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */,
 				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
-				F795E2C61C5C4C0E00843632 /* ViewController.swift in Sources */,
+				F795E2DA1C5C535900843632 /* Location.swift in Sources */,
 				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Location Table View Controller-->
         <scene sceneID="JUL-XD-pGj">
             <objects>
-                <tableViewController id="Zza-cb-H9a" sceneMemberID="viewController">
+                <tableViewController id="Zza-cb-H9a" customClass="LocationTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="oKQ-m3-q8I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationNameLabel" destination="qeZ-1e-ipU" id="mnF-d2-nGm"/>
+                                    <outlet property="locationPhoto" destination="ZPM-yW-VkW" id="ZEp-ax-Z7Z"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

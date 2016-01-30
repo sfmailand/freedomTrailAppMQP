@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LocationViewController.swift
 //  FreedomTrailApp
 //
 //  Created by Sam Mailand on 1/29/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
