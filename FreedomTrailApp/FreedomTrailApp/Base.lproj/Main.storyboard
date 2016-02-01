@@ -72,19 +72,29 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-SO-3ZF">
                                 <rect key="frame" x="20" y="255" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="directionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hh0-qm-4Mp">
+                                <rect key="frame" x="281" y="284" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="ebq-kZ-k3W"/>
+                                    <constraint firstAttribute="height" constant="38" id="ms9-Qv-0Qs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2PV-H6-Mxq" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="4aq-7X-Rm3"/>
                             <constraint firstItem="2PV-H6-Mxq" firstAttribute="top" secondItem="iFU-HE-ZgJ" secondAttribute="bottom" constant="8" id="Gyr-yE-IIN"/>
+                            <constraint firstItem="Hh0-qm-4Mp" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="IHZ-6a-Fcz"/>
+                            <constraint firstItem="Hh0-qm-4Mp" firstAttribute="top" secondItem="Kjv-SO-3ZF" secondAttribute="bottom" constant="8" id="X14-Xu-M9O"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="kpt-DY-53Y"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="top" secondItem="2PV-H6-Mxq" secondAttribute="bottom" constant="8" id="yBD-i4-pVb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="directionsIcon" destination="Hh0-qm-4Mp" id="MNq-af-LLq"/>
                         <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
                         <outlet property="locationPhoto" destination="2PV-H6-Mxq" id="p2S-Mb-Ev8"/>
                     </connections>
@@ -114,5 +124,6 @@
     </scenes>
     <resources>
         <image name="defaultPhoto" width="320" height="320"/>
+        <image name="directionIcon" width="256" height="256"/>
     </resources>
 </document>

@@ -13,7 +13,10 @@ class LocationDetailViewController: UIViewController {
     var location: Location?
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var directionsIcon: UIImageView!
+
     
+
     
     
     override func viewDidLoad() {
@@ -25,11 +28,23 @@ class LocationDetailViewController: UIViewController {
             locationPhoto.image = location!.photo
         }
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        directionsIcon.userInteractionEnabled = true
+        directionsIcon.addGestureRecognizer(tapGestureRecognizer)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //MARK: Actions:
+    
+    func imageTapped(img: AnyObject)
+    {
+        print("Directions Tapped")
     }
     
 
