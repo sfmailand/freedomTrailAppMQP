@@ -46,7 +46,13 @@ class LocationDetailViewController: UIViewController {
     {
         print("Directions Tapped")
         
-        let url : NSURL = NSURL(string: "http://maps.apple.com/?saddr=Current+Location&daddr=Boston+Common")!
+        var directionURLString = "http://maps.apple.com/?saddr=Current+Location&daddr="+locationLabel.text!
+        
+        directionURLString = directionURLString.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        print(directionURLString)
+        
+        let url : NSURL = NSURL(string: directionURLString+"+Boston+Massachusetts")!
         if UIApplication.sharedApplication().canOpenURL(url) {
             UIApplication.sharedApplication().openURL(url)
         }
