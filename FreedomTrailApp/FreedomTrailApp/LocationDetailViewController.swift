@@ -45,6 +45,12 @@ class LocationDetailViewController: UIViewController {
     func imageTapped(img: AnyObject)
     {
         print("Directions Tapped")
+        
+        let url : NSURL = NSURL(string: "http://maps.apple.com/?saddr=Current+Location&daddr=Boston+Common")!
+        if UIApplication.sharedApplication().canOpenURL(url) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+        
     }
     
 
