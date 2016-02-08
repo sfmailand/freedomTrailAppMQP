@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j8w-Na-69j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pN0-EI-tmz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Freedom Trail Locations-->
@@ -10,12 +11,12 @@
             <objects>
                 <tableViewController id="Zza-cb-H9a" customClass="LocationTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="oKQ-m3-q8I">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="90" id="DMV-Is-8fn" customClass="LocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMV-Is-8fn" id="axO-hV-ZU7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -59,7 +60,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BH8-Ig-pWH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ebc-bS-vbm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
@@ -103,6 +104,66 @@
             </objects>
             <point key="canvasLocation" x="1374" y="279"/>
         </scene>
+        <!--Segmented View Controller-->
+        <scene sceneID="BW1-Ip-bjJ">
+            <objects>
+                <viewController id="pN0-EI-tmz" customClass="segmentedViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lIF-mU-wwr"/>
+                        <viewControllerLayoutGuide type="bottom" id="JpA-xd-mHE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BNP-WY-sBl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-dg-Mwf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="j8w-Na-69j" kind="embed" id="GXa-ND-0YH"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-BT-m44">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="W7e-7i-cP0" kind="embed" id="PGY-QX-B8Y"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iEv-ay-JHv">
+                                <rect key="frame" x="203" y="28" width="195" height="29"/>
+                                <segments>
+                                    <segment title="Locations"/>
+                                    <segment title="My Itineraries"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlButtonChanged:" destination="pN0-EI-tmz" eventType="valueChanged" id="BEO-ft-fjd"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iEv-ay-JHv" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="2Mx-6O-x0l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vmz-dg-Mwf" secondAttribute="trailing" constant="-20" id="Cu6-dm-p2v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TKt-BT-m44" secondAttribute="trailing" constant="-20" id="NXP-w3-LEL"/>
+                            <constraint firstItem="JpA-xd-mHE" firstAttribute="top" secondItem="vmz-dg-Mwf" secondAttribute="bottom" id="TlP-Yv-PGx"/>
+                            <constraint firstItem="TKt-BT-m44" firstAttribute="top" secondItem="iEv-ay-JHv" secondAttribute="bottom" constant="8" id="YyR-Re-158"/>
+                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="top" secondItem="iEv-ay-JHv" secondAttribute="bottom" constant="8" id="aIo-uj-XtL"/>
+                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="bsD-3f-pME"/>
+                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="leading" secondItem="BNP-WY-sBl" secondAttribute="leadingMargin" constant="-20" id="e3a-hr-k9V"/>
+                            <constraint firstItem="JpA-xd-mHE" firstAttribute="top" secondItem="TKt-BT-m44" secondAttribute="bottom" id="ns4-Om-YRa"/>
+                            <constraint firstItem="TKt-BT-m44" firstAttribute="leading" secondItem="BNP-WY-sBl" secondAttribute="leadingMargin" constant="-20" id="qu5-A6-x41"/>
+                            <constraint firstItem="TKt-BT-m44" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="yl9-kH-g9J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="itineraryViewContainer" destination="TKt-BT-m44" id="E6p-1W-dEx"/>
+                        <outlet property="locationViewContainer" destination="vmz-dg-Mwf" id="uLK-db-6pQ"/>
+                        <outlet property="segmentedControlButtons" destination="iEv-ay-JHv" id="xRy-GS-i22"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qI6-Yf-6dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1191" y="315"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3i2-Eb-0zx">
             <objects>
@@ -120,6 +181,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o14-lN-xM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-196" y="279"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jx9-rV-PpP">
+            <objects>
+                <viewController id="W7e-7i-cP0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OvH-6r-crb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.26477006121538238" blue="0.1706924479947165" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MV0-70-ebH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1624" y="1109.5"/>
         </scene>
     </scenes>
     <resources>
