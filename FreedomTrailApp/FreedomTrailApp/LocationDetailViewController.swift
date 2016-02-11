@@ -14,6 +14,7 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var directionsIcon: UIImageView!
+    @IBOutlet weak var addToItineraryButton: UIButton!
 
     
 

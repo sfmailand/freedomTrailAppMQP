@@ -83,18 +83,25 @@
                                     <constraint firstAttribute="height" constant="38" id="ms9-Qv-0Qs"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXQ-OO-ceC">
+                                <rect key="frame" x="247" y="400" width="106" height="30"/>
+                                <state key="normal" title="Add to Itinerary"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2PV-H6-Mxq" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="4aq-7X-Rm3"/>
+                            <constraint firstItem="BXQ-OO-ceC" firstAttribute="top" secondItem="Hh0-qm-4Mp" secondAttribute="bottom" constant="78" id="78T-sn-y8s"/>
                             <constraint firstItem="2PV-H6-Mxq" firstAttribute="top" secondItem="iFU-HE-ZgJ" secondAttribute="bottom" constant="8" id="Gyr-yE-IIN"/>
                             <constraint firstItem="Hh0-qm-4Mp" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="IHZ-6a-Fcz"/>
+                            <constraint firstItem="BXQ-OO-ceC" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="X0F-5h-9mF"/>
                             <constraint firstItem="Hh0-qm-4Mp" firstAttribute="top" secondItem="Kjv-SO-3ZF" secondAttribute="bottom" constant="8" id="X14-Xu-M9O"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="kpt-DY-53Y"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="top" secondItem="2PV-H6-Mxq" secondAttribute="bottom" constant="8" id="yBD-i4-pVb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToItineraryButton" destination="BXQ-OO-ceC" id="ezL-69-Wg6"/>
                         <outlet property="directionsIcon" destination="Hh0-qm-4Mp" id="MNq-af-LLq"/>
                         <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
                         <outlet property="locationPhoto" destination="2PV-H6-Mxq" id="p2S-Mb-Ev8"/>
