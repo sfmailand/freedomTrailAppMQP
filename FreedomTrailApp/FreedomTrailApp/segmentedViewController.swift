@@ -23,7 +23,6 @@ class segmentedViewController: UIViewController {
     @IBAction func segmentControlButtonChanged(sender: UISegmentedControl) {
         itineraryEmbeddedViewController.itineraryStops = (itinerary?.locations)!
         itineraryEmbeddedViewController.tableView.reloadData()
-        print(itinerary!.locations)
         if segmentedControlButtons.selectedSegmentIndex == 0 {
             self.locationViewContainer.alpha = 1
             self.itineraryViewContainer.alpha = 0
