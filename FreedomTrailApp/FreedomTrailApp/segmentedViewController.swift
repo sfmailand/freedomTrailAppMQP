@@ -52,16 +52,17 @@ class segmentedViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let vc = segue.destinationViewController as? ItineraryStopTableViewController
+        
+        if let vc = segue.destinationViewController as? UINavigationController
             where segue.identifier == "ItinerarySegue" {
-                
-                self.itineraryEmbeddedViewController = vc
+                print(vc.topViewController)
+                self.itineraryEmbeddedViewController = vc.topViewController as? ItineraryStopTableViewController
         }
         
-        if let vc2 = segue.destinationViewController as? LocationTableViewController
+        if let vc2 = segue.destinationViewController as? UINavigationController
             where segue.identifier == "LocationSegue" {
-                
-                self.locationsEmbeddedViewController = vc2
+                print(vc2.topViewController)
+                self.locationsEmbeddedViewController = vc2.topViewController as? LocationTableViewController
         }
         
     }
