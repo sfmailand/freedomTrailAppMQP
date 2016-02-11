@@ -60,6 +60,9 @@ class LocationDetailViewController: UIViewController {
         
     }
     
+    @IBAction func addLocationToItinerary(sender: UIButton) {
+        print("Adding to Itinerary")
+    }
 
     /*
     // MARK: - Navigation
