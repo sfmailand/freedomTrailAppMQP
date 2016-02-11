@@ -122,7 +122,7 @@
                                     <segue destination="j8w-Na-69j" kind="embed" id="GXa-ND-0YH"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-BT-m44">
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-BT-m44">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
                                     <segue destination="W7e-7i-cP0" kind="embed" id="PGY-QX-B8Y"/>
@@ -186,6 +186,10 @@
         <scene sceneID="Jx9-rV-PpP">
             <objects>
                 <viewController id="W7e-7i-cP0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xpr-pY-xQf"/>
+                        <viewControllerLayoutGuide type="bottom" id="cmW-ek-X0v"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OvH-6r-crb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
