@@ -11,6 +11,7 @@ import UIKit
 class LocationDetailViewController: UIViewController {
     
     var location: Location?
+    var itinerary: Itinerary?
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var directionsIcon: UIImageView!
@@ -61,7 +62,8 @@ class LocationDetailViewController: UIViewController {
     }
     
     @IBAction func addLocationToItinerary(sender: UIButton) {
-        print("Adding to Itinerary")
+        print(location)
+        itinerary?.addLocation(location!)
     }
 
     /*

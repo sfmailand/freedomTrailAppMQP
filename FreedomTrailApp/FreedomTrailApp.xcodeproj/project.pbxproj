@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21925671C6C308B00C9E937 /* Itinerary.swift */; };
+		A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */; };
+		A219256C1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */; };
 		A22EE54C1C683E1300DEBAD8 /* segmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */; };
 		F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */; };
 		F720421B1C5D15200099747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72042191C5D15200099747C /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A21925671C6C308B00C9E937 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryStopTableViewCell.swift; sourceTree = "<group>"; };
+		A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryStopTableViewController.swift; sourceTree = "<group>"; };
 		A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = segmentedViewController.swift; sourceTree = "<group>"; };
 		F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F720421A1C5D15200099747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,12 +68,15 @@
 		F795E2C21C5C4C0E00843632 /* FreedomTrailApp */ = {
 			isa = PBXGroup;
 			children = (
+				A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */,
+				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
 				F72042191C5D15200099747C /* Main.storyboard */,
+				A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */,
+				A21925671C6C308B00C9E937 /* Itinerary.swift */,
 				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
 				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
-				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
 				F795E2D91C5C535900843632 /* Location.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
@@ -153,6 +162,9 @@
 				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
 				A22EE54C1C683E1300DEBAD8 /* segmentedViewController.swift in Sources */,
 				F795E2DA1C5C535900843632 /* Location.swift in Sources */,
+				A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */,
+				A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */,
+				A219256C1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift in Sources */,
 				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

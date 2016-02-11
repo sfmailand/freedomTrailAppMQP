@@ -122,8 +122,12 @@ class LocationTableViewController: UITableViewController {
         if let selectedLocationCell = sender as? LocationTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedLocationCell)!
             let selectedLocation = locations[indexPath.row]
+            let itinerary = (self.parentViewController?.parentViewController as? segmentedViewController)!.itinerary
+            mealDetailViewController.itinerary = itinerary
             mealDetailViewController.location = selectedLocation
         }
+        
+        
     }
 
 }

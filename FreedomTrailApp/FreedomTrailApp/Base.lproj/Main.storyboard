@@ -64,27 +64,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
-                                <rect key="frame" x="213" y="72" width="175" height="175"/>
+                                <rect key="frame" x="213" y="58" width="175" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="kbW-Vn-6lW"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="175" id="kpn-C9-he3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-SO-3ZF">
-                                <rect key="frame" x="20" y="255" width="560" height="21"/>
+                                <rect key="frame" x="20" y="241" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="directionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hh0-qm-4Mp">
-                                <rect key="frame" x="281" y="284" width="38" height="38"/>
+                                <rect key="frame" x="281" y="270" width="38" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="ebq-kZ-k3W"/>
                                     <constraint firstAttribute="height" constant="38" id="ms9-Qv-0Qs"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXQ-OO-ceC">
-                                <rect key="frame" x="247" y="400" width="106" height="30"/>
+                                <rect key="frame" x="247" y="386" width="106" height="30"/>
                                 <state key="normal" title="Add to Itinerary"/>
                                 <connections>
                                     <action selector="addLocationToItinerary:" destination="gVG-x6-l9b" eventType="touchUpInside" id="7dO-tT-ixT"/>
@@ -129,13 +129,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-dg-Mwf">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
-                                    <segue destination="j8w-Na-69j" kind="embed" id="GXa-ND-0YH"/>
+                                    <segue destination="j8w-Na-69j" kind="embed" identifier="LocationSegue" id="GXa-ND-0YH"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-BT-m44">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
-                                    <segue destination="W7e-7i-cP0" kind="embed" id="PGY-QX-B8Y"/>
+                                    <segue destination="lbo-6r-yTF" kind="embed" identifier="ItinerarySegue" id="5Yx-b0-4lU"/>
                                 </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iEv-ay-JHv">
@@ -192,23 +192,44 @@
             </objects>
             <point key="canvasLocation" x="-196" y="279"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Jx9-rV-PpP">
+        <!--Itinerary Stop Table View Controller-->
+        <scene sceneID="nOV-IB-eAJ">
             <objects>
-                <viewController id="W7e-7i-cP0" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Xpr-pY-xQf"/>
-                        <viewControllerLayoutGuide type="bottom" id="cmW-ek-X0v"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OvH-6r-crb">
+                <tableViewController id="lbo-6r-yTF" customClass="ItineraryStopTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s7v-lV-4UL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.26477006121538238" blue="0.1706924479947165" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MV0-70-ebH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItineraryStopTableViewCell" rowHeight="90" id="nmq-dK-z55" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nmq-dK-z55" id="c9V-A2-18H">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LocationNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-yp-df0">
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itineraryStopLabel" destination="eYr-yp-df0" id="6Eg-Dx-4Jj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lbo-6r-yTF" id="Irv-v1-bzn"/>
+                            <outlet property="delegate" destination="lbo-6r-yTF" id="Tgy-Qi-lor"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3V-FJ-YlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1624" y="1109.5"/>
+            <point key="canvasLocation" x="-1033" y="1105"/>
         </scene>
     </scenes>
     <resources>
