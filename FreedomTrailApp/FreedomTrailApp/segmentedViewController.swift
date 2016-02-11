@@ -15,18 +15,23 @@ class segmentedViewController: UIViewController {
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
     
     
+    var itineraries = [Itinerary]()
+    
+    
     var itinerary = Itinerary(name: "Test Itinerary", description: "TEST")
     
-    private var itineraryEmbeddedViewController: ItineraryStopTableViewController!
+    
+    
+    private var itineraryListEmbeddedViewController: ItineraryListTableViewController!
     private var locationsEmbeddedViewController: LocationTableViewController!
     
     @IBAction func segmentControlButtonChanged(sender: UISegmentedControl) {
-        itineraryEmbeddedViewController.itineraryStops = (itinerary?.locations)!
-        itineraryEmbeddedViewController.tableView.reloadData()
         if segmentedControlButtons.selectedSegmentIndex == 0 {
             self.locationViewContainer.alpha = 1
             self.itineraryViewContainer.alpha = 0
         } else {
+            itineraryListEmbeddedViewController.itineraries = itineraries
+            itineraryListEmbeddedViewController.tableView.reloadData()
             self.locationViewContainer.alpha = 0
             self.itineraryViewContainer.alpha = 1
         }
@@ -34,6 +39,8 @@ class segmentedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        itineraries.append(itinerary!)
         
         
         // Do any additional setup after loading the view.
@@ -56,7 +63,7 @@ class segmentedViewController: UIViewController {
         if let vc = segue.destinationViewController as? UINavigationController
             where segue.identifier == "ItinerarySegue" {
                 print(vc.topViewController)
-                self.itineraryEmbeddedViewController = vc.topViewController as? ItineraryStopTableViewController
+                self.itineraryListEmbeddedViewController = vc.topViewController as? ItineraryListTableViewController
         }
         
         if let vc2 = segue.destinationViewController as? UINavigationController

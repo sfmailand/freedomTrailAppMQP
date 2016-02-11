@@ -1,16 +1,16 @@
 //
-//  ItineraryStopTableViewCell.swift
+//  ItineraryTableViewCell.swift
 //  FreedomTrailApp
 //
-//  Created by Samuel Mailand on 2/10/16.
+//  Created by Sam Mailand on 2/11/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
 import UIKit
 
-class ItineraryStopTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var itineraryStopLabel: UILabel!
+class ItineraryTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var itineraryNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

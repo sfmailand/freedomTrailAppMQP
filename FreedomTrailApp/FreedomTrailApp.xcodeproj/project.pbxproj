@@ -19,6 +19,8 @@
 		F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */; };
 		F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D71C5C530900843632 /* LocationTableViewController.swift */; };
 		F795E2DA1C5C535900843632 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2D91C5C535900843632 /* Location.swift */; };
+		F7A682491C6D1D8D000D1C45 /* ItineraryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */; };
+		F7A6824B1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		F795E2D71C5C530900843632 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		F795E2D91C5C535900843632 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryListTableViewController.swift; sourceTree = "<group>"; };
+		F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +73,12 @@
 			isa = PBXGroup;
 			children = (
 				A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */,
+				F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */,
 				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
 				F72042191C5D15200099747C /* Main.storyboard */,
+				F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */,
 				A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */,
 				A21925671C6C308B00C9E937 /* Itinerary.swift */,
 				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
@@ -165,7 +171,9 @@
 				A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */,
 				A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */,
 				A219256C1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift in Sources */,
+				F7A6824B1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift in Sources */,
 				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
+				F7A682491C6D1D8D000D1C45 /* ItineraryListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
