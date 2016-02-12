@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItineraryTableViewCell" rowHeight="90" id="9Bs-ub-FDY" customClass="ItineraryTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItineraryTableViewCell" rowHeight="90" id="9Bs-ub-FDY" customClass="ItineraryTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Bs-ub-FDY" id="WZF-5i-NhY">
@@ -236,6 +236,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itineraryNameLabel" destination="SsW-Mu-IUD" id="fwH-YU-4fT"/>
+                                    <segue destination="c2c-ce-QRO" kind="show" id="7Ep-qD-cRG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -245,13 +246,38 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Itineraries" id="RJ0-wl-ASs"/>
-                    <connections>
-                        <segue destination="c2c-ce-QRO" kind="show" id="Rnt-Iv-plC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhZ-BT-SaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-315" y="1127"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="waZ-UT-i0Z">
+            <objects>
+                <tableViewController id="Ed7-ay-Vcd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cya-My-kcY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mUB-PG-8X8">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mUB-PG-8X8" id="TAY-db-vu1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ed7-ay-Vcd" id="ryM-i6-lPp"/>
+                            <outlet property="delegate" destination="Ed7-ay-Vcd" id="UjH-8O-WEu"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRV-MK-Nj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321" y="1863"/>
         </scene>
         <!--Itinerary Stop Table View Controller-->
         <scene sceneID="GSL-rc-JHX">
@@ -262,7 +288,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItineraryStopViewCell" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBI-Hz-VRz" id="JaL-am-PJY">

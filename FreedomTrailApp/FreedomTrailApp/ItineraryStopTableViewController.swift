@@ -10,12 +10,12 @@ import UIKit
 
 class ItineraryStopTableViewController: UITableViewController {
     
-    let bostonCommonLocation = Location(name: "Boston Common", photo: nil)!
     
     var itineraryStops = [Location]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(itineraryStops)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,7 +43,7 @@ class ItineraryStopTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //Table view cells are reused and should be dequeued using a cell identifier
-        let cellIdentifier = "ItineraryStopTableViewCell"
+        let cellIdentifier = "ItineraryStopViewCell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryStopTableViewCell
         
