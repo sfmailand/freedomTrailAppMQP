@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FreedomTrailApp/LocationTableViewController.swift"
-            timestampString = "477250907.56822"
+            timestampString = "477269439.862716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,13 +42,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FreedomTrailApp/LocationTableViewController.swift"
-            timestampString = "477250907.56822"
+            timestampString = "477269439.862716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FreedomTrailApp/ItineraryBuilderTabViewControllerDelegate.swift"
+            timestampString = "477252288.894938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ItineraryBuilderTabViewControllerDelegate"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FreedomTrailApp/ItineraryListTableViewController.swift"
+            timestampString = "477266611.160222"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FreedomTrailApp/segmentedViewController.swift"
+            timestampString = "477269439.862716"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "segmentedViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FreedomTrailApp.segmentedViewController.__deallocating_deinit"
+                  moduleName = "FreedomTrailApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/segmentedViewController.swift"
+                  timestampString = "477269440.870012"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FreedomTrailApp.segmentedViewController.init (FreedomTrailApp.segmentedViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FreedomTrailApp.segmentedViewController&gt;"
+                  moduleName = "FreedomTrailApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/segmentedViewController.swift"
+                  timestampString = "477269440.87032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

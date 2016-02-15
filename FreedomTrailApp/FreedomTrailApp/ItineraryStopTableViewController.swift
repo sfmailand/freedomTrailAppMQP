@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ItineraryStopTableViewController: UITableViewController {
     
     
@@ -18,7 +19,7 @@ class ItineraryStopTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
-        itineraryStops = (itineraryTabViewController.itineraries.first?.locations)!
+        itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
         print(itineraryStops)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,7 +33,17 @@ class ItineraryStopTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
+        let itineraries = (self.parentViewController?.parentViewController?.parentViewController as! ItineraryBuilderTabViewController).itineraries
+        print(itineraries?.printLastItineraryLocations())
+        itineraries!.removeLastItinerary()
+        print(itineraries?.printLastItineraryLocations())
+    }
     
+    @IBAction func saveItinerary(sender: UIBarButtonItem) {
+        let itineraries = (self.parentViewController?.parentViewController?.parentViewController as! ItineraryBuilderTabViewController).itineraries
+        print(itineraries?.printLastItineraryLocations())
+    }
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

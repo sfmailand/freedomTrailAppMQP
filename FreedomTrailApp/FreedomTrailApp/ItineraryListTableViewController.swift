@@ -10,7 +10,7 @@ import UIKit
 
 class ItineraryListTableViewController: UITableViewController {
     
-    var itineraries = [Itinerary]()
+    var itineraries = ItineraryList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ItineraryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itineraries.count
+        return itineraries!.getCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -45,7 +45,7 @@ class ItineraryListTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryTableViewCell
         
-        let location = itineraries[indexPath.row]
+        let location = itineraries!.getItineraryAtIndex(indexPath.row)
         
         cell.itineraryNameLabel.text = location.name
         
@@ -108,8 +108,8 @@ class ItineraryListTableViewController: UITableViewController {
         
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
-            let selectedItinerary = itineraries[indexPath.row]
-            itineraryStopTableViewController.itineraryStops = selectedItinerary.locations
+            let selectedItinerary = itineraries?.getItineraryAtIndex(indexPath.row)
+            itineraryStopTableViewController.itineraryStops = selectedItinerary!.locations
         }
     }
 

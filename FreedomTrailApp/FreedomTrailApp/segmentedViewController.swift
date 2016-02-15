@@ -8,18 +8,20 @@
 
 import UIKit
 
-class segmentedViewController: UIViewController {
+class segmentedViewController: UIViewController, ItineraryBuilderTabViewControllerDelegate {
 
-    @IBOutlet weak var locationViewContainer: UIView!
-    @IBOutlet weak var itineraryViewContainer: UIView!
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
+    @IBOutlet weak var myItinerariesviewContainer: UIView!
+    @IBOutlet weak var popularItinerariesViewContainer: UIView!
     
     
-    var itineraries = [Itinerary]()
+    var itineraries = ItineraryList()
     
+    //Delegates:
     
-    var itinerary = Itinerary(name: "Test Itinerary", description: "TEST")
-    
+    func saveItinerary(itinerary: Itinerary){
+        itineraries?.appendItinerary(itinerary)
+    }
     
     
     private var itineraryListEmbeddedViewController: ItineraryListTableViewController!
@@ -27,20 +29,18 @@ class segmentedViewController: UIViewController {
     
     @IBAction func segmentControlButtonChanged(sender: UISegmentedControl) {
         if segmentedControlButtons.selectedSegmentIndex == 0 {
-            self.locationViewContainer.alpha = 1
-            self.itineraryViewContainer.alpha = 0
+            self.popularItinerariesViewContainer.alpha = 1
+            self.myItinerariesviewContainer.alpha = 0
         } else {
-            itineraryListEmbeddedViewController.itineraries = itineraries
-            itineraryListEmbeddedViewController.tableView.reloadData()
-            self.locationViewContainer.alpha = 0
-            self.itineraryViewContainer.alpha = 1
+//            itineraryListEmbeddedViewController.itineraries = itineraries
+//            itineraryListEmbeddedViewController.tableView.reloadData()
+            self.popularItinerariesViewContainer.alpha = 0
+            self.myItinerariesviewContainer.alpha = 1
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        itineraries.append(itinerary!)
         
         
         // Do any additional setup after loading the view.
@@ -75,7 +75,7 @@ class segmentedViewController: UIViewController {
         
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
-            itineraryBuilderTabBarController.itineraries = itineraries
+            itineraryBuilderTabBarController.itineraryBuilderDelegate = self
             
         }
         

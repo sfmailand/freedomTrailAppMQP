@@ -9,13 +9,17 @@
 
 import UIKit
 
+protocol AddLocationToItineraryDelegate{
+    func sendLocation(Location: Location)
+}
+
 class LocationTableViewController: UITableViewController {
     
     //Properties
     
     var locations = [Location]()
     var itineraryTabViewController =  ItineraryBuilderTabViewController()
-    var itineraries = [Itinerary]()
+    var itineraries = ItineraryList()
     
     
     func loadLocations(){
@@ -119,7 +123,7 @@ class LocationTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
-            let itinerary = self.itineraries.last
+            let itinerary = self.itineraries?.getLastItinerary()
             let selectedLocation = self.locations[indexPath.row]
             itinerary!.addLocation(selectedLocation)
             tableView.setEditing(false, animated: true)
@@ -140,7 +144,7 @@ class LocationTableViewController: UITableViewController {
             let selectedLocation = locations[indexPath.row]
             print("TableViewController")
             let itineraryTabViewController = self.parentViewController?.parentViewController?.parentViewController
-            let itinerary = (itineraryTabViewController as? ItineraryBuilderTabViewController)!.itineraries.last
+            let itinerary = (itineraryTabViewController as? ItineraryBuilderTabViewController)!.itineraries?.getLastItinerary()
             locationDetailViewController.itinerary = itinerary
             locationDetailViewController.location = selectedLocation
         }
