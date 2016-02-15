@@ -14,6 +14,8 @@ class LocationTableViewController: UITableViewController {
     //Properties
     
     var locations = [Location]()
+    var itineraryTabViewController =  ItineraryBuilderTabViewController()
+    var itineraries = [Itinerary]()
     
     
     func loadLocations(){
@@ -43,7 +45,8 @@ class LocationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
+        itineraries = itineraryTabViewController.itineraries
         //Load Sample Data
         loadLocations()
     }
@@ -116,7 +119,7 @@ class LocationTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
-            let itinerary = (self.parentViewController?.parentViewController as? segmentedViewController)!.itinerary
+            let itinerary = self.itineraries.last
             let selectedLocation = self.locations[indexPath.row]
             itinerary!.addLocation(selectedLocation)
             tableView.setEditing(false, animated: true)
@@ -130,14 +133,16 @@ class LocationTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let mealDetailViewController = segue.destinationViewController as! LocationDetailViewController
+        let locationDetailViewController = segue.destinationViewController as! LocationDetailViewController
         
         if let selectedLocationCell = sender as? LocationTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedLocationCell)!
             let selectedLocation = locations[indexPath.row]
-            let itinerary = (self.parentViewController?.parentViewController as? segmentedViewController)!.itinerary
-            mealDetailViewController.itinerary = itinerary
-            mealDetailViewController.location = selectedLocation
+            print("TableViewController")
+            let itineraryTabViewController = self.parentViewController?.parentViewController?.parentViewController
+            let itinerary = (itineraryTabViewController as? ItineraryBuilderTabViewController)!.itineraries.last
+            locationDetailViewController.itinerary = itinerary
+            locationDetailViewController.location = selectedLocation
         }
         
         

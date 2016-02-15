@@ -13,6 +13,7 @@
 		A22EE54C1C683E1300DEBAD8 /* segmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */; };
 		F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */; };
 		F720421B1C5D15200099747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72042191C5D15200099747C /* Main.storyboard */; };
+		F764BFDF1C7234620013F473 /* ItineraryBuilderTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764BFDE1C7234620013F473 /* ItineraryBuilderTabViewController.swift */; };
 		F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C31C5C4C0E00843632 /* AppDelegate.swift */; };
 		F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CA1C5C4C0E00843632 /* Assets.xcassets */; };
 		F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 		A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = segmentedViewController.swift; sourceTree = "<group>"; };
 		F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F720421A1C5D15200099747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F764BFDE1C7234620013F473 /* ItineraryBuilderTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryBuilderTabViewController.swift; sourceTree = "<group>"; };
 		F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795E2C31C5C4C0E00843632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F795E2CA1C5C4C0E00843632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,14 +77,15 @@
 				A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */,
 				F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */,
 				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
+				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
+				F764BFDE1C7234620013F473 /* ItineraryBuilderTabViewController.swift */,
+				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
 				F72042191C5D15200099747C /* Main.storyboard */,
 				F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */,
 				A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */,
 				A21925671C6C308B00C9E937 /* Itinerary.swift */,
-				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
-				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				F795E2D91C5C535900843632 /* Location.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 				A219256C1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift in Sources */,
 				F7A6824B1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift in Sources */,
 				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
+				F764BFDF1C7234620013F473 /* ItineraryBuilderTabViewController.swift in Sources */,
 				F7A682491C6D1D8D000D1C45 /* ItineraryListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

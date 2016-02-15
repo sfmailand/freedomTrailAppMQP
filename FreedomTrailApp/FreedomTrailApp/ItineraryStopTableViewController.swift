@@ -12,9 +12,13 @@ class ItineraryStopTableViewController: UITableViewController {
     
     
     var itineraryStops = [Location]()
+    var itineraryTabViewController =  ItineraryBuilderTabViewController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
+        itineraryStops = (itineraryTabViewController.itineraries.first?.locations)!
         print(itineraryStops)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

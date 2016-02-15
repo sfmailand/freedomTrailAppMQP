@@ -11,7 +11,7 @@
             <objects>
                 <tableViewController id="Zza-cb-H9a" customClass="LocationTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="oKQ-m3-q8I">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-aS-B0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="279"/>
+            <point key="canvasLocation" x="2117" y="-588.5"/>
         </scene>
         <!--Location Detail View Controller-->
         <scene sceneID="Koh-lk-nFQ">
@@ -60,7 +60,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BH8-Ig-pWH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ebc-bS-vbm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eli-wM-tOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="279"/>
+            <point key="canvasLocation" x="2912" y="-588.5"/>
         </scene>
         <!--Segmented View Controller-->
         <scene sceneID="BW1-Ip-bjJ">
@@ -126,12 +126,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-dg-Mwf">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <connections>
-                                    <segue destination="j8w-Na-69j" kind="embed" identifier="LocationSegue" id="GXa-ND-0YH"/>
-                                </connections>
-                            </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iEv-ay-JHv">
                                 <rect key="frame" x="203" y="28" width="195" height="29"/>
                                 <segments>
@@ -142,18 +136,12 @@
                                     <action selector="segmentControlButtonChanged:" destination="pN0-EI-tmz" eventType="valueChanged" id="BEO-ft-fjd"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-BT-m44">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <connections>
-                                    <segue destination="mK9-5K-9zZ" kind="embed" identifier="ItinerarySegue" id="5Yx-b0-4lU"/>
-                                </connections>
-                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZy-Y8-81Y">
                                 <rect key="frame" x="564" y="27" width="30" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="A6X-io-36T" kind="popoverPresentation" popoverAnchorView="DZy-Y8-81Y" id="fRi-Cl-0HZ">
+                                    <segue destination="A6X-io-36T" kind="popoverPresentation" identifier="ItineraryBuilderSegue" popoverAnchorView="DZy-Y8-81Y" id="fRi-Cl-0HZ">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -163,22 +151,9 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="DZy-Y8-81Y" secondAttribute="trailing" constant="-14" id="0Qv-yX-7FF"/>
                             <constraint firstItem="iEv-ay-JHv" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="2Mx-6O-x0l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vmz-dg-Mwf" secondAttribute="trailing" constant="-20" id="Cu6-dm-p2v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TKt-BT-m44" secondAttribute="trailing" constant="-20" id="NXP-w3-LEL"/>
-                            <constraint firstItem="JpA-xd-mHE" firstAttribute="top" secondItem="vmz-dg-Mwf" secondAttribute="bottom" id="TlP-Yv-PGx"/>
-                            <constraint firstItem="TKt-BT-m44" firstAttribute="top" secondItem="iEv-ay-JHv" secondAttribute="bottom" constant="8" id="YyR-Re-158"/>
-                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="top" secondItem="iEv-ay-JHv" secondAttribute="bottom" constant="8" id="aIo-uj-XtL"/>
-                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="bsD-3f-pME"/>
-                            <constraint firstItem="vmz-dg-Mwf" firstAttribute="leading" secondItem="BNP-WY-sBl" secondAttribute="leadingMargin" constant="-20" id="e3a-hr-k9V"/>
-                            <constraint firstItem="TKt-BT-m44" firstAttribute="top" secondItem="DZy-Y8-81Y" secondAttribute="bottom" constant="7" id="fBr-hF-LGR"/>
-                            <constraint firstItem="JpA-xd-mHE" firstAttribute="top" secondItem="TKt-BT-m44" secondAttribute="bottom" id="ns4-Om-YRa"/>
-                            <constraint firstItem="TKt-BT-m44" firstAttribute="leading" secondItem="BNP-WY-sBl" secondAttribute="leadingMargin" constant="-20" id="qu5-A6-x41"/>
-                            <constraint firstItem="TKt-BT-m44" firstAttribute="centerX" secondItem="BNP-WY-sBl" secondAttribute="centerX" id="yl9-kH-g9J"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="itineraryViewContainer" destination="TKt-BT-m44" id="E6p-1W-dEx"/>
-                        <outlet property="locationViewContainer" destination="vmz-dg-Mwf" id="uLK-db-6pQ"/>
                         <outlet property="segmentedControlButtons" destination="iEv-ay-JHv" id="xRy-GS-i22"/>
                     </connections>
                 </viewController>
@@ -197,13 +172,27 @@
                     <view key="view" contentMode="scaleToFill" id="91i-d1-pvo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-f9-csA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="j8w-Na-69j" kind="embed" id="kF3-cw-t3r"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RkB-f9-csA" firstAttribute="leading" secondItem="91i-d1-pvo" secondAttribute="leadingMargin" constant="-20" id="2E3-n5-awa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RkB-f9-csA" secondAttribute="trailing" constant="-20" id="7Tr-cl-cz3"/>
+                            <constraint firstItem="99p-kL-g0Y" firstAttribute="top" secondItem="RkB-f9-csA" secondAttribute="bottom" id="MfV-nK-kXa"/>
+                            <constraint firstItem="RkB-f9-csA" firstAttribute="top" secondItem="91i-d1-pvo" secondAttribute="topMargin" id="nSp-6H-s4u"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="bdf-aH-WPN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0A-I2-ZIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="-724"/>
+            <point key="canvasLocation" x="436" y="-564"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="RPw-jB-SjW">
@@ -216,7 +205,21 @@
                     <view key="view" contentMode="scaleToFill" id="e6p-h3-7No">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MD6-yW-nCP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="mK9-5K-9zZ" kind="embed" id="Ogh-nr-TcY"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MD6-yW-nCP" firstAttribute="leading" secondItem="e6p-h3-7No" secondAttribute="leadingMargin" constant="-20" id="7iT-6m-S2c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MD6-yW-nCP" secondAttribute="trailing" constant="-20" id="F80-pF-CIT"/>
+                            <constraint firstItem="Inf-S0-46j" firstAttribute="top" secondItem="MD6-yW-nCP" secondAttribute="bottom" id="coK-4b-AGG"/>
+                            <constraint firstItem="MD6-yW-nCP" firstAttribute="top" secondItem="e6p-h3-7No" secondAttribute="topMargin" id="pAt-GZ-DmE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="QNL-dM-wrJ"/>
                 </viewController>
@@ -224,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="436" y="-1415"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Itinerary Builder Tab View Controller-->
         <scene sceneID="bgy-F1-nLA">
             <objects>
-                <tabBarController id="A6X-io-36T" sceneMemberID="viewController">
+                <tabBarController id="A6X-io-36T" customClass="ItineraryBuilderTabViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="N2F-Ae-M55">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -258,7 +261,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o14-lN-xM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="279"/>
+            <point key="canvasLocation" x="1337" y="-588.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3V4-I9-M9W">
@@ -271,60 +274,19 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="amH-EN-aep" kind="relationship" relationship="rootViewController" id="hmc-N2-jGH"/>
+                        <segue destination="c2c-ce-QRO" kind="relationship" relationship="rootViewController" id="9Xh-b5-iuw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMv-4X-77h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="1127"/>
-        </scene>
-        <!--Itineraries-->
-        <scene sceneID="UQh-wk-HIw">
-            <objects>
-                <tableViewController id="amH-EN-aep" customClass="ItineraryListTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="haO-TW-fmy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItineraryTableViewCell" rowHeight="90" id="9Bs-ub-FDY" customClass="ItineraryTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="600" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Bs-ub-FDY" id="WZF-5i-NhY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsW-Mu-IUD">
-                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="itineraryNameLabel" destination="SsW-Mu-IUD" id="fwH-YU-4fT"/>
-                                    <segue destination="c2c-ce-QRO" kind="show" id="7Ep-qD-cRG"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="amH-EN-aep" id="E5s-xz-kSW"/>
-                            <outlet property="delegate" destination="amH-EN-aep" id="FKS-mJ-bZ3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Itineraries" id="RJ0-wl-ASs"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MhZ-BT-SaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-315" y="1127"/>
+            <point key="canvasLocation" x="1337" y="-1415"/>
         </scene>
         <!--Itinerary Stop Table View Controller-->
         <scene sceneID="GSL-rc-JHX">
             <objects>
                 <tableViewController id="c2c-ce-QRO" customClass="ItineraryStopTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vKx-gC-uVR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -353,10 +315,11 @@
                             <outlet property="delegate" destination="c2c-ce-QRO" id="XPX-ut-V0g"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="eSK-PI-qoh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2S-8u-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456" y="1127"/>
+            <point key="canvasLocation" x="2235" y="-1415.5"/>
         </scene>
     </scenes>
     <resources>

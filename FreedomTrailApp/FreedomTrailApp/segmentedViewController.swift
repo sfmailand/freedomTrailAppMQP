@@ -59,6 +59,7 @@ class segmentedViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        print("Preparing for Segue")
         
         if let vc = segue.destinationViewController as? UINavigationController
             where segue.identifier == "ItinerarySegue" {
@@ -70,6 +71,12 @@ class segmentedViewController: UIViewController {
             where segue.identifier == "LocationSegue" {
                 print(vc2.topViewController)
                 self.locationsEmbeddedViewController = vc2.topViewController as? LocationTableViewController
+        }
+        
+        if segue.identifier == "ItineraryBuilderSegue" {
+            let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
+            itineraryBuilderTabBarController.itineraries = itineraries
+            
         }
         
     }

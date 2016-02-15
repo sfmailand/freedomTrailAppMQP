@@ -37,5 +37,8 @@ public class Itinerary {
     func addLocation(location: Location){
         locations.append(location)
         print("Added '"+location.name+"' to the itinerary")
+        
+        print("HERE IS WHAT this contains")
+        print(locations)
     }
 }
