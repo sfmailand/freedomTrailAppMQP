@@ -112,6 +112,19 @@ class LocationTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
+            let itinerary = (self.parentViewController?.parentViewController as? segmentedViewController)!.itinerary
+            let selectedLocation = self.locations[indexPath.row]
+            itinerary!.addLocation(selectedLocation)
+            tableView.setEditing(false, animated: true)
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        return [moreRowAction];
+    }
 
     // MARK: - Navigation
 
