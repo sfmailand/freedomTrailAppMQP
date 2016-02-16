@@ -10,7 +10,7 @@ import UIKit
 
 class ItineraryListTableViewController: UITableViewController {
     
-    var itineraries = ItineraryList()
+    var itineraries = ItinerariesViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

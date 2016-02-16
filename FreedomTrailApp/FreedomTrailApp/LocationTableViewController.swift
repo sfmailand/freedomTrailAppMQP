@@ -18,7 +18,7 @@ class LocationTableViewController: UITableViewController {
     //Properties
     
     var locations = [Location]()
-    var itineraries = ItineraryList()
+    var itineraries = ItinerariesViewModel()
     
     var locationDelegate: LocationTableViewControllerDelegate?
     

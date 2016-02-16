@@ -15,7 +15,7 @@ class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
     @IBOutlet weak var popularItinerariesViewContainer: UIView!
     
     
-    var itineraries = ItineraryList()
+    var itineraries = ItinerariesViewModel()
     
     //Delegates:
 

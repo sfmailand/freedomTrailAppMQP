@@ -8,7 +8,7 @@
 import UIKit
 
 
-public class ItineraryList {
+public class ItinerariesViewModel{
     
     //Properties
     var itineraries = [Itinerary]()
