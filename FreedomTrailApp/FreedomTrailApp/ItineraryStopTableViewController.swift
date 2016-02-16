@@ -9,23 +9,30 @@
 import UIKit
 
 
-class ItineraryStopTableViewController: UITableViewController {
+class ItineraryStopTableViewController: UITableViewController, LocationTableViewControllerDelegate {
     
     
     var itineraryStops = [Location]()
-    var itineraryTabViewController =  ItineraryBuilderTabViewController()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
-        itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
+        //itineraryTabViewController = (self.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
+        //itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
         print(itineraryStops)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    //MARK -- Delegates:
+    
+    func sendLocation(location: Location){
+        print("Send Location")
+        itineraryStops.append(location)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

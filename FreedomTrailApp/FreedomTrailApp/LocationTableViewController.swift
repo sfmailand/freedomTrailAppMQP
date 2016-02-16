@@ -9,8 +9,8 @@
 
 import UIKit
 
-protocol AddLocationToItineraryDelegate{
-    func sendLocation(Location: Location)
+protocol LocationTableViewControllerDelegate{
+    func sendLocation(location: Location)
 }
 
 class LocationTableViewController: UITableViewController {
@@ -18,9 +18,9 @@ class LocationTableViewController: UITableViewController {
     //Properties
     
     var locations = [Location]()
-    var itineraryTabViewController =  ItineraryBuilderTabViewController()
     var itineraries = ItineraryList()
     
+    var locationDelegate: LocationTableViewControllerDelegate?
     
     func loadLocations(){
         let bostonCommonLocation = Location(name: "Boston Common", photo: nil)!
@@ -49,8 +49,8 @@ class LocationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
-        itineraries = itineraryTabViewController.itineraries
+        //itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
+        //itineraries = itineraryTabViewController.itineraries
         //Load Sample Data
         loadLocations()
     }
@@ -123,10 +123,9 @@ class LocationTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
-            let itinerary = self.itineraries?.getLastItinerary()
             let selectedLocation = self.locations[indexPath.row]
-            itinerary!.addLocation(selectedLocation)
-            tableView.setEditing(false, animated: true)
+            self.locationDelegate?.sendLocation(selectedLocation)
+            print("HERE")
         });
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         
@@ -143,7 +142,7 @@ class LocationTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForCell(selectedLocationCell)!
             let selectedLocation = locations[indexPath.row]
             print("TableViewController")
-            let itineraryTabViewController = self.parentViewController?.parentViewController?.parentViewController
+            let itineraryTabViewController = self.parentViewController?.parentViewController
             let itinerary = (itineraryTabViewController as? ItineraryBuilderTabViewController)!.itineraries?.getLastItinerary()
             locationDetailViewController.itinerary = itinerary
             locationDetailViewController.location = selectedLocation

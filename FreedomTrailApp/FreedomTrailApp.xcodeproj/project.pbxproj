@@ -76,11 +76,11 @@
 		F795E2C21C5C4C0E00843632 /* FreedomTrailApp */ = {
 			isa = PBXGroup;
 			children = (
-				A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */,
-				F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */,
 				F795E2D71C5C530900843632 /* LocationTableViewController.swift */,
-				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
+				A219256B1C6C3F1A00C9E937 /* ItineraryStopTableViewController.swift */,
 				F764BFDE1C7234620013F473 /* ItineraryBuilderTabViewController.swift */,
+				F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */,
+				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
