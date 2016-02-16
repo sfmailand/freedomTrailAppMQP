@@ -8,7 +8,7 @@
 
 import UIKit
 
-class segmentedViewController: UIViewController, ItineraryBuilderTabViewControllerDelegate {
+class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
 
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
     @IBOutlet weak var myItinerariesviewContainer: UIView!
@@ -18,10 +18,8 @@ class segmentedViewController: UIViewController, ItineraryBuilderTabViewControll
     var itineraries = ItineraryList()
     
     //Delegates:
+
     
-    func saveItinerary(itinerary: Itinerary){
-        itineraries?.appendItinerary(itinerary)
-    }
     
     
     private var itineraryListEmbeddedViewController: ItineraryListTableViewController!
@@ -32,8 +30,6 @@ class segmentedViewController: UIViewController, ItineraryBuilderTabViewControll
             self.popularItinerariesViewContainer.alpha = 1
             self.myItinerariesviewContainer.alpha = 0
         } else {
-//            itineraryListEmbeddedViewController.itineraries = itineraries
-//            itineraryListEmbeddedViewController.tableView.reloadData()
             self.popularItinerariesViewContainer.alpha = 0
             self.myItinerariesviewContainer.alpha = 1
         }
@@ -51,6 +47,15 @@ class segmentedViewController: UIViewController, ItineraryBuilderTabViewControll
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: - Delegates
+    
+    func saveItinerary(itinerary: Itinerary){
+        itineraries!.appendItinerary(itinerary)
+        itineraryListEmbeddedViewController.itineraries = itineraries
+        itineraryListEmbeddedViewController.tableView.reloadData()
+    }
+    
 
     // MARK: - Navigation
 
@@ -59,24 +64,22 @@ class segmentedViewController: UIViewController, ItineraryBuilderTabViewControll
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        print("Preparing for Segue")
         
-        if let vc = segue.destinationViewController as? UINavigationController
+        if let vc = segue.destinationViewController as? UITableViewController
             where segue.identifier == "ItinerarySegue" {
-                print(vc.topViewController)
-                self.itineraryListEmbeddedViewController = vc.topViewController as? ItineraryListTableViewController
+                print("Itinerary Segue")
+                self.itineraryListEmbeddedViewController = vc as? ItineraryListTableViewController
         }
         
         if let vc2 = segue.destinationViewController as? UINavigationController
             where segue.identifier == "LocationSegue" {
-                print(vc2.topViewController)
+                print("Location Segue")
                 self.locationsEmbeddedViewController = vc2.topViewController as? LocationTableViewController
         }
         
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
-            itineraryBuilderTabBarController.itineraryBuilderDelegate = self
-            
+            itineraryBuilderTabBarController.saveItineraryDelegate = self
         }
         
     }

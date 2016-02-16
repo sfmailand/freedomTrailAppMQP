@@ -125,7 +125,7 @@ class LocationTableViewController: UITableViewController {
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
             let selectedLocation = self.locations[indexPath.row]
             self.locationDelegate?.sendLocation(selectedLocation)
-            print("HERE")
+            self.tableView.editing = false
         });
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         
@@ -141,10 +141,6 @@ class LocationTableViewController: UITableViewController {
         if let selectedLocationCell = sender as? LocationTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedLocationCell)!
             let selectedLocation = locations[indexPath.row]
-            print("TableViewController")
-            let itineraryTabViewController = self.parentViewController?.parentViewController
-            let itinerary = (itineraryTabViewController as? ItineraryBuilderTabViewController)!.itineraries?.getLastItinerary()
-            locationDetailViewController.itinerary = itinerary
             locationDetailViewController.location = selectedLocation
         }
         

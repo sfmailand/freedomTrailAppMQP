@@ -9,7 +9,7 @@
 import UIKit
 
 class ItineraryTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var itineraryNameLabel: UILabel!
     
     override func awakeFromNib() {

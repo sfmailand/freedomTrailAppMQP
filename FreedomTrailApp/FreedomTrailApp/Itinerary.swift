@@ -41,4 +41,8 @@ public class Itinerary {
         print("HERE IS WHAT this contains")
         print(locations)
     }
+    
+    func setLocations(locations: [Location]){
+        self.locations = locations
+    }
 }

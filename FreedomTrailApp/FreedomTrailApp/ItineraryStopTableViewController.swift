@@ -9,10 +9,16 @@
 import UIKit
 
 
+protocol ItineraryDelegate{
+    func sendItinerary(itinerary: Itinerary)
+}
+
 class ItineraryStopTableViewController: UITableViewController, LocationTableViewControllerDelegate {
     
     
     var itineraryStops = [Location]()
+    
+    var itineraryDelegate: ItineraryDelegate?
     
 
     override func viewDidLoad() {
@@ -40,16 +46,16 @@ class ItineraryStopTableViewController: UITableViewController, LocationTableView
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
-        let itineraries = (self.parentViewController?.parentViewController?.parentViewController as! ItineraryBuilderTabViewController).itineraries
-        print(itineraries?.printLastItineraryLocations())
-        itineraries!.removeLastItinerary()
-        print(itineraries?.printLastItineraryLocations())
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func saveItinerary(sender: UIBarButtonItem) {
-        let itineraries = (self.parentViewController?.parentViewController?.parentViewController as! ItineraryBuilderTabViewController).itineraries
-        print(itineraries?.printLastItineraryLocations())
+        let newItinerary = Itinerary(name: "Untitled Itinerary", description: "No Description")
+        newItinerary?.setLocations(itineraryStops)
+        itineraryDelegate?.sendItinerary(newItinerary!)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     // MARK: - Table view data source
     

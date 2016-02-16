@@ -60,11 +60,6 @@ class LocationDetailViewController: UIViewController {
         }
         
     }
-    
-    @IBAction func addLocationToItinerary(sender: UIButton) {
-        itinerary?.addLocation(location!)
-        self.navigationController?.popViewControllerAnimated(true)
-    }
 
     /*
     // MARK: - Navigation
