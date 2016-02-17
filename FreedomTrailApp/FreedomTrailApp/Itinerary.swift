@@ -6,8 +6,6 @@
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
-import UIKit
-
 
 public class Itinerary {
     
@@ -15,6 +13,7 @@ public class Itinerary {
     var name: String
     var description: String
     var locations = [Location]()
+    
     
     //Initialization
     
@@ -36,10 +35,8 @@ public class Itinerary {
     
     func addLocation(location: Location){
         locations.append(location)
-        print("Added '"+location.name+"' to the itinerary")
         
-        print("HERE IS WHAT this contains")
-        print(locations)
+        
     }
     
     func setLocations(locations: [Location]){

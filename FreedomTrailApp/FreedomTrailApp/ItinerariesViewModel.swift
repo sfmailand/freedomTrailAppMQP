@@ -5,13 +5,20 @@
 //  Created by Sam Mailand on 2/15/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
-import UIKit
 
+
+protocol ItineraryViewModelDelegate{
+    
+    func updateView()
+    
+}
 
 public class ItinerariesViewModel{
     
     //Properties
     var itineraries = [Itinerary]()
+    
+    var itineraryDelegate: ItineraryViewModelDelegate?
     
     
     struct PropertyKey{
@@ -22,11 +29,12 @@ public class ItinerariesViewModel{
     
     
     init?(){
-
     }
     
     func appendItinerary(itinerary: Itinerary){
         self.itineraries.append(itinerary)
+        print("Appending Itinerary")
+        self.itineraryDelegate?.updateView()
     }
     
     func removeLastItinerary(){

@@ -9,11 +9,7 @@
 import UIKit
 
 
-protocol ItineraryBuilderDelegate{
-    func saveItinerary(itinerary: Itinerary)
-}
-
-class ItineraryBuilderTabViewController: UITabBarController, ItineraryDelegate {
+class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableViewDelegate {
     
     
    
@@ -21,7 +17,9 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryDelegate {
     
     var locationTableViewController = LocationTableViewController()
     
-    var saveItineraryDelegate: ItineraryBuilderDelegate?
+    var itinerariesModel: ItinerariesViewModel?
+    
+    var itinerary = Itinerary(name: "Untitled Itinerary", description: "No Description")
     
     
     
@@ -31,20 +29,28 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryDelegate {
         locationTableViewController = self.viewControllers?.last?.childViewControllers.first as! LocationTableViewController
         
         itineraryStopTableViewController = self.viewControllers?.first?.childViewControllers.first as! ItineraryStopTableViewController
-       
-        locationTableViewController.locationDelegate = itineraryStopTableViewController
-        
-        itineraryStopTableViewController.itineraryDelegate = self
-        // Do any additional setup after loading the view.
         
         
+        locationTableViewController.itinerary = self.itinerary
+        
+        itineraryStopTableViewController.itinerary = self.itinerary
+        
+        itineraryStopTableViewController.saveItineraryDelegate = self
+        
+        
+    }
+    
+    func saveItinerary(){
+        itinerariesModel?.appendItinerary(itinerary!)
+    }
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        print("Reloading data")
+        itineraryStopTableViewController.tableView.reloadData()
     }
     
     //MARK - Delegates
     
-    func sendItinerary(itinerary: Itinerary){
-        saveItineraryDelegate?.saveItinerary(itinerary)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

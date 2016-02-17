@@ -9,18 +9,13 @@
 
 import UIKit
 
-protocol LocationTableViewControllerDelegate{
-    func sendLocation(location: Location)
-}
-
 class LocationTableViewController: UITableViewController {
     
     //Properties
     
     var locations = [Location]()
-    var itineraries = ItinerariesViewModel()
     
-    var locationDelegate: LocationTableViewControllerDelegate?
+    var itinerary: Itinerary?
     
     func loadLocations(){
         let bostonCommonLocation = Location(name: "Boston Common", photo: nil)!
@@ -124,7 +119,7 @@ class LocationTableViewController: UITableViewController {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
             let selectedLocation = self.locations[indexPath.row]
-            self.locationDelegate?.sendLocation(selectedLocation)
+            self.itinerary?.addLocation(selectedLocation)
             self.tableView.editing = false
         });
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);

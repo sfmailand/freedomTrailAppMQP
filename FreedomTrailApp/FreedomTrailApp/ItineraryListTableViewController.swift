@@ -10,7 +10,7 @@ import UIKit
 
 class ItineraryListTableViewController: UITableViewController {
     
-    var itineraries = ItinerariesViewModel()
+    var itineraries: ItinerariesViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +110,7 @@ class ItineraryListTableViewController: UITableViewController {
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
             let selectedItinerary = itineraries?.getItineraryAtIndex(indexPath.row)
-            itineraryStopTableViewController.itineraryStops = selectedItinerary!.locations
+            itineraryStopTableViewController.itinerary = selectedItinerary
         }
     }
 

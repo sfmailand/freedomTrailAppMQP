@@ -81,10 +81,10 @@
 				F764BFDE1C7234620013F473 /* ItineraryBuilderTabViewController.swift */,
 				A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */,
 				F7A682481C6D1D8D000D1C45 /* ItineraryListTableViewController.swift */,
-				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
 				F72042191C5D15200099747C /* Main.storyboard */,
+				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */,
 				A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */,
 				F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */,
@@ -295,6 +295,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smailand.FreedomTrailApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,6 +310,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smailand.FreedomTrailApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

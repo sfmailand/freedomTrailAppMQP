@@ -8,7 +8,7 @@
 
 import UIKit
 
-class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
+class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
 
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
     @IBOutlet weak var myItinerariesviewContainer: UIView!
@@ -18,9 +18,13 @@ class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
     var itineraries = ItinerariesViewModel()
     
     //Delegates:
+    
 
     
-    
+    func updateView(){
+        self.itineraryListEmbeddedViewController.tableView.reloadData()
+        print("Updating View")
+    }
     
     private var itineraryListEmbeddedViewController: ItineraryListTableViewController!
     private var locationsEmbeddedViewController: LocationTableViewController!
@@ -37,7 +41,10 @@ class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        itineraries?.itineraryDelegate = self
         
+        
+        itineraryListEmbeddedViewController.itineraries = self.itineraries
         
         // Do any additional setup after loading the view.
     }
@@ -79,7 +86,7 @@ class segmentedViewController: UIViewController, ItineraryBuilderDelegate {
         
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
-            itineraryBuilderTabBarController.saveItineraryDelegate = self
+            itineraryBuilderTabBarController.itinerariesModel = itineraries;
         }
         
     }

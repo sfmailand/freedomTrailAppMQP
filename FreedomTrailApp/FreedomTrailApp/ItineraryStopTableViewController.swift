@@ -8,36 +8,36 @@
 
 import UIKit
 
-
-protocol ItineraryDelegate{
-    func sendItinerary(itinerary: Itinerary)
+protocol ItineraryStopTableViewDelegate{
+    
+    func saveItinerary()
+    
 }
 
-class ItineraryStopTableViewController: UITableViewController, LocationTableViewControllerDelegate {
+class ItineraryStopTableViewController: UITableViewController {
     
     
-    var itineraryStops = [Location]()
+    var itinerary: Itinerary?
     
-    var itineraryDelegate: ItineraryDelegate?
+    var saveItineraryDelegate: ItineraryStopTableViewDelegate?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //itineraryTabViewController = (self.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
         //itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
-        print(itineraryStops)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        
     }
+
     
-    //MARK -- Delegates:
-    
-    func sendLocation(location: Location){
-        print("Send Location")
-        itineraryStops.append(location)
+    override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }
 
@@ -51,10 +51,13 @@ class ItineraryStopTableViewController: UITableViewController, LocationTableView
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    
+    //Calls the delegate method from ItineraryBuilderTabViewController
+    //to append the itinerary that's stored in that controller
+    //to the ItineraryViewModel
     @IBAction func saveItinerary(sender: UIBarButtonItem) {
-        let newItinerary = Itinerary(name: "Untitled Itinerary", description: "No Description")
-        newItinerary?.setLocations(itineraryStops)
-        itineraryDelegate?.sendItinerary(newItinerary!)
+        saveItineraryDelegate?.saveItinerary()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     // MARK: - Table view data source
@@ -65,7 +68,7 @@ class ItineraryStopTableViewController: UITableViewController, LocationTableView
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itineraryStops.count
+        return (itinerary?.locations.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,9 +78,9 @@ class ItineraryStopTableViewController: UITableViewController, LocationTableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryStopTableViewCell
         
-        let location = itineraryStops[indexPath.row]
+        let location = itinerary?.locations[indexPath.row]
         
-        cell.itineraryStopLabel.text = location.name
+        cell.itineraryStopLabel.text = location!.name
         
         return cell
     }
