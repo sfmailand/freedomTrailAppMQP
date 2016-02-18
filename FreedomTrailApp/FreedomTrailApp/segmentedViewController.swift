@@ -24,6 +24,7 @@ class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
     func updateView(){
         self.itineraryListEmbeddedViewController.tableView.reloadData()
         print("Updating View")
+        print(itineraries?.getLastItinerary().name)
     }
     
     private var itineraryListEmbeddedViewController: ItineraryListTableViewController!

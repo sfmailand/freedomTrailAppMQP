@@ -45,7 +45,6 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        print("Reloading data")
         itineraryStopTableViewController.tableView.reloadData()
     }
     
