@@ -19,17 +19,19 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
     
     var itinerariesModel: ItinerariesViewModel?
     
-    var itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locations: [])
+    var itinerary: Itinerary!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         locationTableViewController = self.viewControllers?.last?.childViewControllers.first as! LocationTableViewController
         
         itineraryStopTableViewController = self.viewControllers?.first?.childViewControllers.first as! ItineraryStopTableViewController
         
+        itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locations: [])
         
         locationTableViewController.itinerary = self.itinerary
         

@@ -24,10 +24,9 @@ public class ItinerariesViewModel{
     
     
     struct PropertyKey{
-        static let itinerariesKey = "itienraries"
+        static let itinerariesKey = "itineraries"
     }
     //Initialization
-    
     
     
     init?(){

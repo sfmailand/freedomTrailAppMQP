@@ -57,7 +57,7 @@ public class Itinerary: NSObject, NSCoding {
         
     }
     
-    func setLocations(locations: [Location]){
+    func setItineraryLocations(locations: [Location]){
         self.locations = locations
     }
     
@@ -67,14 +67,13 @@ public class Itinerary: NSObject, NSCoding {
     public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(description, forKey: PropertyKey.descriptionKey)
-        aCoder.encodeObject(locations, forKey: PropertyKey.locationsKey)
     }
     
     required convenience public init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [Location]
-        self.init(name: name, itineraryDescription: description, locations: locations)
+        self.init(name: name, itineraryDescription: description, locations: [])
     }
+
     
 }

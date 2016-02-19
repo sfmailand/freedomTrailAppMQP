@@ -15,14 +15,18 @@ public class Location {
     var name: String
     var photo: UIImage?
     
+    
+    //MARK: Archiving Paths
+    
+    static let DocumentDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentDirectory.URLByAppendingPathComponent("locations")
+    
+    
     //Initialization
     
     init?(name: String, photo: UIImage?){
         self.name = name
         self.photo = photo
-        
-        if name.isEmpty{
-            return nil
-        }
     }
+
 }
