@@ -23,22 +23,15 @@ class ItineraryStopTableViewController: UITableViewController {
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print(self.itinerary)
-        //itineraryTabViewController = (self.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
-        //itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        
+        //Add observer for when a singlular itinerary is updated
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: singleItineraryUpdatedNotificationKey, object: nil)
+        print("Loaded")
         
     }
-
     
-    override func viewWillAppear(animated: Bool) {
+    func updateView(){
+        print("Updating List of Stops in Itinerary")
         self.tableView.reloadData()
     }
 

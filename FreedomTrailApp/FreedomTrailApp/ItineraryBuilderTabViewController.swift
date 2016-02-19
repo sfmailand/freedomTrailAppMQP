@@ -46,12 +46,6 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
         itinerariesModel?.appendItinerary(itinerary!)
     }
     
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        print("Reloading Data")
-        print(itinerary)
-        itineraryStopTableViewController.tableView.reloadData()
-    }
-    
     //MARK - Delegates
     
 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FreedomTrailApp/segmentedViewController.swift"
-            timestampString = "477364848.653926"
+            timestampString = "477599196.188263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "segmentedViewController"
             landmarkType = "3">
          </BreakpointContent>

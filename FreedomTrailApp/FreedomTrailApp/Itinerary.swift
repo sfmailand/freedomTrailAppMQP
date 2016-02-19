@@ -37,8 +37,10 @@ public class Itinerary: NSObject, NSCoding {
         self.name = name
         self.itineraryDescription = itineraryDescription
         self.locations = []
-        
         super.init()
+        
+        
+        print("Init Itinerary")
         
         if name.isEmpty || description.isEmpty{
             return nil
@@ -53,7 +55,7 @@ public class Itinerary: NSObject, NSCoding {
     
     func addLocation(location: Location){
         locations.append(location)
-        
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
     

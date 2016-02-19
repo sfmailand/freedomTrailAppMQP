@@ -8,20 +8,11 @@
 
 import Foundation
 
-
-protocol ItineraryViewModelDelegate{
-    
-    func updateView()
-    
-}
-
 public class ItinerariesViewModel{
     
     //Properties
     var itineraries = [Itinerary]()
-    
-    var itineraryDelegate: ItineraryViewModelDelegate?
-    
+
     
     struct PropertyKey{
         static let itinerariesKey = "itineraries"
@@ -41,7 +32,7 @@ public class ItinerariesViewModel{
     func appendItinerary(itinerary: Itinerary){
         self.itineraries.append(itinerary)
         print("Appending Itinerary")
-        self.itineraryDelegate?.updateView()
+        NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
         saveItineraries()
     }
     

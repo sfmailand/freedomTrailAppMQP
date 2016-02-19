@@ -8,7 +8,12 @@
 
 import UIKit
 
-class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
+
+let itinerariesListNotificationKey = "itinerariesListUpdatedNotificationKey"
+
+let singleItineraryUpdatedNotificationKey = "singleItineraryUpdated"
+
+class segmentedViewController: UIViewController {
 
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
     @IBOutlet weak var myItinerariesviewContainer: UIView!
@@ -18,15 +23,11 @@ class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
     var itineraries = ItinerariesViewModel()
 
     
-    func updateView(){
-        self.itineraryListEmbeddedViewController.tableView.reloadData()
-        print("Updating View")
-        print(itineraries?.getLastItinerary().name)
-    }
     
     private var itineraryListEmbeddedViewController: ItineraryListTableViewController!
     private var locationsEmbeddedViewController: LocationTableViewController!
     
+
     @IBAction func segmentControlButtonChanged(sender: UISegmentedControl) {
         if segmentedControlButtons.selectedSegmentIndex == 0 {
             self.popularItinerariesViewContainer.alpha = 1
@@ -39,12 +40,18 @@ class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itineraries?.itineraryDelegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: itinerariesListNotificationKey, object: nil)
         
         
         itineraryListEmbeddedViewController.itineraries = self.itineraries
         
         // Do any additional setup after loading the view.
+    }
+    
+    func updateView(){
+        self.itineraryListEmbeddedViewController.tableView.reloadData()
+        print("Updated!")
     }
 
     override func didReceiveMemoryWarning() {
