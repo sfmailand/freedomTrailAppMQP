@@ -24,6 +24,7 @@ class ItineraryStopTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.itinerary)
         //itineraryTabViewController = (self.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
         //itineraryStops = (itineraryTabViewController.itineraries!.getFirstItinerary().locations)
         // Uncomment the following line to preserve selection between presentations
@@ -92,6 +93,7 @@ class ItineraryStopTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
         return (itinerary?.locations.count)!
     }
     

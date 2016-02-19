@@ -6,23 +6,41 @@
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
+import Foundation
 
-public class Itinerary {
+public class Itinerary: NSObject, NSCoding {
     
     //Properties
     var name: String
-    var description: String
+    var itineraryDescription: String
     var locations = [Location]()
     
     
+    //MARK: Archving Paths
+    
+    static let DocumentDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    
+    static let ArchiveURL = DocumentDirectory.URLByAppendingPathComponent("itineraries")
+    
+    
+    //MARK: Types
+    
+    struct PropertyKey {
+        static let nameKey = "name"
+        static let descriptionKey = "description"
+        static let locationsKey = "locations"
+    }
     //Initialization
     
-    init?(name: String, description: String){
+    init?(name: String, itineraryDescription: String, locations: [Location]){
         
         self.name = name
-        self.description = description
+        self.itineraryDescription = itineraryDescription
+        self.locations = []
         
-        if name.isEmpty{
+        super.init()
+        
+        if name.isEmpty || description.isEmpty{
             return nil
         }
     }
@@ -42,4 +60,21 @@ public class Itinerary {
     func setLocations(locations: [Location]){
         self.locations = locations
     }
+    
+    
+    //MARK: NSCoding
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
+        aCoder.encodeObject(description, forKey: PropertyKey.descriptionKey)
+        aCoder.encodeObject(locations, forKey: PropertyKey.locationsKey)
+    }
+    
+    required convenience public init?(coder aDecoder: NSCoder){
+        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+        let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
+        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [Location]
+        self.init(name: name, itineraryDescription: description, locations: locations)
+    }
+    
 }

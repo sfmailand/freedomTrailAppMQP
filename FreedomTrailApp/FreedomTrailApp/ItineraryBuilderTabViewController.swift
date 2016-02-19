@@ -19,7 +19,7 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
     
     var itinerariesModel: ItinerariesViewModel?
     
-    var itinerary = Itinerary(name: "Untitled Itinerary", description: "No Description")
+    var itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locations: [])
     
     
     
@@ -45,6 +45,8 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        print("Reloading Data")
+        print(itinerary)
         itineraryStopTableViewController.tableView.reloadData()
     }
     

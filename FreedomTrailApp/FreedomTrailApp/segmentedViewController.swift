@@ -16,9 +16,6 @@ class segmentedViewController: UIViewController, ItineraryViewModelDelegate {
     
     
     var itineraries = ItinerariesViewModel()
-    
-    //Delegates:
-    
 
     
     func updateView(){

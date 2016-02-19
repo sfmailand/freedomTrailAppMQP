@@ -6,6 +6,8 @@
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
+import Foundation
+
 
 protocol ItineraryViewModelDelegate{
     
@@ -29,12 +31,19 @@ public class ItinerariesViewModel{
     
     
     init?(){
+        if (loadItineraries() != nil){
+            itineraries = loadItineraries()!
+        }
+        else{
+            print("No Saved Itineraries")
+        }
     }
     
     func appendItinerary(itinerary: Itinerary){
         self.itineraries.append(itinerary)
         print("Appending Itinerary")
         self.itineraryDelegate?.updateView()
+        saveItineraries()
     }
     
     func removeLastItinerary(){
@@ -59,6 +68,24 @@ public class ItinerariesViewModel{
     
     func printLastItineraryLocations(){
         print(itineraries.last?.locations)
+    }
+    
+    
+    //MARK: NSCoding
+    
+    func saveItineraries(){
+        let isSuccessfullSave = NSKeyedArchiver.archiveRootObject(itineraries, toFile: Itinerary.ArchiveURL.path!)
+        
+        if !isSuccessfullSave{
+            print("Could not save itineraries...")
+        }
+        
+    }
+    
+    
+    func loadItineraries() -> [Itinerary]?{
+        print("Loading Itineratires")
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [Itinerary]
     }
     
     
