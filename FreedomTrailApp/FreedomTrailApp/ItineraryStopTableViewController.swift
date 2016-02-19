@@ -52,7 +52,7 @@ class ItineraryStopTableViewController: UITableViewController {
     //to the ItineraryViewModel
     @IBAction func saveItinerary(sender: UIBarButtonItem) {
 
-        var itineraryNameTextField = UITextField()
+        let itineraryNameTextField = UITextField()
         itineraryNameTextField.placeholder = "Untitled Itinerary"
 
         let saveItineraryAlert = UIAlertController(title: "Save Itinerary", message: "Please Enter the name of this Itinerary", preferredStyle: .Alert)
@@ -65,6 +65,7 @@ class ItineraryStopTableViewController: UITableViewController {
                     self.itinerary?.name = nameTextField.text!
                     self.saveItineraryDelegate?.saveItinerary()
                     self.dismissViewControllerAnimated(true, completion: nil)
+                    NSNotificationCenter.defaultCenter().removeObserver(self)
             }
         )
         
