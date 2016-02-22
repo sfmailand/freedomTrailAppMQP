@@ -14,12 +14,19 @@ class ItineraryListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: itinerariesListNotificationKey, object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    
+    func updateView(){
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +59,7 @@ class ItineraryListTableViewController: UITableViewController {
         
         return cell
     }
+    
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -110,9 +118,9 @@ class ItineraryListTableViewController: UITableViewController {
         
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
-            let selectedItinerary = itineraries?.getItineraryAtIndex(indexPath.row)
             itineraryBuilderTabBarController.itinerariesModel = itineraries;
-            itineraryBuilderTabBarController.itinerary = selectedItinerary
+            itineraryBuilderTabBarController.isNewItinerary = false
+            itineraries?.setCurrentItinerary(indexPath.row)
         }
     }
 

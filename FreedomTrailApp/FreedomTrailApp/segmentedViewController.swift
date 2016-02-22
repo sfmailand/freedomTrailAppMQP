@@ -63,7 +63,7 @@ class segmentedViewController: UIViewController {
     //MARK: - Delegates
     
     func saveItinerary(itinerary: Itinerary){
-        itineraries!.appendItinerary(itinerary)
+        itineraries!.saveItinerary()
         itineraryListEmbeddedViewController.itineraries = itineraries
         itineraryListEmbeddedViewController.tableView.reloadData()
     }
@@ -92,6 +92,7 @@ class segmentedViewController: UIViewController {
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
             itineraryBuilderTabBarController.itinerariesModel = itineraries;
+            itineraryBuilderTabBarController.isNewItinerary = true
         }
         
     }

@@ -15,7 +15,7 @@ class LocationTableViewController: UITableViewController {
     
     
     
-    var itinerary: Itinerary?
+    var itineraryModel: ItinerariesViewModel?
     
     
     var locationsModel =  FreedomTrailLocationModel()
@@ -101,7 +101,7 @@ class LocationTableViewController: UITableViewController {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
             let selectedLocation = self.locations[indexPath.row]
-            self.itinerary?.addLocation(selectedLocation)
+            self.itineraryModel?.addLocationToItinerary(selectedLocation)
             self.tableView.editing = false
         });
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);

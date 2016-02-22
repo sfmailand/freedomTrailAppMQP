@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableViewDelegate {
+class ItineraryBuilderTabViewController: UITabBarController {
     
     
    
@@ -19,7 +19,7 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
     
     var itinerariesModel: ItinerariesViewModel?
     
-    var itinerary: Itinerary!
+    var isNewItinerary: Bool!
     
     
     
@@ -31,24 +31,18 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
         
         itineraryStopTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryStopTableViewController
         
-        
-        if(itinerary == nil){
-            itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locationIndexes: [])
+        if(isNewItinerary == true){
+            itinerariesModel?.tmpInitItinerary()
         }
         
         
-        locationTableViewController.itinerary = self.itinerary
+        locationTableViewController.itineraryModel = self.itinerariesModel
         
-        itineraryStopTableViewController.itinerary = self.itinerary
-        
-        itineraryStopTableViewController.saveItineraryDelegate = self
+        itineraryStopTableViewController.itineraryModel = self.itinerariesModel
         
         
     }
-    
-    func saveItinerary(){
-        itinerariesModel?.appendItinerary(itinerary!)
-    }
+
     
     //MARK - Delegates
     
