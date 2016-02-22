@@ -55,10 +55,7 @@ public class ItinerariesViewModel{
     func getFirstItinerary() -> Itinerary{
         return itineraries.first!
     }
-    
-    func printLastItineraryLocations(){
-        print(itineraries.last?.locations)
-    }
+
     
     
     //MARK: NSCoding

@@ -48,7 +48,7 @@ class ItineraryListTableViewController: UITableViewController {
         
         let location = itineraries!.getItineraryAtIndex(indexPath.row)
         
-        cell.itineraryNameLabel.text = location.name
+        cell.itineraryNameLabel.text = location.getName()
         
         return cell
     }

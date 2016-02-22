@@ -10,7 +10,7 @@ import UIKit
 
 class LocationDetailViewController: UIViewController {
     
-    var location: Location?
+    var location: FreedomTrailLocation?
     var itinerary: Itinerary?
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -24,10 +24,10 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationLabel.text = location!.name
+        locationLabel.text = location!.getName()
         
-        if((location!.photo) != nil){
-            locationPhoto.image = location!.photo
+        if((location!.getName()) != nil){
+            locationPhoto.image = location!.getPhoto()
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))

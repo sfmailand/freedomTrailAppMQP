@@ -13,40 +13,22 @@ class LocationTableViewController: UITableViewController {
     
     //Properties
     
-    var locations = [Location]()
+    
     
     var itinerary: Itinerary?
     
+    
+    var locationsModel =  FreedomTrailLocationModel()
+    
+    var locations: [FreedomTrailLocation]!
+    
     func loadLocations(){
-        let bostonCommonLocation = Location(name: "Boston Common", photo: nil)!
-        let stateHouseLocation = Location(name: "State House", photo: nil)!
-        let parkStreetChurchLocation = Location(name: "Park Street Church", photo: nil)!
-        let granaryGroundLocation = Location(name: "Granary Burying Ground", photo: nil)!
-        let kingChapelLocation = Location(name: "King's Chapel", photo: nil)!
-        let chapelBuryingLocation = Location(name: "King's Chapel Burying Ground", photo: nil)!
-        let benFranklinLocation = Location(name: "Benjamin Franklin Statue & Boston Latin School", photo: nil)!
-        let oldBookStoreLocation = Location(name: "Old Corner Book Store", photo: nil)!
-        let southMeetingHouseLocation = Location(name: "Old South Meeting House", photo: nil)!
-        let oldStateHouseLocation = Location(name: "Old State House", photo: nil)!
-        let bostonMassacreLocation = Location(name: "Site of Boston Massacre", photo: nil)!
-        let fanueuilHallLocation = Location(name: "Faneuil Hall", photo: nil)!
-        let paulRevereLocation = Location(name: "Paul Revere House", photo: nil)!
-        let northChurchLocation = Location(name: "Old North Church", photo: nil)!
-        let coppsHillLocation = Location(name: "Copp's Hill Burying Ground", photo: nil)!
-        let bunkerHillLocation = Location(name: "Bunker Hill Monument", photo: nil)!
-        let ussConstitutionLocation = Location(name: "USS Constitution", photo: nil)!
-        
-        locations += [bostonCommonLocation, stateHouseLocation, parkStreetChurchLocation, granaryGroundLocation,
-                       kingChapelLocation, chapelBuryingLocation, benFranklinLocation, oldBookStoreLocation,
-                       southMeetingHouseLocation, oldStateHouseLocation, bostonMassacreLocation, fanueuilHallLocation,
-                       paulRevereLocation, northChurchLocation, coppsHillLocation, bunkerHillLocation, ussConstitutionLocation]
+        locations = locationsModel.getFullTrailLocationsArray()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //itineraryTabViewController = (self.parentViewController?.parentViewController?.parentViewController as? ItineraryBuilderTabViewController)!
-        //itineraries = itineraryTabViewController.itineraries
-        //Load Sample Data
+        locations = []
         loadLocations()
     }
 
@@ -75,7 +57,7 @@ class LocationTableViewController: UITableViewController {
         
         let location = locations[indexPath.row]
         
-        cell.locationNameLabel.text = location.name
+        cell.locationNameLabel.text = location.getName()
         
         return cell
     }

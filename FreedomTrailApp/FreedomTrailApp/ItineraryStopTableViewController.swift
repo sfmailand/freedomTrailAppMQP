@@ -62,7 +62,7 @@ class ItineraryStopTableViewController: UITableViewController {
         let confirmItinerarySave = UIAlertAction(title: "Confirm", style: .Default, handler: {
             action in
                     let nameTextField = saveItineraryAlert.textFields!.first! as UITextField
-                    self.itinerary?.name = nameTextField.text!
+                    self.itinerary?.setName(nameTextField.text!)
                     self.saveItineraryDelegate?.saveItinerary()
                     self.dismissViewControllerAnimated(true, completion: nil)
                     NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -88,7 +88,7 @@ class ItineraryStopTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return (itinerary?.locations.count)!
+        return (itinerary?.getLocations().count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -98,9 +98,9 @@ class ItineraryStopTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryStopTableViewCell
         
-        let location = itinerary?.locations[indexPath.row]
+        let location = itinerary?.getLocationAtIndex(indexPath.row)
         
-        cell.itineraryStopLabel.text = location!.name
+        cell.itineraryStopLabel.text = location!.getName()
         
         return cell
     }

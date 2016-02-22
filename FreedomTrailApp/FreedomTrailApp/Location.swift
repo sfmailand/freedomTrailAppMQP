@@ -1,32 +1,33 @@
 //
-//  Locations.swift
+//  Location.swift
 //  FreedomTrailApp
 //
-//  Created by Sam Mailand on 1/29/16.
+//  Created by Sam Mailand on 2/22/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
 import UIKit
 
 
-public class Location {
+public class Location{
     
     //Properties
-    var name: String
-    var photo: UIImage?
-    
-    
-    //MARK: Archiving Paths
-    
-    static let DocumentDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentDirectory.URLByAppendingPathComponent("locations")
-    
+    private var name: String
+    private var photo: UIImage?
     
     //Initialization
     
-    init?(name: String, photo: UIImage?){
+    init(name: String, photo: UIImage?){
         self.name = name
         self.photo = photo
     }
-
+    
+    func getName() -> String?{
+        return name
+    }
+    
+    func getPhoto() -> UIImage?{
+        return photo!
+    }
+    
 }
