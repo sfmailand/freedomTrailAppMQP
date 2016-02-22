@@ -295,6 +295,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itineraryStopLabel" destination="QPU-4a-Mdb" id="YD1-zk-gVY"/>
+                                    <segue destination="gVG-x6-l9b" kind="show" id="pMg-BA-eu5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -318,7 +319,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2S-8u-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1447" y="-1465"/>
+            <point key="canvasLocation" x="2312" y="-1473"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2VW-x8-2tB">
@@ -345,5 +346,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c8u-wa-qzA"/>
+        <segue reference="pMg-BA-eu5"/>
     </inferredMetricsTieBreakers>
 </document>
