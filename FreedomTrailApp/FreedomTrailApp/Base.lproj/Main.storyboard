@@ -36,7 +36,6 @@
                                 <connections>
                                     <outlet property="locationNameLabel" destination="qeZ-1e-ipU" id="mnF-d2-nGm"/>
                                     <outlet property="locationPhoto" destination="ZPM-yW-VkW" id="ZEp-ax-Z7Z"/>
-                                    <segue destination="gVG-x6-l9b" kind="show" id="Sii-ym-Uay"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -278,7 +277,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItineraryStopViewCell" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItineraryStopViewCell" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBI-Hz-VRz" id="JaL-am-PJY">
@@ -346,6 +345,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c8u-wa-qzA"/>
-        <segue reference="pMg-BA-eu5"/>
     </inferredMetricsTieBreakers>
 </document>
