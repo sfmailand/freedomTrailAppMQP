@@ -27,11 +27,15 @@ class ItineraryBuilderTabViewController: UITabBarController, ItineraryStopTableV
         super.viewDidLoad()
         
         
-        locationTableViewController = self.viewControllers?.last?.childViewControllers.first as! LocationTableViewController
+        locationTableViewController = self.viewControllers?.first?.childViewControllers.first as! LocationTableViewController
         
-        itineraryStopTableViewController = self.viewControllers?.first?.childViewControllers.first as! ItineraryStopTableViewController
+        itineraryStopTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryStopTableViewController
         
-        itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locationIndexes: [])
+        
+        if(itinerary == nil){
+            itinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locationIndexes: [])
+        }
+        
         
         locationTableViewController.itinerary = self.itinerary
         

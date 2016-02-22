@@ -105,12 +105,14 @@ class ItineraryListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let itineraryStopTableViewController = segue.destinationViewController as! ItineraryStopTableViewController
+        
+        let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
         
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
             let selectedItinerary = itineraries?.getItineraryAtIndex(indexPath.row)
-            itineraryStopTableViewController.itinerary = selectedItinerary
+            itineraryBuilderTabBarController.itinerariesModel = itineraries;
+            itineraryBuilderTabBarController.itinerary = selectedItinerary
         }
     }
 

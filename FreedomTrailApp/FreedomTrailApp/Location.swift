@@ -27,7 +27,7 @@ public class Location{
     }
     
     func getPhoto() -> UIImage?{
-        return photo!
+        return photo
     }
     
 }

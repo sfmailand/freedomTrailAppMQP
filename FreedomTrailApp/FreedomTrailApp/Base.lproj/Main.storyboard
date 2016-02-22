@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="90" id="DMV-Is-8fn" customClass="LocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMV-Is-8fn" id="axO-hV-ZU7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qI6-Yf-6dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="279"/>
+            <point key="canvasLocation" x="-2535" y="-1196"/>
         </scene>
         <!--Itinerary List Table View Controller-->
         <scene sceneID="5lv-IX-OOh">
@@ -199,6 +199,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itineraryNameLabel" destination="RlQ-WN-Liz" id="7JF-he-RV7"/>
+                                    <segue destination="A6X-io-36T" kind="presentation" id="c8u-wa-qzA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvN-7j-omn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="1069"/>
+            <point key="canvasLocation" x="-1611" y="-579"/>
         </scene>
         <!--Itinerary Builder Tab View Controller-->
         <scene sceneID="bgy-F1-nLA">
@@ -222,13 +223,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mK9-5K-9zZ" kind="relationship" relationship="viewControllers" id="X4j-QV-ylB"/>
                         <segue destination="j8w-Na-69j" kind="relationship" relationship="viewControllers" id="its-bv-fuE"/>
+                        <segue destination="mK9-5K-9zZ" kind="relationship" relationship="viewControllers" id="X4j-QV-ylB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiI-Rh-fCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-342" y="-1142"/>
+            <point key="canvasLocation" x="-348" y="-1146"/>
         </scene>
         <!--Locations-->
         <scene sceneID="3i2-Eb-0zx">
@@ -278,7 +279,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItineraryStopViewCell" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBI-Hz-VRz" id="JaL-am-PJY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -335,11 +336,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g27-df-Bvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-331" y="783"/>
+            <point key="canvasLocation" x="-2626" y="-202"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="320" height="320"/>
         <image name="directionIcon" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="c8u-wa-qzA"/>
+    </inferredMetricsTieBreakers>
 </document>
