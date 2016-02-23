@@ -44,7 +44,18 @@
                             <outlet property="delegate" destination="Zza-cb-H9a" id="7gk-U8-wRZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP"/>
+                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="IV5-Zt-HJV">
+                            <connections>
+                                <action selector="cancelItineraryCreation:" destination="Zza-cb-H9a" id="JMJ-XT-5fJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="dbv-NM-ptD">
+                            <connections>
+                                <action selector="saveItinerary:" destination="Zza-cb-H9a" id="a7D-Nr-wV1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-aS-B0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,7 +245,7 @@
         <scene sceneID="3i2-Eb-0zx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j8w-Na-69j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" id="6mn-DE-BH4"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="locationsIcon" id="6mn-DE-BH4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zyF-iN-LTv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -253,7 +264,7 @@
         <scene sceneID="3V4-I9-M9W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mK9-5K-9zZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Itinerary" id="8Fn-w0-TNs"/>
+                    <tabBarItem key="tabBarItem" title="Itinerary" image="itineraryIcon" id="8Fn-w0-TNs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iyu-iN-jKT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -342,6 +353,8 @@
     <resources>
         <image name="defaultPhoto" width="320" height="320"/>
         <image name="directionIcon" width="256" height="256"/>
+        <image name="itineraryIcon" width="30" height="30"/>
+        <image name="locationsIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c8u-wa-qzA"/>
