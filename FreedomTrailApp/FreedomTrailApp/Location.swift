@@ -14,12 +14,16 @@ public class Location{
     //Properties
     private var name: String
     private var photo: UIImage?
+    private var gpsLong: Double
+    private var gpsLat: Double
     
     //Initialization
     
-    init(name: String, photo: UIImage?){
+    init(name: String, photo: UIImage?, gpsLat: Double, gpsLong: Double){
         self.name = name
         self.photo = photo
+        self.gpsLat = gpsLat
+        self.gpsLong = gpsLong
     }
     
     func getName() -> String?{
@@ -28,6 +32,14 @@ public class Location{
     
     func getPhoto() -> UIImage?{
         return photo
+    }
+    
+    func getGpsLat() -> Double{
+        return gpsLat
+    }
+    
+    func getGpsLong() -> Double{
+        return gpsLong
     }
     
 }

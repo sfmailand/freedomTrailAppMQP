@@ -15,9 +15,9 @@ public class FreedomTrailLocation: Location {
     
     private var trailLocationIndex: Int
     
-    init(name: String, photo: UIImage?, index: Int){
+    init(name: String, photo: UIImage?, index: Int, gpsLat: Double, gpsLong : Double){
         self.trailLocationIndex = index
-        super.init(name: name, photo: photo)
+        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
     }
     
     

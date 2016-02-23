@@ -48,7 +48,16 @@ class LocationDetailViewController: UIViewController {
     {
         print("Directions Tapped")
         
-        var directionURLString = "http://maps.apple.com/?saddr=Current+Location&daddr="+locationLabel.text!
+        
+        let tmpLat:Double = location!.getGpsLat()
+        let gpsLat:String = String(format:"%f", tmpLat)
+        
+        
+        let tmpLong:Double = location!.getGpsLong()
+        let gpsLong:String = String(format:"%f", tmpLong)
+        
+        
+        var directionURLString = "http://maps.apple.com/?saddr=Current+Location&daddr="+gpsLat+","+gpsLong+"&dirflg=w"
         
         directionURLString = directionURLString.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
         
