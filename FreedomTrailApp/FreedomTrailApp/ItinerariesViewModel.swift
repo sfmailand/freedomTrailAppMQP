@@ -11,12 +11,14 @@ import Foundation
 public class ItinerariesViewModel{
     
     //Properties
-    private var itineraries = [Itinerary]()
+    //private var itineraries = [Itinerary]()
+    
+    private var itineraries = [String: Itinerary]()
     
     
     private var tempItinerary: Itinerary!
     
-    private var selectedItineraryIndex: Int!
+    private var selectedItineraryName: String!
     
     private var isCreatingNewItinerary: Bool!
 
@@ -39,7 +41,7 @@ public class ItinerariesViewModel{
     
     func saveItinerary(){
         if(isCreatingNewItinerary == true){
-            self.itineraries.append(tempItinerary)
+            self.itineraries[tempItinerary.getName()] = tempItinerary
             print("Appending Itinerary")
             NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
             storeItineraries()
@@ -73,7 +75,7 @@ public class ItinerariesViewModel{
             tempItinerary.addLocation(location)
         }
         else{
-            itineraries[selectedItineraryIndex].addLocation(location)
+            itineraries[selectedItineraryName]!.addLocation(location)
         }
     }
     
@@ -84,8 +86,8 @@ public class ItinerariesViewModel{
     }
     
     
-    func setCurrentItinerary(index: Int){
-        selectedItineraryIndex = index
+    func setCurrentItinerary(name: String){
+        selectedItineraryName = name
     }
     
     
@@ -94,13 +96,18 @@ public class ItinerariesViewModel{
             return tempItinerary
         }
         else{
-            return itineraries[selectedItineraryIndex]
+            return itineraries[selectedItineraryName]!
         }
     }
     
     
-    func getItineraryAtIndex(index: Int) -> Itinerary{
-        return itineraries[index]
+    func getItineraryWithName(name: String) -> Itinerary?{
+        if((itineraries[name]) != nil){
+            return itineraries[name]!
+        }
+        else{
+            return nil
+        }
     }
 
     
@@ -121,9 +128,14 @@ public class ItinerariesViewModel{
     }
     
     
-    func loadItineraries() -> [Itinerary]?{
+    func loadItineraries() -> [String: Itinerary]?{
         print("Loading Itineratires")
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [Itinerary]
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [String: Itinerary]
+    }
+    
+    
+    func getItineraryArray() -> [Itinerary]{
+        return Array(itineraries.values)
     }
     
     

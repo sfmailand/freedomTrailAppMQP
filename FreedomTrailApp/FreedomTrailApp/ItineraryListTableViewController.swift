@@ -53,7 +53,7 @@ class ItineraryListTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryTableViewCell
         
-        let location = itineraries!.getItineraryAtIndex(indexPath.row)
+        let location = itineraries!.getItineraryArray()[indexPath.row]
         
         cell.itineraryNameLabel.text = location.getName()
         
@@ -120,7 +120,7 @@ class ItineraryListTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
             itineraryBuilderTabBarController.itinerariesModel = itineraries;
             itineraryBuilderTabBarController.isNewItinerary = false
-            itineraries?.setCurrentItinerary(indexPath.row)
+            itineraries?.setCurrentItinerary((itineraries?.getItineraryArray()[indexPath.row].getName())!)
         }
     }
 
