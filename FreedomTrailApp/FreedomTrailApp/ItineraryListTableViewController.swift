@@ -128,7 +128,7 @@ class ItineraryListTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryBuilderTabViewController
+        let itineraryBuilderTabBarController = segue.destinationViewController as! ItineraryTabViewController
         
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!

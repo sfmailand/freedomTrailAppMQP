@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ItineraryStopTableViewController: UITableViewController {
+class ItineraryLocationsTableViewController: UITableViewController {
     
     
     var itineraryModel: ItinerariesViewModel?

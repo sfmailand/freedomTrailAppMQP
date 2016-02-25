@@ -9,11 +9,11 @@
 import UIKit
 
 
-class ItineraryBuilderTabViewController: UITabBarController {
+class ItineraryTabViewController: UITabBarController {
     
     
    
-    var itineraryStopTableViewController = ItineraryStopTableViewController()
+    var itineraryLocationsTableViewController = ItineraryLocationsTableViewController()
     
     var locationTableViewController = LocationTableViewController()
     
@@ -29,7 +29,7 @@ class ItineraryBuilderTabViewController: UITabBarController {
         
         locationTableViewController = self.viewControllers?.first?.childViewControllers.first as! LocationTableViewController
         
-        itineraryStopTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryStopTableViewController
+        itineraryLocationsTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryLocationsTableViewController
         
         if(isNewItinerary == true){
             itinerariesModel?.tmpInitItinerary()
@@ -38,7 +38,7 @@ class ItineraryBuilderTabViewController: UITabBarController {
         
         locationTableViewController.itineraryModel = self.itinerariesModel
         
-        itineraryStopTableViewController.itineraryModel = self.itinerariesModel
+        itineraryLocationsTableViewController.itineraryModel = self.itinerariesModel
         
         
     }
