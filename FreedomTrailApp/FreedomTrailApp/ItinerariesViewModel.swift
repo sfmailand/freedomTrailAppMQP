@@ -43,13 +43,13 @@ public class ItinerariesViewModel{
         if(isCreatingNewItinerary == true){
             self.itineraries[tempItinerary.getName()] = tempItinerary
             print("Appending Itinerary")
-            NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
+            notifyOfItineraryChange()
             storeItineraries()
             tempItinerary = nil
             isCreatingNewItinerary = false
         }
         else{
-            NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
+            notifyOfItineraryChange()
             storeItineraries()
         }
     }
@@ -116,6 +116,19 @@ public class ItinerariesViewModel{
     }
     
     
+    func getItineraryNameAtIndex(index: Int) -> String{
+        return getItineraryArray()[index].getName()
+    }
+    
+    
+    func deleteItinerary(index: Int){
+        print("DELETING: " + getItineraryArray()[index].getName())
+        itineraries.removeValueForKey(getItineraryNameAtIndex(index))
+        notifyOfItineraryChange()
+        saveItinerary()
+    }
+    
+    
     //MARK: NSCoding
     
     func storeItineraries(){
@@ -136,6 +149,10 @@ public class ItinerariesViewModel{
     
     func getItineraryArray() -> [Itinerary]{
         return Array(itineraries.values)
+    }
+    
+    func notifyOfItineraryChange(){
+        NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
     }
     
     
