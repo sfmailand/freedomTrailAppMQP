@@ -13,6 +13,8 @@
 		A22EE54C1C683E1300DEBAD8 /* segmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */; };
 		F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */; };
 		F720421B1C5D15200099747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72042191C5D15200099747C /* Main.storyboard */; };
+		F7290FC71C852103003B8DAD /* LocationTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */; };
+		F7290FC91C852242003B8DAD /* LocationTypesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7290FC81C852242003B8DAD /* LocationTypesTableViewCell.swift */; };
 		F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */; };
 		F75B8AC81C7FED5C00C1F5F4 /* YelpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B8AC71C7FED5C00C1F5F4 /* YelpLocation.swift */; };
 		F75B8ACA1C7FEDC400C1F5F4 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B8AC91C7FEDC400C1F5F4 /* LocationViewModel.swift */; };
@@ -37,6 +39,8 @@
 		A22EE54B1C683E1300DEBAD8 /* segmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = segmentedViewController.swift; sourceTree = "<group>"; };
 		F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F720421A1C5D15200099747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypesTableViewController.swift; sourceTree = "<group>"; };
+		F7290FC81C852242003B8DAD /* LocationTypesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypesTableViewCell.swift; sourceTree = "<group>"; };
 		F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItinerariesViewModel.swift; sourceTree = "<group>"; };
 		F75B8AC71C7FED5C00C1F5F4 /* YelpLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpLocation.swift; sourceTree = "<group>"; };
 		F75B8AC91C7FEDC400C1F5F4 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		F75B8ACF1C7FF02300C1F5F4 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F7290FC81C852242003B8DAD /* LocationTypesTableViewCell.swift */,
 				F795E2D51C5C4CF900843632 /* LocationTableViewCell.swift */,
 				A21925691C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift */,
 				F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */,
@@ -81,6 +86,7 @@
 		F75B8AD01C7FF04500C1F5F4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */,
 				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				A219256B1C6C3F1A00C9E937 /* ItineraryLocationsTableViewController.swift */,
 				F764BFDE1C7234620013F473 /* ItineraryTabViewController.swift */,
@@ -223,6 +229,8 @@
 				A219256C1C6C3F1A00C9E937 /* ItineraryLocationsTableViewController.swift in Sources */,
 				F7A6824B1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift in Sources */,
 				F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */,
+				F7290FC71C852103003B8DAD /* LocationTypesTableViewController.swift in Sources */,
+				F7290FC91C852242003B8DAD /* LocationTypesTableViewCell.swift in Sources */,
 				F764BFDF1C7234620013F473 /* ItineraryTabViewController.swift in Sources */,
 				F75B8ACE1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift in Sources */,
 				F7A682491C6D1D8D000D1C45 /* ItineraryListTableViewController.swift in Sources */,

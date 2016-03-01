@@ -15,7 +15,7 @@ class ItineraryTabViewController: UITabBarController {
    
     var itineraryLocationsTableViewController = ItineraryLocationsTableViewController()
     
-    var locationTableViewController = LocationTableViewController()
+    var locationTableViewController = LocationTypesTableViewController()
     
     var itinerariesModel: ItinerariesViewModel?
     
@@ -27,7 +27,7 @@ class ItineraryTabViewController: UITabBarController {
         super.viewDidLoad()
         
         
-        locationTableViewController = self.viewControllers?.first?.childViewControllers.first as! LocationTableViewController
+        locationTableViewController = self.viewControllers?.first?.childViewControllers.first as! LocationTypesTableViewController
         
         itineraryLocationsTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryLocationsTableViewController
         

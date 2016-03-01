@@ -20,6 +20,7 @@ class LocationTableViewController: UITableViewController {
     
     var locationsModel =  FreedomTrailLocationModel()
     
+    
     var locations: [FreedomTrailLocation]!
     
     func loadLocations(){
