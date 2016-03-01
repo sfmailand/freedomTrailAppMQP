@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="-1611" y="-579"/>
         </scene>
-        <!--Itinerary Builder Tab View Controller-->
+        <!--Itinerary Tab View Controller-->
         <scene sceneID="bgy-F1-nLA">
             <objects>
-                <tabBarController id="A6X-io-36T" customClass="ItineraryBuilderTabViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="A6X-io-36T" customClass="ItineraryTabViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="N2F-Ae-M55">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -310,7 +310,7 @@
         <!--New Itinerary-->
         <scene sceneID="GSL-rc-JHX">
             <objects>
-                <tableViewController id="c2c-ce-QRO" customClass="ItineraryStopTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="c2c-ce-QRO" customClass="ItineraryLocationsTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vKx-gC-uVR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
