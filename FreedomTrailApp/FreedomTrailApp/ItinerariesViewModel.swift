@@ -71,6 +71,7 @@ public class ItinerariesViewModel{
     }
     
     func addLocationToItinerary(location: FreedomTrailLocation){
+        print("HERE")
         if(isCreatingNewItinerary == true){
             tempItinerary.addLocation(location)
         }

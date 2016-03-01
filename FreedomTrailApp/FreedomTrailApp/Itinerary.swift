@@ -56,6 +56,7 @@ public class Itinerary: NSObject, NSCoding {
     
     func addLocation(trailLocation: FreedomTrailLocation){
         trailLocationsArray.append(trailLocation)
+        print("Adding Location")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
