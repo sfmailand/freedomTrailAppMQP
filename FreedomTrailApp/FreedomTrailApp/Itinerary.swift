@@ -32,16 +32,17 @@ public class Itinerary: NSObject, NSCoding {
     struct PropertyKey {
         static let nameKey = "name"
         static let descriptionKey = "description"
-        static let locationsKey = "locationIndexes"
+        static let locationsKey = "locations"
     }
     //Initialization
     
-    init?(name: String, itineraryDescription: String, locationIndexes: [Int]){
+    init?(name: String, itineraryDescription: String, locations: [FreedomTrailLocation]){
         
         self.name = name
         self.itineraryDescription = itineraryDescription
-        self.trailLocationsArray = locationModel.getPartialTrailLocationArray(locationIndexes)
         super.init()
+        
+        trailLocationsArray = locations
         
         if name.isEmpty || description.isEmpty{
             return nil
@@ -83,18 +84,19 @@ public class Itinerary: NSObject, NSCoding {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(description, forKey: PropertyKey.descriptionKey)
         
-        var locationIndexes: [Int]
+        //var locationIndexes: [Int]
         
-        locationIndexes = locationModel.getLocationIndexes(trailLocationsArray)
+        //locationIndexes = locationModel.getLocationIndexes(trailLocationsArray)
         
-        aCoder.encodeObject(locationIndexes, forKey: PropertyKey.locationsKey)
+        aCoder.encodeObject(trailLocationsArray, forKey: PropertyKey.locationsKey)
     }
     
     required convenience public init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-        let locationIndexes = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [Int]
-        self.init(name: name, itineraryDescription: description, locationIndexes: locationIndexes)
+        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [FreedomTrailLocation]
+        
+        self.init(name: name, itineraryDescription: description, locations: locations)
     }
     
     

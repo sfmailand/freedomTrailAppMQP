@@ -33,38 +33,6 @@
             endingLineNumber = "12"
             landmarkName = "FreedomTrailLocation"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FreedomTrailApp.FreedomTrailLocation.deinit"
-                  moduleName = "FreedomTrailApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/FreedomTrailLocation.swift"
-                  timestampString = "478105554.984212"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FreedomTrailApp.FreedomTrailLocation.init (FreedomTrailApp.FreedomTrailLocation.Type)(name : Swift.String, photo : Swift.Optional&lt;__ObjC.UIImage&gt;, gpsLat : Swift.Double, gpsLong : Swift.Double) -&gt; FreedomTrailApp.FreedomTrailLocation"
-                  moduleName = "FreedomTrailApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/FreedomTrailLocation.swift"
-                  timestampString = "478105554.98437"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "46">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

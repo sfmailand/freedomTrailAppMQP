@@ -12,17 +12,19 @@ import UIKit
 public class FreedomTrailLocation: Location {
     
     //Initialization
+
     
-    private var trailLocationIndex: Int
-    
-    init(name: String, photo: UIImage?, index: Int, gpsLat: Double, gpsLong : Double){
-        self.trailLocationIndex = index
+    override init(name: String, photo: UIImage?, gpsLat: Double, gpsLong : Double){
         super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
     }
-    
-    
-    func getTrailLocationIndex() -> Int{
-        return trailLocationIndex
+
+    required convenience public init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+        //let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
+        let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
+        let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
+        self.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong)
     }
+
 
 }
