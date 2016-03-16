@@ -158,6 +158,14 @@ class ItineraryLocationsTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let locationDetailViewController = segue.destinationViewController as! LocationDetailViewController
+        
+        if let selectedLocationCell = sender as? ItineraryStopTableViewCell{
+            let indexPath = tableView.indexPathForCell(selectedLocationCell)!
+            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocations()[indexPath.row]
+            print (selectedLocation?.getName())
+            locationDetailViewController.location = selectedLocation
+        }
 
     }
 
