@@ -119,6 +119,12 @@ public class Itinerary: NSObject, NSCoding {
     func getLocationAtIndex(index: Int) -> Location{
         return Array(trailLocationsArray.values)[index]
     }
+    
+    func deleteLocation(index: Int){
+        let locationName = Array(trailLocationsArray.values)[index].getName()
+        trailLocationsArray.removeValueForKey(locationName!)
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
+    }
 
 
     
