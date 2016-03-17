@@ -162,7 +162,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         if let selectedLocationCell = sender as? ItineraryStopTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedLocationCell)!
-            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocations()[indexPath.row]
+            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(indexPath.row)
             print (selectedLocation?.getName())
             locationDetailViewController.location = selectedLocation
         }

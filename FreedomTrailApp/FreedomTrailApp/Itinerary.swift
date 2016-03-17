@@ -15,9 +15,8 @@ public class Itinerary: NSObject, NSCoding {
     private var name: String
     private var itineraryDescription: String
     
-    private var trailLocationsArray: [FreedomTrailLocation]!
+    private var trailLocationsArray = [String: Location]()
     
-    private var locationModel = FreedomTrailLocationModel()
     
     
     //MARK: Archving Paths
@@ -36,7 +35,7 @@ public class Itinerary: NSObject, NSCoding {
     }
     //Initialization
     
-    init?(name: String, itineraryDescription: String, locations: [FreedomTrailLocation]){
+    init?(name: String, itineraryDescription: String, locations: [String: Location]){
         
         self.name = name
         self.itineraryDescription = itineraryDescription
@@ -49,20 +48,32 @@ public class Itinerary: NSObject, NSCoding {
         }
     }
     
+    init?(name: String, itineraryDescription: String){
+        
+        self.name = name
+        self.itineraryDescription = itineraryDescription
+        super.init()
+        
+        if name.isEmpty || description.isEmpty{
+            return nil
+        }
+    }
+    
     func updateName(name: String){
         if !name.isEmpty{
             self.name = name
         }
     }
     
-    func addLocation(trailLocation: FreedomTrailLocation){
-        trailLocationsArray.append(trailLocation)
+    func addLocation(trailLocation: Location){
+        print(trailLocation.getName())
+        self.trailLocationsArray[trailLocation.getName()!] = trailLocation
         print("Adding Location")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
     
-    func setItineraryLocations(trailLocations: [FreedomTrailLocation]){
+    func setItineraryLocations(trailLocations: [String: Location]){
         self.trailLocationsArray = trailLocations
     }
     
@@ -94,20 +105,21 @@ public class Itinerary: NSObject, NSCoding {
     required convenience public init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [FreedomTrailLocation]
+        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [String: Location]
         
         self.init(name: name, itineraryDescription: description, locations: locations)
     }
     
     
-    func getLocations() -> [FreedomTrailLocation]{
+    func getLocations() -> [String: Location]{
         return trailLocationsArray
     }
     
     
-    func getLocationAtIndex(index: Int) -> FreedomTrailLocation{
-        return trailLocationsArray[index]
+    func getLocationAtIndex(index: Int) -> Location{
+        return Array(trailLocationsArray.values)[index]
     }
+
 
     
 }

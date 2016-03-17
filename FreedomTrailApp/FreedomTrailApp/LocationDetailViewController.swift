@@ -10,7 +10,7 @@ import UIKit
 
 class LocationDetailViewController: UIViewController {
     
-    var location: FreedomTrailLocation?
+    var location: Location?
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var directionsIcon: UIImageView!

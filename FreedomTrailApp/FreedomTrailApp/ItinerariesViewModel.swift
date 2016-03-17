@@ -67,10 +67,10 @@ public class ItinerariesViewModel{
     
     func tmpInitItinerary(){
         isCreatingNewItinerary = true
-        tempItinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description", locations: [])
+        tempItinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description")
     }
     
-    func addLocationToItinerary(location: FreedomTrailLocation){
+    func addLocationToItinerary(location: Location){
         print("HERE")
         if(isCreatingNewItinerary == true){
             tempItinerary.addLocation(location)
