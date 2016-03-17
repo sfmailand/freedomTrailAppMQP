@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMV-Is-8fn" id="axO-hV-ZU7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ZPM-yW-VkW">
@@ -44,18 +44,7 @@
                             <outlet property="delegate" destination="Zza-cb-H9a" id="7gk-U8-wRZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="IV5-Zt-HJV">
-                            <connections>
-                                <action selector="cancelItineraryCreation:" destination="Zza-cb-H9a" id="JMJ-XT-5fJ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="dbv-NM-ptD">
-                            <connections>
-                                <action selector="saveItinerary:" destination="Zza-cb-H9a" id="a7D-Nr-wV1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-aS-B0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G3C-HZ-G9R" id="Dpj-2m-q4H">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-WN-Liz">
@@ -279,7 +268,7 @@
             </objects>
             <point key="canvasLocation" x="631" y="-1465"/>
         </scene>
-        <!--Location Types Table View Controller-->
+        <!--Location Types-->
         <scene sceneID="tbL-dL-grr">
             <objects>
                 <tableViewController id="ByU-SW-MXw" customClass="LocationTypesTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -292,7 +281,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xUX-9D-dMH" id="39q-RS-Wzi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42K-wK-esJ">
@@ -314,7 +303,18 @@
                             <outlet property="delegate" destination="ByU-SW-MXw" id="szj-mo-gm7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4l1-uE-s98"/>
+                    <navigationItem key="navigationItem" title="Location Types" id="4l1-uE-s98">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="b6j-U2-Cyl">
+                            <connections>
+                                <action selector="cancelItineraryCreation:" destination="ByU-SW-MXw" id="NMF-Y8-pdB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="y7b-bM-sdV">
+                            <connections>
+                                <action selector="saveItinerary:" destination="ByU-SW-MXw" id="Mjo-Dh-BCy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGH-nv-UEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,7 +333,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBI-Hz-VRz" id="JaL-am-PJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">

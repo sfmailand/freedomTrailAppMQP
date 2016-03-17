@@ -51,6 +51,47 @@ class LocationTypesTableViewController: UITableViewController {
         return cell
     }
 
+    
+    @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+
+    @IBAction func saveItinerary(sender: UIBarButtonItem) {
+        
+        let itineraryNameTextField = UITextField()
+        itineraryNameTextField.placeholder = "Untitled Itinerary"
+        
+        let saveItineraryAlert = UIAlertController(title: "Save Itinerary", message: "Please Enter the name of this Itinerary", preferredStyle: .Alert)
+        
+        let cancelItinerarySave = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        let confirmItinerarySave = UIAlertAction(title: "Confirm", style: .Default, handler: {
+            action in
+            let nameTextField = saveItineraryAlert.textFields!.first! as UITextField
+            self.itineraryModel?.changeItineraryName(nameTextField.text!)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            self.itineraryModel?.saveItinerary()
+            }
+        )
+        
+        
+        saveItineraryAlert.addTextFieldWithConfigurationHandler { (itineraryNameTextField) -> Void in
+            itineraryNameTextField.placeholder = "Untitled Itinerary"
+        }
+        saveItineraryAlert.addAction(confirmItinerarySave)
+        saveItineraryAlert.addAction(cancelItinerarySave)
+        
+        if(itineraryModel?.areCreatingNewItineary() == true){
+            presentViewController(saveItineraryAlert, animated: true, completion: nil)
+        }
+        else{
+            self.itineraryModel?.saveItinerary()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
