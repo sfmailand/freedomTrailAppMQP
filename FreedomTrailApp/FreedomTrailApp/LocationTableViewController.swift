@@ -18,13 +18,13 @@ class LocationTableViewController: UITableViewController {
     var itineraryModel: ItinerariesViewModel?
     
     
-    var locationsModel =  FreedomTrailLocationModel()
+    var trailLocationsModel =  FreedomTrailLocationModel()
     
     
     var locations: [FreedomTrailLocation]!
     
     func loadLocations(){
-        locations = locationsModel.getFullTrailLocationsArray()
+        locations = trailLocationsModel.getFullTrailLocationsArray()
     }
 
     override func viewDidLoad() {

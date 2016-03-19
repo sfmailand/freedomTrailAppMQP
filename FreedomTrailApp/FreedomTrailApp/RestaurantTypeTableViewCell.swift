@@ -1,17 +1,18 @@
 //
-//  LocationTypesTableViewCell.swift
+//  RestaurantTypeTableViewCell.swift
 //  FreedomTrailApp
 //
-//  Created by Sam Mailand on 2/29/16.
+//  Created by Sam Mailand on 3/18/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
 import UIKit
 
-class LocationTypesTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var locationTypeLabel: UILabel!
+class RestaurantTypeTableViewCell: UITableViewCell {
     
+    
+    @IBOutlet weak var restaurantTypeLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

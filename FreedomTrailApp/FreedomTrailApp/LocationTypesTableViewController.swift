@@ -28,27 +28,17 @@ class LocationTypesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return locationTypes.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "LocationTypesViewCell"
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! LocationTypesTableViewCell
-        
-        cell.locationTypeLabel.text = locationTypes[indexPath.row]
-        
-        return cell
+        return 4
     }
 
     
@@ -131,8 +121,27 @@ class LocationTypesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let locationTableView = segue.destinationViewController as! LocationTableViewController
-        locationTableView.itineraryModel = itineraryModel
+//        let locationTableView = segue.destinationViewController as! LocationTableViewController
+//        locationTableView.itineraryModel = itineraryModel
+
+        
+        if segue.identifier == "freedomTrailSegue" {
+            let trailLocationsListTableViewController = segue.destinationViewController as! LocationTableViewController
+            trailLocationsListTableViewController.itineraryModel = itineraryModel;
+        }
+        
+        if segue.identifier == "museumsSegue" {
+
+        }
+        
+        if segue.identifier == "restaurantSegue" {
+
+        }
+        
+        if segue.identifier == "publicParkSegue" {
+
+        }
+
     }
 
 }
