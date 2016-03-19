@@ -10,6 +10,8 @@ import UIKit
 
 class RestaurantTypeTableViewController: UITableViewController {
     
+    var itineraryModel: ItinerariesViewModel?
+    
     
     private let restaurantTypes = ["Japanese",
         "American",
@@ -74,9 +76,9 @@ class RestaurantTypeTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
     // Override to support editing the table view.
+    // REQUIRED for iOS8
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -85,7 +87,20 @@ class RestaurantTypeTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
+            let selectedRestaurantType = self.restaurantTypes[indexPath.row]
+            
+            let newLocation = Location(name: selectedRestaurantType + " restaurant (Pending)", photo: nil, gpsLat: 0, gpsLong: 0)
+            self.itineraryModel?.addLocationToItinerary(newLocation)
+            self.tableView.editing = false
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        return [moreRowAction];
+    }
 
     /*
     // Override to support rearranging the table view.

@@ -11,6 +11,8 @@ import UIKit
 class ItineraryStopTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itineraryStopLabel: UILabel!
+    var isTrailLocationFinalized: Bool!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

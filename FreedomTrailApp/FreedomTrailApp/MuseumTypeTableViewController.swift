@@ -9,6 +9,8 @@
 import UIKit
 
 class MuseumTypeTableViewController: UITableViewController {
+    
+    var itineraryModel: ItinerariesViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

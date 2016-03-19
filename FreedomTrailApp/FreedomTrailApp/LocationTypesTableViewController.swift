@@ -131,15 +131,18 @@ class LocationTypesTableViewController: UITableViewController {
         }
         
         if segue.identifier == "museumsSegue" {
-
+            let museumTypeLocationTableViewController = segue.destinationViewController as! MuseumTypeTableViewController
+            museumTypeLocationTableViewController.itineraryModel = itineraryModel;
         }
         
         if segue.identifier == "restaurantSegue" {
-
+            let restaurantTypeTableViewController = segue.destinationViewController as! RestaurantTypeTableViewController
+            restaurantTypeTableViewController.itineraryModel = itineraryModel;
         }
         
         if segue.identifier == "publicParkSegue" {
-
+            let parkTypeTableViewController = segue.destinationViewController as! ParkTypeTableViewController
+            parkTypeTableViewController.itineraryModel = itineraryModel;
         }
 
     }

@@ -13,6 +13,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
     
     var itineraryModel: ItinerariesViewModel?
+    
+    var selectedCellIndex: Int!
 
     
 
@@ -104,6 +106,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         cell.itineraryStopLabel.text = location!.getName()
         
+        cell.isTrailLocationFinalized = location?.isLocationFinalized()
+        
         return cell
     }
     /*
@@ -177,19 +181,45 @@ class ItineraryLocationsTableViewController: UITableViewController {
 
 
     // MARK: - Navigation
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //Table view cells are reused and should be dequeued using a cell identifier
+        
+        selectedCellIndex = indexPath.row
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ItineraryStopTableViewCell
+        
+        let locationIsFinalized = cell.isTrailLocationFinalized!
+
+        if(locationIsFinalized){
+            performSegueWithIdentifier("locationDetailSegue", sender: self)
+        }
+        else{
+            performSegueWithIdentifier("yelpLocationSelectionSegue", sender: self)
+        }
+        
+        
+        
+        
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let locationDetailViewController = segue.destinationViewController as! LocationDetailViewController
+
         
-        if let selectedLocationCell = sender as? ItineraryStopTableViewCell{
-            let indexPath = tableView.indexPathForCell(selectedLocationCell)!
-            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(indexPath.row)
-            print (selectedLocation?.getName())
+        if(segue.identifier == "locationDetailSegue"){
+            let locationDetailViewController = segue.destinationViewController as! LocationDetailViewController
+            
+            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(selectedCellIndex)
             locationDetailViewController.location = selectedLocation
         }
+        
+        if(segue.identifier == "yelpLocationSelectionSegue"){
+            
+        }
+        
+        
 
     }
 

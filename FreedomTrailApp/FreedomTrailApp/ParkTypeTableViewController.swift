@@ -9,6 +9,8 @@
 import UIKit
 
 class ParkTypeTableViewController: UITableViewController {
+    
+    var itineraryModel: ItinerariesViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

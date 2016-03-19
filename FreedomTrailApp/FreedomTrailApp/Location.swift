@@ -67,4 +67,9 @@ public class Location: NSObject, NSCoding{
         self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
     }
     
+    
+    public func isLocationFinalized() -> Bool{
+        return gpsLong != 0 && gpsLat != 0
+    }
+    
 }
