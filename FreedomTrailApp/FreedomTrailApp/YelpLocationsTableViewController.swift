@@ -1,35 +1,16 @@
 //
-//  RestaurantTypeTableViewController.swift
+//  YelpLocationsTableViewController.swift
 //  FreedomTrailApp
 //
-//  Created by Sam Mailand on 3/18/16.
+//  Created by Sam Mailand on 3/20/16.
 //  Copyright © 2016 Sam Mailand. All rights reserved.
 //
 
 import UIKit
 
-class RestaurantTypeTableViewController: UITableViewController {
+class YelpLocationsTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?
-    
-    
-    private let restaurantTypes = ["Japanese",
-        "American",
-        "Chinese",
-        "Indian",
-        "Pizza",
-        "Mediterranean",
-        "Mexican",
-        "Middle Eastern",
-        "Modern European",
-        "French",
-        "Thai",
-        "Steakhouse",
-        "Tapas Bars",
-        "Latin",
-        "Seafood",
-        "Italian",
-        "Greek"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,25 +30,24 @@ class RestaurantTypeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurantTypes.count
+        return 0
     }
-    
+
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        //Table view cells are reused and should be dequeued using a cell identifier
-        let cellIdentifier = "RestaurantTypeTableViewCell"
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RestaurantTypeTableViewCell
-        
-        cell.restaurantTypeLabel.text = restaurantTypes[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,9 +56,9 @@ class RestaurantTypeTableViewController: UITableViewController {
         return true
     }
     */
-    
+
+    /*
     // Override to support editing the table view.
-    // REQUIRED for iOS8
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -87,20 +67,7 @@ class RestaurantTypeTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        
-        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
-            let selectedRestaurantType = self.restaurantTypes[indexPath.row]
-            
-            let newLocation = YelpLocation(name: selectedRestaurantType + " restaurant (Pending)", photo: nil, gpsLat: 0, gpsLong: 0)
-            self.itineraryModel?.addLocationToItinerary(newLocation)
-            self.tableView.editing = false
-        });
-        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
-        
-        return [moreRowAction];
-    }
+    */
 
     /*
     // Override to support rearranging the table view.
