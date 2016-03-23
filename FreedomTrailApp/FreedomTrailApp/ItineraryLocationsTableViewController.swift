@@ -188,9 +188,9 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         selectedCellIndex = indexPath.row
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ItineraryStopTableViewCell
+        let itineraryStopCell = tableView.cellForRowAtIndexPath(indexPath) as! ItineraryStopTableViewCell
         
-        let locationIsFinalized = cell.isTrailLocationFinalized!
+        let locationIsFinalized = itineraryStopCell.isTrailLocationFinalized!
 
         if(locationIsFinalized){
             performSegueWithIdentifier("locationDetailSegue", sender: self)
@@ -216,11 +216,14 @@ class ItineraryLocationsTableViewController: UITableViewController {
         }
         
         if(segue.identifier == "yelpLocationSelectionSegue"){
-            //let yelpLocationTableViewController = segue.destinationViewController as! YelpLocationsTableViewController
+            let yelpLocationTableViewController = segue.destinationViewController as! YelpLocationsTableViewController
             
-            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(selectedCellIndex)
+            let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(selectedCellIndex) as! YelpLocation
             
-            selectedLocation!.yelpRequest()
+            
+            
+            yelpLocationTableViewController.yelpLocations = selectedLocation.yelpRequest()
+            
             //yelpLocationTableViewController.location = selectedLocation
             
             

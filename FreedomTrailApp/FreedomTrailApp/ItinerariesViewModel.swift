@@ -71,7 +71,6 @@ public class ItinerariesViewModel{
     }
     
     func addLocationToItinerary(location: Location){
-        print("HERE")
         if(isCreatingNewItinerary == true){
             tempItinerary.addLocation(location)
         }

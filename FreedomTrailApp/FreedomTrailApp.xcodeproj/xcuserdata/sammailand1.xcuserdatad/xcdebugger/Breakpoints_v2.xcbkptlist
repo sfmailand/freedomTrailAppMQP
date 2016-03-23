@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FreedomTrailApp/segmentedViewController.swift"
-            timestampString = "477599196.188263"
+            timestampString = "480463689.657749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "segmentedViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -74,7 +74,7 @@
                   moduleName = "FreedomTrailApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/LocationTableViewCell.swift"
-                  timestampString = "480187674.411554"
+                  timestampString = "480465532.663815"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -89,7 +89,7 @@
                   moduleName = "FreedomTrailApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/LocationTableViewCell.swift"
-                  timestampString = "480187674.411768"
+                  timestampString = "480465532.664053"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -97,6 +97,22 @@
                   offsetFromSymbolStart = "58">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FreedomTrailApp/YelpLocation.swift"
+            timestampString = "480368637.596146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "saveYelpData(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

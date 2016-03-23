@@ -93,7 +93,17 @@ class RestaurantTypeTableViewController: UITableViewController {
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
             let selectedRestaurantType = self.restaurantTypes[indexPath.row]
             
-            let newLocation = YelpLocation(name: selectedRestaurantType + " restaurant (Pending)", photo: nil, gpsLat: 0, gpsLong: 0)
+            
+            let newLocation = YelpLocation(
+                name: selectedRestaurantType + " restaurant",
+                photoURL: "",
+                ratingURL: "",
+                yelpURL: "",
+                yelpID: "",
+                gpsLat: 0,
+                gpsLong: 0,
+                address: "")
+            
             self.itineraryModel?.addLocationToItinerary(newLocation)
             self.tableView.editing = false
         });

@@ -11,15 +11,26 @@ import UIKit
 class YelpLocationsTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?
+    
+    var yelpLocations: [YelpLocation]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView:", name: yelpLocationLoadedNotificationKey, object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func updateView(notification: NSNotification){
+        let userInfo:Dictionary<String, [YelpLocation]!> = notification.userInfo as! Dictionary<String, [YelpLocation]!>
+        self.yelpLocations = userInfo["location"]
+        self.tableView.reloadData()
+        print("HERE")
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,26 +39,29 @@ class YelpLocationsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return yelpLocations.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        
+        //Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "yelpLocationResultCell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! YelpLocationTableViewCell
+        
+        let location = yelpLocations[indexPath.row]
+        
+        cell.yelpLocationName.text = location.getName()
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

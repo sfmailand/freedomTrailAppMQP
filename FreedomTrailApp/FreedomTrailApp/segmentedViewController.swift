@@ -13,6 +13,8 @@ let itinerariesListNotificationKey = "itinerariesListUpdatedNotificationKey"
 
 let singleItineraryUpdatedNotificationKey = "singleItineraryUpdated"
 
+let yelpLocationLoadedNotificationKey = "yelplocationLoaded"
+
 class segmentedViewController: UIViewController {
 
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!
