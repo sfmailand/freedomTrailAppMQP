@@ -20,6 +20,7 @@
 		F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */; };
 		F75B8ACE1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B8ACD1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift */; };
 		F764BFDF1C7234620013F473 /* ItineraryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764BFDE1C7234620013F473 /* ItineraryTabViewController.swift */; };
+		F790F61F1CA4722100BBC38A /* yelpRestaurantFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */; };
 		F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C31C5C4C0E00843632 /* AppDelegate.swift */; };
 		F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CA1C5C4C0E00843632 /* Assets.xcassets */; };
 		F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */; };
@@ -110,6 +111,7 @@
 		F75B8ACD1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantTableViewCell.swift; path = ../RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		F764BFDE1C7234620013F473 /* ItineraryTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryTabViewController.swift; sourceTree = "<group>"; };
 		F77750C41CA0903C00F958C8 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "../../OAuthSwift-master/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
+		F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yelpRestaurantFilters.swift; sourceTree = "<group>"; };
 		F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795E2C31C5C4C0E00843632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F795E2CA1C5C4C0E00843632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				F795E2D91C5C535900843632 /* FreedomTrailLocation.swift */,
 				F7C260081C7B530A006D8723 /* Location.swift */,
 				F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */,
+				F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
 				F795E2CF1C5C4C0E00843632 /* Info.plist */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */,
+				F790F61F1CA4722100BBC38A /* yelpRestaurantFilters.swift in Sources */,
 				F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */,
 				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
 				F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */,

@@ -216,13 +216,12 @@ class ItineraryLocationsTableViewController: UITableViewController {
         }
         
         if(segue.identifier == "yelpLocationSelectionSegue"){
-            let yelpLocationTableViewController = segue.destinationViewController as! YelpLocationsTableViewController
             
             let selectedLocation = itineraryModel?.getCurrentItinerary().getLocationAtIndex(selectedCellIndex) as! YelpLocation
             
             
             
-            yelpLocationTableViewController.yelpLocations = selectedLocation.yelpRequest()
+            selectedLocation.yelpRequest()
             
             //yelpLocationTableViewController.location = selectedLocation
             

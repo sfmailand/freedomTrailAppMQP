@@ -95,7 +95,7 @@ class RestaurantTypeTableViewController: UITableViewController {
             
             
             let newLocation = YelpLocation(
-                name: selectedRestaurantType + " restaurant",
+                name: selectedRestaurantType,
                 photoURL: "",
                 ratingURL: "",
                 yelpURL: "",

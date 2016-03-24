@@ -12,7 +12,7 @@ class YelpLocationsTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?
     
-    var yelpLocations: [YelpLocation]!
+    var yelpLocations: [YelpLocation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class YelpLocationsTableViewController: UITableViewController {
     
     func updateView(notification: NSNotification){
         let userInfo:Dictionary<String, [YelpLocation]!> = notification.userInfo as! Dictionary<String, [YelpLocation]!>
-        self.yelpLocations = userInfo["location"]
+        self.yelpLocations = userInfo["location"]!
         self.tableView.reloadData()
         print("HERE")
     }

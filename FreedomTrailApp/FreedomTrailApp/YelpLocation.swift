@@ -68,9 +68,10 @@ public class YelpLocation: Location {
     }
     
     
-    public func yelpRequest() -> [YelpLocation]{
+    public func yelpRequest(){
         
         print("Starting request")
+        print(getName())
         
         let oauthswift  = OAuth1Swift(
             consumerKey: "-KjeymOM8cXvmxhHxr2iJQ",
@@ -85,7 +86,9 @@ public class YelpLocation: Location {
         oauthswift.client.credential.oauth_token =  "cyYjL0ugC5-mgrp7jnQ8_QYzjTgXJGVZ"
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
-        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter=thai&ll=42.271758,-71.813496",
+        print("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+getName()!.lowercaseString+"&ll=42.271758,-71.813496")
+        
+        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+getName()!.lowercaseString+"&ll=42.271758,-71.813496",
             success: {
                 data, response in
                 return self.saveYelpData(data)
@@ -94,16 +97,22 @@ public class YelpLocation: Location {
                 print(error)
             }
         )
-        return []
     }
     
-    private func saveYelpData(data: NSData) -> [YelpLocation]{
+    private func saveYelpData(data: NSData){
         do{
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
             
             var yelpLocations: [YelpLocation] = []
             
-            for index in 0...9{
+            var numResults = json["total"] as! Int
+            print(numResults)
+            
+            if(numResults > 10){
+                numResults = 10
+            }
+            
+            for index in 0...numResults-1{
                 print("________________________")
                 print("Name: " + (json["businesses"]!![index]["name"] as! String))
                 print("rURL: " + (json["businesses"]!![index]["rating_img_url"] as! String))
@@ -131,11 +140,14 @@ public class YelpLocation: Location {
             }
             
             NSNotificationCenter.defaultCenter().postNotificationName(yelpLocationLoadedNotificationKey, object: self, userInfo: ["location": yelpLocations])
-            return yelpLocations
         }catch{
             print("error serializing JSON: \(error)")
-            return []
         }
+    }
+    
+    
+    private func getYelpLocationTypeString() -> String{
+        return ""
     }
     
     
