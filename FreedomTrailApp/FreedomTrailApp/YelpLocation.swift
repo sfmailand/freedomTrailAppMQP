@@ -29,6 +29,8 @@ public class YelpLocation: Location {
     var yelpID: String!
     var address: String!
     
+    private var yelpFilters = YelpFilters()
+    
     
     init(name: String, photoURL: String, ratingURL: String, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String){
         
@@ -86,9 +88,9 @@ public class YelpLocation: Location {
         oauthswift.client.credential.oauth_token =  "cyYjL0ugC5-mgrp7jnQ8_QYzjTgXJGVZ"
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
-        print("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+getName()!.lowercaseString+"&ll=42.271758,-71.813496")
+        print("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll=42.271758,-71.813496")
         
-        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+getName()!.lowercaseString+"&ll=42.271758,-71.813496",
+        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll=42.271758,-71.813496",
             success: {
                 data, response in
                 return self.saveYelpData(data)

@@ -12,27 +12,15 @@ class RestaurantTypeTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?
     
+    var locationFilters = YelpFilters()
     
-    private let restaurantTypes = ["Japanese",
-        "American",
-        "Chinese",
-        "Indian",
-        "Pizza",
-        "Mediterranean",
-        "Mexican",
-        "Middle Eastern",
-        "Modern European",
-        "French",
-        "Thai",
-        "Steakhouse",
-        "Tapas Bars",
-        "Latin",
-        "Seafood",
-        "Italian",
-        "Greek"]
+    private var restaurantTypes: [String]!
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        restaurantTypes = locationFilters.getRestaurantTypes()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

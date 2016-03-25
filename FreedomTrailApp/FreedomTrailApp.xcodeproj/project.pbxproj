@@ -20,7 +20,6 @@
 		F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */; };
 		F75B8ACE1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B8ACD1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift */; };
 		F764BFDF1C7234620013F473 /* ItineraryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764BFDE1C7234620013F473 /* ItineraryTabViewController.swift */; };
-		F790F61F1CA4722100BBC38A /* yelpRestaurantFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */; };
 		F795E2C41C5C4C0E00843632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795E2C31C5C4C0E00843632 /* AppDelegate.swift */; };
 		F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CA1C5C4C0E00843632 /* Assets.xcassets */; };
 		F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */; };
@@ -31,6 +30,7 @@
 		F7A6824B1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */; };
 		F7C260091C7B530A006D8723 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C260081C7B530A006D8723 /* Location.swift */; };
 		F7C2600B1C7B610C006D8723 /* FreedomTrailLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C2600A1C7B610C006D8723 /* FreedomTrailLocationModel.swift */; };
+		F7C67F531CA5A34C000DF61E /* YelpFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C67F521CA5A34C000DF61E /* YelpFilters.swift */; };
 		F7D19BD51C9C66110045EC7D /* RestaurantTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BD41C9C66110045EC7D /* RestaurantTypeTableViewController.swift */; };
 		F7D19BD71C9C66310045EC7D /* MuseumTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */; };
 		F7D19BDB1C9C665C0045EC7D /* ParkTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BDA1C9C665C0045EC7D /* ParkTypeTableViewController.swift */; };
@@ -111,7 +111,6 @@
 		F75B8ACD1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantTableViewCell.swift; path = ../RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		F764BFDE1C7234620013F473 /* ItineraryTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryTabViewController.swift; sourceTree = "<group>"; };
 		F77750C41CA0903C00F958C8 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "../../OAuthSwift-master/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
-		F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yelpRestaurantFilters.swift; sourceTree = "<group>"; };
 		F795E2C01C5C4C0E00843632 /* FreedomTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795E2C31C5C4C0E00843632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F795E2CA1C5C4C0E00843632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		F7A6824A1C6D1DCA000D1C45 /* ItineraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryTableViewCell.swift; sourceTree = "<group>"; };
 		F7C260081C7B530A006D8723 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F7C2600A1C7B610C006D8723 /* FreedomTrailLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreedomTrailLocationModel.swift; sourceTree = "<group>"; };
+		F7C67F521CA5A34C000DF61E /* YelpFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YelpFilters.swift; path = ../YelpFilters.swift; sourceTree = "<group>"; };
 		F7D19BD41C9C66110045EC7D /* RestaurantTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BDA1C9C665C0045EC7D /* ParkTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTypeTableViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				F795E2D91C5C535900843632 /* FreedomTrailLocation.swift */,
 				F7C260081C7B530A006D8723 /* Location.swift */,
 				F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */,
-				F790F61E1CA4722100BBC38A /* yelpRestaurantFilters.swift */,
+				F7C67F521CA5A34C000DF61E /* YelpFilters.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
 				F795E2CF1C5C4C0E00843632 /* Info.plist */,
@@ -364,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */,
-				F790F61F1CA4722100BBC38A /* yelpRestaurantFilters.swift in Sources */,
 				F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */,
 				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
 				F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */,
@@ -378,6 +377,7 @@
 				F7D19BD71C9C66310045EC7D /* MuseumTypeTableViewController.swift in Sources */,
 				F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */,
 				F7C260091C7B530A006D8723 /* Location.swift in Sources */,
+				F7C67F531CA5A34C000DF61E /* YelpFilters.swift in Sources */,
 				A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */,
 				A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */,
 				A219256C1C6C3F1A00C9E937 /* ItineraryLocationsTableViewController.swift in Sources */,
