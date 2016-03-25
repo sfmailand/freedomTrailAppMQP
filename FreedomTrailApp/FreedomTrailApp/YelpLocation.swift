@@ -28,17 +28,19 @@ public class YelpLocation: Location {
     var yelpURL: String!
     var yelpID: String!
     var address: String!
+    var isClosed: Bool!
     
     private var yelpFilters = YelpFilters()
     
     
-    init(name: String, photoURL: String, ratingURL: String, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String){
+    init(name: String, photoURL: String, ratingURL: String, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool){
         
         self.photoURL = photoURL
         self.ratingURL = ratingURL
         self.yelpURL = yelpURL
         self.yelpID = yelpID
         self.address = address
+        self.isClosed = isClosed
         
         
         super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong)
@@ -66,7 +68,7 @@ public class YelpLocation: Location {
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
         let address = aDecoder.decodeObjectForKey(PropertyKey.addressKey) as! String
-        self.init(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address)
+        self.init(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false)
     }
     
     
@@ -115,16 +117,16 @@ public class YelpLocation: Location {
             }
             
             for index in 0...numResults-1{
-                print("________________________")
-                print("Name: " + (json["businesses"]!![index]["name"] as! String))
-                print("rURL: " + (json["businesses"]!![index]["rating_img_url"] as! String))
-                //print("iURL: " + (json["businesses"]!![index]["image_url"] as! String))
-                print("URL: " + (json["businesses"]!![index]["url"] as! String))
-                print("ID: " + (json["businesses"]!![index]["id"] as! String))
-                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double))
-                
-                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double))
-                print("Address: " + (json["businesses"]!![index]["location"]!!["display_address"]!![0] as! String) + " " + (json["businesses"]!![index]["location"]!!["display_address"]!![1] as! String))
+//                print("________________________")
+//                print("Name: " + (json["businesses"]!![index]["name"] as! String))
+//                print("rURL: " + (json["businesses"]!![index]["rating_img_url"] as! String))
+//                //print("iURL: " + (json["businesses"]!![index]["image_url"] as! String))
+//                print("URL: " + (json["businesses"]!![index]["url"] as! String))
+//                print("ID: " + (json["businesses"]!![index]["id"] as! String))
+//                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double))
+//                
+//                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double))
+//                print("Address: " + (json["businesses"]!![index]["location"]!!["display_address"]!![0] as! String) + " " + (json["businesses"]!![index]["location"]!!["display_address"]!![1] as! String))
                 
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let ratingURL = "rURL: " + (json["businesses"]!![index]["rating_img_url"] as! String)
@@ -132,11 +134,11 @@ public class YelpLocation: Location {
                 let yelpURL = "URL: " + (json["businesses"]!![index]["url"] as! String)
                 let yelpID = "ID: " + (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
-                
                 let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)
                 let address = "Address: " + (json["businesses"]!![index]["location"]!!["display_address"]!![0] as! String) + " " + (json["businesses"]!![index]["location"]!!["display_address"]!![1] as! String)
                 
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address)
+                let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
                 
                 yelpLocations.append(tmpYelpLocation)
             }
