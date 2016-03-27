@@ -15,7 +15,7 @@ public class Itinerary: NSObject, NSCoding {
     private var name: String
     private var itineraryDescription: String
     
-    private var trailLocationsArray = [String: Location]()
+    private var trailLocationsArray = [Location]()
     
     
     
@@ -35,7 +35,7 @@ public class Itinerary: NSObject, NSCoding {
     }
     //Initialization
     
-    init?(name: String, itineraryDescription: String, locations: [String: Location]){
+    init?(name: String, itineraryDescription: String, locations: [Location]){
         
         self.name = name
         self.itineraryDescription = itineraryDescription
@@ -67,13 +67,13 @@ public class Itinerary: NSObject, NSCoding {
     
     func addLocation(trailLocation: Location){
         print(trailLocation.getName())
-        self.trailLocationsArray[trailLocation.getName()!] = trailLocation
+        self.trailLocationsArray.append(trailLocation)
         print("Adding Location")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
     
-    func setItineraryLocations(trailLocations: [String: Location]){
+    func setItineraryLocations(trailLocations: [Location]){
         self.trailLocationsArray = trailLocations
     }
     
@@ -105,24 +105,23 @@ public class Itinerary: NSObject, NSCoding {
     required convenience public init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [String: Location]
+        let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [Location]
         
         self.init(name: name, itineraryDescription: description, locations: locations)
     }
     
     
-    func getLocations() -> [String: Location]{
+    func getLocations() -> [Location]{
         return trailLocationsArray
     }
     
     
     func getLocationAtIndex(index: Int) -> Location{
-        return Array(trailLocationsArray.values)[index]
+        return trailLocationsArray[index]
     }
     
     func deleteLocation(index: Int){
-        let locationName = Array(trailLocationsArray.values)[index].getName()
-        trailLocationsArray.removeValueForKey(locationName!)
+        trailLocationsArray.removeAtIndex(index)
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
 

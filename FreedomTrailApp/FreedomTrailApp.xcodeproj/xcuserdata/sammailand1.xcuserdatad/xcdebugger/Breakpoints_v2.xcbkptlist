@@ -54,54 +54,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FreedomTrailApp/LocationTableViewCell.swift"
-            timestampString = "480089999.999406"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "LocationTableViewCell"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FreedomTrailApp.LocationTableViewCell.__deallocating_deinit"
-                  moduleName = "FreedomTrailApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/LocationTableViewCell.swift"
-                  timestampString = "480630118.027757"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FreedomTrailApp.LocationTableViewCell.init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; FreedomTrailApp.LocationTableViewCell"
-                  moduleName = "FreedomTrailApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sammailand1/Documents/Development/MQP/application/FreedomTrailApp/FreedomTrailApp/LocationTableViewCell.swift"
-                  timestampString = "480630118.027978"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "70">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
