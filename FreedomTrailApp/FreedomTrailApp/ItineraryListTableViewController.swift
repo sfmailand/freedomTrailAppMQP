@@ -10,7 +10,7 @@ import UIKit
 
 class ItineraryListTableViewController: UITableViewController {
     
-    var itineraries: ItinerariesViewModel?
+    var itineraryModel: ItinerariesViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class ItineraryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itineraries!.getCount()
+        return itineraryModel!.getCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,7 +53,7 @@ class ItineraryListTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryTableViewCell
         
-        let location = itineraries!.getItineraryArray()[indexPath.row]
+        let location = itineraryModel!.getItineraryArray()[indexPath.row]
         
         cell.itineraryNameLabel.text = location.getName()
         
@@ -112,7 +112,7 @@ class ItineraryListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
-            self.itineraries!.deleteItinerary(indexPath.row)
+            self.itineraryModel!.deleteItinerary(indexPath.row)
             self.tableView.editing = false
         });
         moreRowAction.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0);
@@ -132,9 +132,9 @@ class ItineraryListTableViewController: UITableViewController {
         
         if let selectedItineraryCell = sender as? ItineraryTableViewCell{
             let indexPath = tableView.indexPathForCell(selectedItineraryCell)!
-            itineraryBuilderTabBarController.itinerariesModel = itineraries;
+            itineraryBuilderTabBarController.itinerariesModel = itineraryModel;
             itineraryBuilderTabBarController.isNewItinerary = false
-            itineraries?.setCurrentItinerary((itineraries?.getItineraryArray()[indexPath.row].getName())!)
+            itineraryModel?.setCurrentItinerary(indexPath.row)
         }
     }
 

@@ -22,7 +22,7 @@ class segmentedViewController: UIViewController {
     @IBOutlet weak var popularItinerariesViewContainer: UIView!
     
     
-    var itineraries = ItinerariesViewModel()
+    var itineraryModel = ItinerariesViewModel()
 
     
     
@@ -46,7 +46,7 @@ class segmentedViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: itinerariesListNotificationKey, object: nil)
         
         
-        itineraryListEmbeddedViewController.itineraries = self.itineraries
+        itineraryListEmbeddedViewController.itineraryModel = self.itineraryModel
         
         // Do any additional setup after loading the view.
     }
@@ -65,8 +65,8 @@ class segmentedViewController: UIViewController {
     //MARK: - Delegates
     
     func saveItinerary(itinerary: Itinerary){
-        itineraries!.saveItinerary()
-        itineraryListEmbeddedViewController.itineraries = itineraries
+        itineraryModel!.saveItinerary()
+        itineraryListEmbeddedViewController.itineraryModel = itineraryModel
         itineraryListEmbeddedViewController.tableView.reloadData()
     }
     
@@ -93,7 +93,7 @@ class segmentedViewController: UIViewController {
         
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryTabBarController = segue.destinationViewController as! ItineraryTabViewController
-            itineraryTabBarController.itinerariesModel = itineraries;
+            itineraryTabBarController.itinerariesModel = itineraryModel;
             itineraryTabBarController.isNewItinerary = true
         }
         

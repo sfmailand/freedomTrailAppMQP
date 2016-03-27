@@ -13,12 +13,12 @@ public class ItinerariesViewModel{
     //Properties
     //private var itineraries = [Itinerary]()
     
-    private var itineraries = [String: Itinerary]()
+    private var itineraries = [Itinerary]()
     
     
     private var tempItinerary: Itinerary!
     
-    private var selectedItineraryName: String!
+    private var selectedItineraryIndex: Int!
     
     private var isCreatingNewItinerary: Bool!
 
@@ -41,7 +41,7 @@ public class ItinerariesViewModel{
     
     func saveItinerary(){
         if(isCreatingNewItinerary == true){
-            self.itineraries[tempItinerary.getName()] = tempItinerary
+            self.itineraries.append(tempItinerary)
             print("Appending Itinerary")
             notifyOfItineraryChange()
             storeItineraries()
@@ -75,7 +75,7 @@ public class ItinerariesViewModel{
             tempItinerary.addLocation(location)
         }
         else{
-            itineraries[selectedItineraryName]!.addLocation(location)
+            itineraries[selectedItineraryIndex].addLocation(location)
         }
     }
     
@@ -86,8 +86,8 @@ public class ItinerariesViewModel{
     }
     
     
-    func setCurrentItinerary(name: String){
-        selectedItineraryName = name
+    func setCurrentItinerary(index: Int){
+        selectedItineraryIndex = index
     }
     
     
@@ -96,18 +96,13 @@ public class ItinerariesViewModel{
             return tempItinerary
         }
         else{
-            return itineraries[selectedItineraryName]!
+            return itineraries[selectedItineraryIndex]
         }
     }
     
     
-    func getItineraryWithName(name: String) -> Itinerary?{
-        if((itineraries[name]) != nil){
-            return itineraries[name]!
-        }
-        else{
-            return nil
-        }
+    public func getItineraryArray() -> [Itinerary]{
+        return self.itineraries
     }
 
     
@@ -117,13 +112,13 @@ public class ItinerariesViewModel{
     
     
     func getItineraryNameAtIndex(index: Int) -> String{
-        return getItineraryArray()[index].getName()
+        return itineraries[index].getName()
     }
     
     
     func deleteItinerary(index: Int){
-        print("DELETING: " + getItineraryArray()[index].getName())
-        itineraries.removeValueForKey(getItineraryNameAtIndex(index))
+        print("DELETING: " + itineraries[index].getName())
+        itineraries.removeAtIndex(index)
         notifyOfItineraryChange()
         saveItinerary()
     }
@@ -141,15 +136,11 @@ public class ItinerariesViewModel{
     }
     
     
-    func loadItineraries() -> [String: Itinerary]?{
+    func loadItineraries() -> [Itinerary]?{
         print("Loading Itineratires")
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [String: Itinerary]
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [Itinerary]
     }
     
-    
-    func getItineraryArray() -> [Itinerary]{
-        return Array(itineraries.values)
-    }
     
     func notifyOfItineraryChange(){
         NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
