@@ -35,6 +35,8 @@
 		F7D19BD71C9C66310045EC7D /* MuseumTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */; };
 		F7D19BDB1C9C665C0045EC7D /* ParkTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BDA1C9C665C0045EC7D /* ParkTypeTableViewController.swift */; };
 		F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BDC1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift */; };
+		F7D514D91CAA2DD500C1D01A /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; };
+		F7D514DA1CAA2DD500C1D01A /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +96,28 @@
 			remoteGlobalIDString = F43502791A6791B200038A29;
 			remoteInfo = OAuthSwift;
 		};
+		F7D514DB1CAA2DD500C1D01A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F77750C41CA0903C00F958C8 /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7D514DD1CAA2DD600C1D01A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F7D514DA1CAA2DD500C1D01A /* OAuthSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A21925671C6C308B00C9E937 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
@@ -135,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D514D91CAA2DD500C1D01A /* OAuthSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,11 +266,13 @@
 				F795E2BC1C5C4C0E00843632 /* Sources */,
 				F795E2BD1C5C4C0E00843632 /* Frameworks */,
 				F795E2BE1C5C4C0E00843632 /* Resources */,
+				F7D514DD1CAA2DD600C1D01A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F77750DD1CA0906500F958C8 /* PBXTargetDependency */,
+				F7D514DC1CAA2DD500C1D01A /* PBXTargetDependency */,
 			);
 			name = FreedomTrailApp;
 			productName = FreedomTrailApp;
@@ -399,6 +425,11 @@
 			name = OAuthSwift;
 			targetProxy = F77750DC1CA0906500F958C8 /* PBXContainerItemProxy */;
 		};
+		F7D514DC1CAA2DD500C1D01A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = F7D514DB1CAA2DD500C1D01A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -507,7 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -523,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FreedomTrailApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
