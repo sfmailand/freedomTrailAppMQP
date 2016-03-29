@@ -77,6 +77,10 @@ public class Itinerary: NSObject, NSCoding {
         self.trailLocationsArray = trailLocations
     }
     
+    func setLocationAtIndex(index: Int, location: Location){
+        trailLocationsArray[index] = location
+    }
+    
     
     
     

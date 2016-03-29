@@ -30,7 +30,6 @@ class YelpLocationsTableViewController: UITableViewController {
         let userInfo:Dictionary<String, [YelpLocation]!> = notification.userInfo as! Dictionary<String, [YelpLocation]!>
         self.yelpLocations = userInfo["location"]!
         self.tableView.reloadData()
-        print("HERE")
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,6 +96,15 @@ class YelpLocationsTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let yelpURLString = yelpLocations[indexPath.row].yelpURL
+        
+        print(yelpURLString)
+        
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+    }
 
     /*
     // MARK: - Navigation

@@ -19,6 +19,7 @@ public class ItinerariesViewModel{
     private var tempItinerary: Itinerary!
     
     private var selectedItineraryIndex: Int!
+    private var selectedLocationIndexAtSelectedItinerary: Int!
     
     private var isCreatingNewItinerary: Bool!
 
@@ -100,6 +101,37 @@ public class ItinerariesViewModel{
         }
     }
     
+    func setSelectedLocationIndex(index: Int){
+        print("Setting location")
+        print(itineraries[selectedItineraryIndex].getLocationAtIndex(index))
+        selectedLocationIndexAtSelectedItinerary = index
+    }
+    
+    public func getCurrentLocation() -> Location{
+        if(isCreatingNewItinerary == true){
+            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
+        }
+        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
+    }
+    
+    public func getPreviousLocation() -> Location{
+        if(isCreatingNewItinerary == true){
+            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
+        }
+        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
+    }
+    
+    public func getNextLocation() -> Location{
+        if(isCreatingNewItinerary == true){
+            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
+        }
+        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
+    }
+    
+    public func getAllLocationsInItinerary() -> [Location]{
+        return itineraries[selectedItineraryIndex].getLocations()
+    }
+    
     
     public func getItineraryArray() -> [Itinerary]{
         return self.itineraries
@@ -121,6 +153,10 @@ public class ItinerariesViewModel{
         itineraries.removeAtIndex(index)
         notifyOfItineraryChange()
         saveItinerary()
+    }
+    
+    func finalizeYelpLocation(location: YelpLocation){
+        itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
     }
     
     
