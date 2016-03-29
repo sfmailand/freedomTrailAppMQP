@@ -72,7 +72,7 @@ public class YelpLocation: Location {
     }
     
     
-    public func yelpRequest(){
+    public func yelpRequest(previousLocation: Location){
         
         print("Starting request")
         print(getName())
@@ -90,9 +90,15 @@ public class YelpLocation: Location {
         oauthswift.client.credential.oauth_token =  "cyYjL0ugC5-mgrp7jnQ8_QYzjTgXJGVZ"
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
-        print("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll=42.271758,-71.813496")
         
-        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll=42.271758,-71.813496",
+        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
+        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
+        yelpRequestURL += "&&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","
+        yelpRequestURL += String(format:"%f", previousLocation.getGpsLong())
+        
+        print(yelpRequestURL)
+        
+        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","+String(format:"%f", previousLocation.getGpsLong()),
             success: {
                 data, response in
                 return self.saveYelpData(data)
