@@ -15,6 +15,8 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var directionsIcon: UIImageView!
     @IBOutlet weak var addToItineraryButton: UIButton!
+    @IBOutlet weak var locationSummary: UITextView!
+    @IBOutlet weak var locationDetails: UITextView!
 
     var location: Location!
 
@@ -22,6 +24,7 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         location = itineraryModel.getCurrentLocation()
         

@@ -144,12 +144,6 @@
                                     <constraint firstAttribute="height" constant="38" id="ms9-Qv-0Qs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-SO-3ZF">
-                                <rect key="frame" x="20" y="180" width="560" height="38"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="leftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="lri-bj-0Fg">
                                 <rect key="frame" x="20" y="226" width="60" height="60"/>
                                 <constraints>
@@ -196,6 +190,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-SO-3ZF">
+                                <rect key="frame" x="20" y="180" width="560" height="38"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -229,8 +229,10 @@
                     </view>
                     <connections>
                         <outlet property="directionsIcon" destination="Hh0-qm-4Mp" id="MNq-af-LLq"/>
+                        <outlet property="locationDetails" destination="X1b-SE-aHU" id="dkD-fx-lML"/>
                         <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
                         <outlet property="locationPhoto" destination="2PV-H6-Mxq" id="p2S-Mb-Ev8"/>
+                        <outlet property="locationSummary" destination="4OO-rz-fMX" id="fMR-zZ-XRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eli-wM-tOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
