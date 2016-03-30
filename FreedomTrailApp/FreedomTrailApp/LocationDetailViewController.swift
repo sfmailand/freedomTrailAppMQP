@@ -34,7 +34,7 @@ class LocationDetailViewController: UIViewController {
             locationPhoto.image = location!.getPhoto()
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("directionsIconTapped:"))
         directionsIcon.userInteractionEnabled = true
         directionsIcon.addGestureRecognizer(tapGestureRecognizer)
         
@@ -48,7 +48,7 @@ class LocationDetailViewController: UIViewController {
     
     //MARK: Actions:
     
-    func imageTapped(img: AnyObject)
+    func directionsIconTapped(img: AnyObject)
     {
         print("Directions Tapped")
         
