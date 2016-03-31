@@ -59,6 +59,11 @@ public class Itinerary: NSObject, NSCoding {
         }
     }
     
+    func getNumberOfLocations() -> Int{
+        
+        return trailLocationsArray.count
+    }
+    
     func updateName(name: String){
         if !name.isEmpty{
             self.name = name
@@ -66,9 +71,7 @@ public class Itinerary: NSObject, NSCoding {
     }
     
     func addLocation(trailLocation: Location){
-        print(trailLocation.getName())
         self.trailLocationsArray.append(trailLocation)
-        print("Adding Location")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
@@ -82,6 +85,20 @@ public class Itinerary: NSObject, NSCoding {
     }
     
     
+    
+    func getLocations() -> [Location]{
+        return trailLocationsArray
+    }
+    
+    
+    func getLocationAtIndex(index: Int) -> Location{
+        return trailLocationsArray[index]
+    }
+    
+    func deleteLocation(index: Int){
+        trailLocationsArray.removeAtIndex(index)
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
+    }
     
     
     func getName() -> String{
@@ -113,21 +130,7 @@ public class Itinerary: NSObject, NSCoding {
         
         self.init(name: name, itineraryDescription: description, locations: locations)
     }
-    
-    
-    func getLocations() -> [Location]{
-        return trailLocationsArray
-    }
-    
-    
-    func getLocationAtIndex(index: Int) -> Location{
-        return trailLocationsArray[index]
-    }
-    
-    func deleteLocation(index: Int){
-        trailLocationsArray.removeAtIndex(index)
-        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
-    }
+
 
 
     

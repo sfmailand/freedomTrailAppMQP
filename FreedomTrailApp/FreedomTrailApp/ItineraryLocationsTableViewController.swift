@@ -22,12 +22,10 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         //Add observer for when a singlular itinerary is updated
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: singleItineraryUpdatedNotificationKey, object: nil)
-        print("Loaded")
         
     }
     
     func updateView(){
-        print("Updating List of Stops in Itinerary")
         self.tableView.reloadData()
     }
 
@@ -224,7 +222,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
             itineraryModel?.setSelectedLocationIndex(selectedCellIndex)
             
             
-            selectedLocation.yelpRequest((itineraryModel?.getPreviousLocation())!)
+            selectedLocation.yelpRequest((itineraryModel?.getNearbyLocation())!)
             
             
             yelpLocationTableViewController.itineraryModel = itineraryModel

@@ -100,8 +100,6 @@ class YelpLocationsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let yelpURLString = yelpLocations[indexPath.row].yelpURL
         
-        print(yelpURLString)
-        
         
         UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
     }

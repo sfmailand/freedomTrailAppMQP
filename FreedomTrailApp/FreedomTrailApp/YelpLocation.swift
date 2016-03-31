@@ -72,10 +72,7 @@ public class YelpLocation: Location {
     }
     
     
-    public func yelpRequest(previousLocation: Location){
-        
-        print("Starting request")
-        print(getName())
+    public func yelpRequest(nearbyLocation: Location){
         
         let oauthswift  = OAuth1Swift(
             consumerKey: "-KjeymOM8cXvmxhHxr2iJQ",
@@ -85,20 +82,18 @@ public class YelpLocation: Location {
             accessTokenUrl:  "https://www.flickr.com/services/oauth/access_token"
         )
         
-        print("Initialized auth")
         
         oauthswift.client.credential.oauth_token =  "cyYjL0ugC5-mgrp7jnQ8_QYzjTgXJGVZ"
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
         
-        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
-        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
-        yelpRequestURL += "&&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","
-        yelpRequestURL += String(format:"%f", previousLocation.getGpsLong())
+//        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
+//        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
+//        yelpRequestURL += "&&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","
+//        yelpRequestURL += String(format:"%f", previousLocation.getGpsLong())
+
         
-        print(yelpRequestURL)
-        
-        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","+String(format:"%f", previousLocation.getGpsLong()),
+        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","+String(format:"%f", nearbyLocation.getGpsLong()),
             success: {
                 data, response in
                 return self.saveYelpData(data)
@@ -116,24 +111,12 @@ public class YelpLocation: Location {
             var yelpLocations: [YelpLocation] = []
             
             var numResults = json["total"] as! Int
-            print(numResults)
             
             if(numResults > 10){
                 numResults = 10
             }
             
             for index in 0...numResults-1{
-//                print("________________________")
-//                print("Name: " + (json["businesses"]!![index]["name"] as! String))
-//                print("rURL: " + (json["businesses"]!![index]["rating_img_url"] as! String))
-//                //print("iURL: " + (json["businesses"]!![index]["image_url"] as! String))
-//                print("URL: " + (json["businesses"]!![index]["url"] as! String))
-//                print("ID: " + (json["businesses"]!![index]["id"] as! String))
-//                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double))
-//                
-//                print((json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double))
-//                print("Address: " + (json["businesses"]!![index]["location"]!!["display_address"]!![0] as! String) + " " + (json["businesses"]!![index]["location"]!!["display_address"]!![1] as! String))
-                
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let ratingURL = (json["businesses"]!![index]["rating_img_url"] as! String)
                 //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)

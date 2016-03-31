@@ -55,7 +55,6 @@ class segmentedViewController: UIViewController {
     
     func updateView(){
         self.itineraryListEmbeddedViewController.tableView.reloadData()
-        print("Updated!")
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,13 +82,11 @@ class segmentedViewController: UIViewController {
         
         if let vc = segue.destinationViewController as? UITableViewController
             where segue.identifier == "ItinerarySegue" {
-                print("Itinerary Segue")
                 self.itineraryListEmbeddedViewController = vc as? ItineraryListTableViewController
         }
         
         if let vc2 = segue.destinationViewController as? UINavigationController
             where segue.identifier == "LocationSegue" {
-                print("Location Segue")
                 self.locationsEmbeddedViewController = vc2.topViewController as? LocationTableViewController
         }
         

@@ -36,14 +36,12 @@ public class ItinerariesViewModel{
             itineraries = loadItineraries()!
         }
         else{
-            print("No Saved Itineraries")
         }
     }
     
     func saveItinerary(){
         if(isCreatingNewItinerary == true){
             self.itineraries.append(tempItinerary)
-            print("Appending Itinerary")
             notifyOfItineraryChange()
             storeItineraries()
             tempItinerary = nil
@@ -102,8 +100,6 @@ public class ItinerariesViewModel{
     }
     
     func setSelectedLocationIndex(index: Int){
-        print("Setting location")
-        print(itineraries[selectedItineraryIndex].getLocationAtIndex(index))
         selectedLocationIndexAtSelectedItinerary = index
     }
     
@@ -128,6 +124,30 @@ public class ItinerariesViewModel{
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
     }
     
+    
+    public func getNearbyLocation() -> Location{
+
+        
+        if(selectedLocationIndexAtSelectedItinerary == 0){
+            if(isCreatingNewItinerary == true){
+                if(tempItinerary.getNumberOfLocations() == 1){
+                    print("From Boston -- Temp")
+                    return Location(name: "", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                }
+            }
+            else if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
+                print("From Boston -- Saved")
+                return Location(name: "", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+            }
+            print("Getting location of next stop")
+            return getNextLocation()
+            
+        }
+        print("Get previous location")
+        return getPreviousLocation()
+    }
+    
+    
     public func getAllLocationsInItinerary() -> [Location]{
         return itineraries[selectedItineraryIndex].getLocations()
     }
@@ -149,7 +169,6 @@ public class ItinerariesViewModel{
     
     
     func deleteItinerary(index: Int){
-        print("DELETING: " + itineraries[index].getName())
         itineraries.removeAtIndex(index)
         notifyOfItineraryChange()
         saveItinerary()
@@ -166,14 +185,12 @@ public class ItinerariesViewModel{
         let isSuccessfullSave = NSKeyedArchiver.archiveRootObject(itineraries, toFile: Itinerary.ArchiveURL.path!)
         
         if !isSuccessfullSave{
-            print("Could not save itineraries...")
         }
         
     }
     
     
     func loadItineraries() -> [Itinerary]?{
-        print("Loading Itineratires")
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Itinerary.ArchiveURL.path!) as? [Itinerary]
     }
     

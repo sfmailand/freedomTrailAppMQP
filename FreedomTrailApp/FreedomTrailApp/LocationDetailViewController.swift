@@ -50,7 +50,6 @@ class LocationDetailViewController: UIViewController {
     
     func imageTapped(img: AnyObject)
     {
-        print("Directions Tapped")
         
         
         let tmpLat:Double = location!.getGpsLat()
@@ -64,8 +63,6 @@ class LocationDetailViewController: UIViewController {
         var directionURLString = "http://maps.apple.com/?saddr=Current+Location&daddr="+gpsLat+","+gpsLong+"&dirflg=w"
         
         directionURLString = directionURLString.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        
-        print(directionURLString)
         
         let url : NSURL = NSURL(string: directionURLString+"+Boston+Massachusetts")!
         if UIApplication.sharedApplication().canOpenURL(url) {
