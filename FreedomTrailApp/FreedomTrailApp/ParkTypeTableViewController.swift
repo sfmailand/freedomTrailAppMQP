@@ -8,6 +8,8 @@
 
 import UIKit
 
+import OAuthSwift
+
 class ParkTypeTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?

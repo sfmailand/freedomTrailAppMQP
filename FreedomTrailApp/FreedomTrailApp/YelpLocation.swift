@@ -87,11 +87,12 @@ public class YelpLocation: Location {
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
         
-//        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
-//        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
-//        yelpRequestURL += "&&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","
-//        yelpRequestURL += String(format:"%f", previousLocation.getGpsLong())
-
+        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
+        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
+        yelpRequestURL += "&&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","
+        yelpRequestURL += String(format:"%f", nearbyLocation.getGpsLong())
+        
+        print(yelpRequestURL)
         
         oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","+String(format:"%f", nearbyLocation.getGpsLong()),
             success: {

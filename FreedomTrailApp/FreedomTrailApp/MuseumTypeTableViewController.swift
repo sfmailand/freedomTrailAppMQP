@@ -8,18 +8,32 @@
 
 import UIKit
 
+import OAuthSwift
+
 class MuseumTypeTableViewController: UITableViewController {
     
     var itineraryModel: ItinerariesViewModel?
+    
+    var yelpLocations: [YelpLocation]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        yelpLocations = []
+        
+        yelpRequest()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    
+    private func reloadTable(){
+        print("Reloading")
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,26 +42,31 @@ class MuseumTypeTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return (yelpLocations.count)
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        
+        //Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "MuseumNameCell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MuseumTableViewCell
+        
+        let location = yelpLocations[indexPath.row]
+        print(location.getName())
+        
+        cell.museumNameLabel.text = location.getName()
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -93,5 +112,79 @@ class MuseumTypeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
+    private func yelpRequest(){
+        
+        let oauthswift  = OAuth1Swift(
+            consumerKey: "-KjeymOM8cXvmxhHxr2iJQ",
+            consumerSecret: "mjCSrO88wwvYFfSMirQtu8i7aPw",
+            requestTokenUrl: "https://www.flickr.com/services/oauth/request_token",
+            authorizeUrl:    "https://www.flickr.com/services/oauth/authorize",
+            accessTokenUrl:  "https://www.flickr.com/services/oauth/access_token"
+        )
+        
+        
+        oauthswift.client.credential.oauth_token =  "cyYjL0ugC5-mgrp7jnQ8_QYzjTgXJGVZ"
+        oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
+        
+        
+        //        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
+        //        yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
+        //        yelpRequestURL += "&&ll="+String(format:"%f", previousLocation.getGpsLat()) + ","
+        //        yelpRequestURL += String(format:"%f", previousLocation.getGpsLong())
+        
+        //https://api.yelp.com/v2/search/?location=Boston&category_filter=museums
+        
+        oauthswift.client.get("https://api.yelp.com/v2/search/?location=Boston_MA&category_filter=museums",
+                              success: {
+                                data, response in
+                                return self.saveYelpData(data)
+            }
+            , failure: { error in
+                print(error)
+            }
+        )
+    }
+    
+    private func saveYelpData(data: NSData){
+        print("Saving Yelp Data")
+        do{
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            
+            var numResults = json["total"] as! Int
+            
+            if(numResults > 10){
+                numResults = 10
+            }
+            
+            for index in 0...numResults-1{
+                let name = (json["businesses"]!![index]["name"] as! String)
+                let ratingURL = (json["businesses"]!![index]["rating_img_url"] as! String)
+                //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
+                let yelpURL = (json["businesses"]!![index]["url"] as! String)
+                let yelpID = (json["businesses"]!![index]["id"] as! String)
+                let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
+                let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)
+                let address = ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[0] as! String) + " " + ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[1] as! String)
+                
+                let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
+                
+                yelpLocations.append(tmpYelpLocation)
+            }
+            
+            print(yelpLocations[0].getName())
+            
+            reloadTable()
+            
+        }catch{
+            print("error serializing JSON: \(error)")
+        }
+    }
+    
+    
 
 }
