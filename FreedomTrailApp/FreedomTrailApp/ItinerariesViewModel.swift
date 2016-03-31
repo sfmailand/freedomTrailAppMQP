@@ -175,7 +175,12 @@ public class ItinerariesViewModel{
     }
     
     func finalizeYelpLocation(location: YelpLocation){
-        itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
+        if(isCreatingNewItinerary == true){
+            tempItinerary.setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
+        }
+        else{
+            itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
+        }
     }
     
     
