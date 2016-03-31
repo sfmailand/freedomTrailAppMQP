@@ -106,6 +106,11 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         cell.isTrailLocationFinalized = location?.isLocationFinalized()
         
+        if(location?.isLocationFinalized() == false){
+            cell.backgroundColor = colorSetter(220, green: 220, blue: 220)
+            cell.subheadingLabel.text = "Near " + location!.getName()!
+        }
+        
         return cell
     }
     /*
@@ -234,6 +239,13 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         
 
+    }
+    
+    private func colorSetter(red: Int, green: Int, blue: Int) -> UIColor{
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1)
     }
 
 

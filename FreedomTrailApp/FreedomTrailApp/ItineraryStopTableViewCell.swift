@@ -11,6 +11,7 @@ import UIKit
 class ItineraryStopTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itineraryStopLabel: UILabel!
+    @IBOutlet weak var subheadingLabel: UILabel!
     var isTrailLocationFinalized: Bool!
     
     
