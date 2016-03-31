@@ -82,6 +82,19 @@ class LocationTableViewController: UITableViewController {
 //        }    
     }
     
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
+            let selectedLocation = self.locations[indexPath.row]
+            self.itineraryModel?.addLocationToItinerary(selectedLocation)
+            self.tableView.editing = false
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        return [moreRowAction];
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -98,18 +111,7 @@ class LocationTableViewController: UITableViewController {
     }
     */
     
-    
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        
-        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
-            let selectedLocation = self.locations[indexPath.row]
-            self.itineraryModel?.addLocationToItinerary(selectedLocation)
-            self.tableView.editing = false
-        });
-        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
-        
-        return [moreRowAction];
-    }
+
     
     
     

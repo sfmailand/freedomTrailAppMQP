@@ -31,10 +31,6 @@ class MuseumTypeTableViewController: UITableViewController {
     }
     
     
-    private func reloadTable(){
-        print("Reloading")
-        self.tableView.reloadData()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,6 +109,30 @@ class MuseumTypeTableViewController: UITableViewController {
     }
     */
     
+    // Override to support editing the table view.
+    // REQUIRED for iOS8
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //        if editingStyle == .Delete {
+        //            // Delete the row from the data source
+        //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        //        } else if editingStyle == .Insert {
+        //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        //        }
+    }
+    
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Add to Itinerary", handler:{action, indexpath in
+            let selectedLocation = self.yelpLocations[indexPath.row]
+            self.itineraryModel?.addLocationToItinerary(selectedLocation)
+            self.tableView.editing = false
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        return [moreRowAction];
+    }
+    
     
     
     
@@ -178,7 +198,7 @@ class MuseumTypeTableViewController: UITableViewController {
             
             print(yelpLocations[0].getName())
             
-            reloadTable()
+            self.tableView.reloadData()
             
         }catch{
             print("error serializing JSON: \(error)")

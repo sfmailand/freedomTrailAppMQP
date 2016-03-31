@@ -16,6 +16,7 @@
 		F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */; };
 		F720421B1C5D15200099747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72042191C5D15200099747C /* Main.storyboard */; };
 		F7290FC71C852103003B8DAD /* LocationTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */; };
+		F731BC891CADA16B00C2BB6D /* PublicParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731BC881CADA16B00C2BB6D /* PublicParkTableViewCell.swift */; };
 		F73CB3CF1C9F50E2001F1A46 /* YelpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */; };
 		F73CB3D11C9F585A001F1A46 /* YelpLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73CB3D01C9F585A001F1A46 /* YelpLocationsTableViewController.swift */; };
 		F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */; };
@@ -130,6 +131,7 @@
 		F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F720421A1C5D15200099747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypesTableViewController.swift; sourceTree = "<group>"; };
+		F731BC881CADA16B00C2BB6D /* PublicParkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicParkTableViewCell.swift; sourceTree = "<group>"; };
 		F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpLocation.swift; sourceTree = "<group>"; };
 		F73CB3D01C9F585A001F1A46 /* YelpLocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpLocationsTableViewController.swift; sourceTree = "<group>"; };
 		F75638201C727F7400599EB2 /* ItinerariesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItinerariesViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				F75B8ACD1C7FEFFD00C1F5F4 /* RestaurantTableViewCell.swift */,
 				F704C1FC1CA1DA0D00E1811A /* YelpLocationTableViewCell.swift */,
 				F7157D2D1CAD8ADC000DCCED /* MuseumTableViewCell.swift */,
+				F731BC881CADA16B00C2BB6D /* PublicParkTableViewCell.swift */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */,
+				F731BC891CADA16B00C2BB6D /* PublicParkTableViewCell.swift in Sources */,
 				F795E2D81C5C530900843632 /* LocationTableViewController.swift in Sources */,
 				F795E2D61C5C4CF900843632 /* LocationTableViewCell.swift in Sources */,
 				F75638211C727F7400599EB2 /* ItinerariesViewModel.swift in Sources */,
