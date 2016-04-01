@@ -132,12 +132,12 @@ public class ItinerariesViewModel{
             if(isCreatingNewItinerary == true){
                 if(tempItinerary.getNumberOfLocations() == 1){
                     print("From Boston -- Temp")
-                    return Location(name: "", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                    return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
                 }
             }
             else if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
                 print("From Boston -- Saved")
-                return Location(name: "", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
             }
             print("Getting location of next stop")
             return getNextLocation()
@@ -146,6 +146,7 @@ public class ItinerariesViewModel{
         print("Get previous location")
         return getPreviousLocation()
     }
+    
     
     
     public func getAllLocationsInItinerary() -> [Location]{
@@ -181,6 +182,53 @@ public class ItinerariesViewModel{
         else{
             itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
         }
+    }
+    
+    
+    public func getNearbyLocation(selectedIndex: Int) -> Location{
+        print(selectedIndex)
+        if(selectedIndex + 1 > itineraries[selectedItineraryIndex].getNumberOfLocations()
+            || selectedIndex - 1 < 0){
+            return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+        }
+        
+        else if(selectedIndex == 0){
+            if(isCreatingNewItinerary == true){
+                if(tempItinerary.getNumberOfLocations() == 0){
+                    print("From Boston -- Temp")
+                    return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                }
+            }
+            else if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
+                print("From Boston -- Saved")
+                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+            }
+            print("Getting location of next stop")
+            if(getNextLocation(selectedIndex).isLocationFinalized() == true){
+                return getNextLocation(selectedIndex)
+            }
+            
+        }
+        print("Get previous location")
+        if(getPreviousLocation(selectedIndex).isLocationFinalized() == true){
+            return getPreviousLocation(selectedIndex)
+        }
+        
+        return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+    }
+    
+    public func getPreviousLocation(selectedIndex: Int) -> Location{
+        if(isCreatingNewItinerary == true){
+            return tempItinerary.getLocationAtIndex(selectedIndex - 1)
+        }
+        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex - 1)
+    }
+    
+    public func getNextLocation(selectedIndex: Int) -> Location{
+        if(isCreatingNewItinerary == true){
+            return tempItinerary.getLocationAtIndex(selectedIndex + 1)
+        }
+        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex + 1)
     }
     
     

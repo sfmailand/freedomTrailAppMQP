@@ -182,7 +182,8 @@ class MuseumTypeTableViewController: UITableViewController {
             
             for index in 0...numResults-1{
                 let name = (json["businesses"]!![index]["name"] as! String)
-                let ratingURL = (json["businesses"]!![index]["rating_img_url"] as! String)
+                let rating = (json["businesses"]!![index]["rating"] as! Double)
+                let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
                 //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
@@ -191,7 +192,7 @@ class MuseumTypeTableViewController: UITableViewController {
                 let address = ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[0] as! String) + " " + ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[1] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
                 
                 yelpLocations.append(tmpYelpLocation)
             }

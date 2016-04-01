@@ -58,6 +58,9 @@ class YelpLocationsTableViewController: UITableViewController {
         let location = yelpLocations[indexPath.row]
         
         cell.yelpLocationName.text = location.getName()
+        cell.numYelpReviews.text = String(location.reviewCount) + " reviews"
+        
+        setYelpStarRatings(location, cell: cell)
         
         return cell
     }
@@ -97,12 +100,12 @@ class YelpLocationsTableViewController: UITableViewController {
     }
     */
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        let yelpURLString = yelpLocations[indexPath.row].yelpURL
-        
-        
-        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+//        let yelpURLString = yelpLocations[indexPath.row].yelpURL
+//        
+//        
+//        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+//    }
     
     // Override to support editing the table view.
     // REQUIRED for iOS8
@@ -137,5 +140,54 @@ class YelpLocationsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func setYelpStarRatings(location: YelpLocation, cell: YelpLocationTableViewCell){
+        cell.firstYelpStar.image = UIImage(named: "yelpStar_0")
+        cell.secondYelpStar.image = UIImage(named: "yelpStar_0")
+        cell.thirdYelpStar.image = UIImage(named: "yelpStar_0")
+        cell.fourthYelpStar.image = UIImage(named: "yelpStar_0")
+        cell.fifthYelpStar.image = UIImage(named: "yelpStar_0")
+        
+        if(location.rating == 5){
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_5")
+            cell.secondYelpStar.image = UIImage(named: "yelpStar_5")
+            cell.thirdYelpStar.image = UIImage(named: "yelpStar_5")
+            cell.fourthYelpStar.image = UIImage(named: "yelpStar_5")
+            cell.fifthYelpStar.image = UIImage(named: "yelpStar_5")
+        }
+        else if(location.rating >= 4){
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_4")
+            cell.secondYelpStar.image = UIImage(named: "yelpStar_4")
+            cell.thirdYelpStar.image = UIImage(named: "yelpStar_4")
+            cell.fourthYelpStar.image = UIImage(named: "yelpStar_4")
+            if(location.rating == 4.5){
+                cell.fifthYelpStar.image = UIImage(named: "yelpStar_4.5")
+            }
+        }
+        else if(location.rating >= 3){
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_3")
+            cell.secondYelpStar.image = UIImage(named: "yelpStar_3")
+            cell.thirdYelpStar.image = UIImage(named: "yelpStar_3")
+            if(location.rating == 3.5){
+                cell.fourthYelpStar.image = UIImage(named: "yelpStar_3.5")
+            }
+        }
+        else if(location.rating >= 2){
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_2")
+            cell.secondYelpStar.image = UIImage(named: "yelpStar_2")
+            if(location.rating == 3.5){
+                cell.thirdYelpStar.image = UIImage(named: "yelpStar_2.5")
+            }
+        }
+        else if(location.rating >= 1){
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_1")
+            if(location.rating == 3.5){
+                cell.secondYelpStar.image = UIImage(named: "yelpStar_1.5")
+            }
+        }
+
+
+    }
 
 }

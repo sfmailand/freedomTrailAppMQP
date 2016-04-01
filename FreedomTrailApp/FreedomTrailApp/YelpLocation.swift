@@ -16,31 +16,34 @@ public class YelpLocation: Location {
     //Initialization
     
     struct PropertyKey {
-        static let ratingKey = "ratingURL"
+        static let ratingKey = "rating"
         static let yelpURLKey = "yelpURL"
         static let yelpIDKey = "yelpID"
         static let addressKey = "yelpAddress"
         static let photoURLKey = "photoURL"
+        static let reviewCountKey = "reviewConut"
     }
     
     var photoURL: String!
-    var ratingURL: String!
+    var rating: Double!
     var yelpURL: String!
     var yelpID: String!
     var address: String!
     var isClosed: Bool!
+    var reviewCount: Int!
     
     private var yelpFilters = YelpFilters()
     
     
-    init(name: String, photoURL: String, ratingURL: String, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool){
+    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool){
         
         self.photoURL = photoURL
-        self.ratingURL = ratingURL
+        self.rating = rating
         self.yelpURL = yelpURL
         self.yelpID = yelpID
         self.address = address
         self.isClosed = isClosed
+        self.reviewCount = reviewCount
         
         
         super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong)
@@ -51,10 +54,11 @@ public class YelpLocation: Location {
     public override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
         aCoder.encodeObject(photoURL, forKey: PropertyKey.photoURLKey)
-        aCoder.encodeObject(ratingURL, forKey: PropertyKey.ratingKey)
+        aCoder.encodeObject(rating, forKey: PropertyKey.ratingKey)
         aCoder.encodeObject(yelpURL, forKey: PropertyKey.yelpURLKey)
         aCoder.encodeObject(yelpID, forKey: PropertyKey.yelpIDKey)
         aCoder.encodeObject(address, forKey: PropertyKey.addressKey)
+        aCoder.encodeObject(reviewCount, forKey: PropertyKey.reviewCountKey)
     }
     
     
@@ -62,13 +66,14 @@ public class YelpLocation: Location {
     required convenience public init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         //let photoURL = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! String
-        let ratingURL = aDecoder.decodeObjectForKey(PropertyKey.ratingKey) as! String
+        let rating = aDecoder.decodeObjectForKey(PropertyKey.ratingKey) as! Double
+        let reviewCount = aDecoder.decodeObjectForKey(PropertyKey.reviewCountKey) as! Int
         let yelpURL = aDecoder.decodeObjectForKey(PropertyKey.yelpURLKey) as! String
         let yelpID = aDecoder.decodeObjectForKey(PropertyKey.yelpIDKey) as! String
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
         let address = aDecoder.decodeObjectForKey(PropertyKey.addressKey) as! String
-        self.init(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false)
+        self.init(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false)
     }
     
     
@@ -87,14 +92,14 @@ public class YelpLocation: Location {
         oauthswift.client.credential.oauth_token_secret = "hH1IMQAObbxVtCP-m02qMJ4BXuU"
         
         
-        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="
+        var yelpRequestURL = "https://api.yelp.com/v2/search/?sort=1&limit=20&category_filter="
         yelpRequestURL += (yelpFilters.getRestaurantIdentifierByType(getName()!))
         yelpRequestURL += "&&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","
         yelpRequestURL += String(format:"%f", nearbyLocation.getGpsLong())
         
         print(yelpRequestURL)
         
-        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=10&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","+String(format:"%f", nearbyLocation.getGpsLong()),
+        oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=20&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","+String(format:"%f", nearbyLocation.getGpsLong()),
             success: {
                 data, response in
                 return self.saveYelpData(data)
@@ -119,7 +124,8 @@ public class YelpLocation: Location {
             
             for index in 0...numResults-1{
                 let name = (json["businesses"]!![index]["name"] as! String)
-                let ratingURL = (json["businesses"]!![index]["rating_img_url"] as! String)
+                let rating = (json["businesses"]!![index]["rating"] as! Double)
+                let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
                 //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
@@ -128,7 +134,7 @@ public class YelpLocation: Location {
                 let address = ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[0] as! String) + " " + ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[1] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", ratingURL: ratingURL, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
                 
                 yelpLocations.append(tmpYelpLocation)
             }

@@ -11,9 +11,18 @@ import UIKit
 class YelpLocationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var yelpLocationName: UILabel!
+    @IBOutlet weak var firstYelpStar: UIImageView!
+    @IBOutlet weak var secondYelpStar: UIImageView!
+    @IBOutlet weak var thirdYelpStar: UIImageView!
+    @IBOutlet weak var fourthYelpStar: UIImageView!
+    @IBOutlet weak var fifthYelpStar: UIImageView!
+    @IBOutlet weak var numYelpReviews: UILabel!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
         // Initialization code
     }
 

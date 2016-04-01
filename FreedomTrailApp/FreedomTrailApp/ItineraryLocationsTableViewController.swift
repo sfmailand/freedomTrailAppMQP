@@ -101,14 +101,20 @@ class ItineraryLocationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ItineraryStopTableViewCell
         
         let location = itineraryModel?.getCurrentItinerary().getLocationAtIndex(indexPath.row)
+
         
         cell.itineraryStopLabel.text = location!.getName()
         
         cell.isTrailLocationFinalized = location?.isLocationFinalized()
+        cell.subheadingLabel.text = ""
         
         if(location?.isLocationFinalized() == false){
+            let nearbyLocation = itineraryModel?.getNearbyLocation(indexPath.row)
             cell.backgroundColor = colorSetter(220, green: 220, blue: 220)
-            cell.subheadingLabel.text = "Near " + location!.getName()!
+            cell.subheadingLabel.text = "(Near " + nearbyLocation!.getName()! + ")"
+        }
+        else{
+            cell.backgroundColor = colorSetter(255, green: 255, blue: 255)
         }
         
         return cell

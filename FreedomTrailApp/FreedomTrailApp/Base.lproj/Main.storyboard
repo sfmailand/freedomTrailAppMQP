@@ -570,16 +570,16 @@
         <scene sceneID="iDZ-bX-CgN">
             <objects>
                 <tableViewController id="0Jp-NX-iRF" customClass="YelpLocationsTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bOF-XA-Aas">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="bOF-XA-Aas">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="yelpLocationResultCell" id="kJU-bl-2WK" customClass="YelpLocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="yelpLocationResultCell" id="kJU-bl-2WK" customClass="YelpLocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJU-bl-2WK" id="oib-Ec-ZTe">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXb-qY-R21">
@@ -588,9 +588,36 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelpStar_0" translatesAutoresizingMaskIntoConstraints="NO" id="LPQ-97-Gsf">
+                                            <rect key="frame" x="8" y="35" width="20" height="20"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelpStar_0" translatesAutoresizingMaskIntoConstraints="NO" id="Nme-8w-zOc">
+                                            <rect key="frame" x="27" y="35" width="20" height="20"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelpStar_0" translatesAutoresizingMaskIntoConstraints="NO" id="QKt-Dt-Zvh">
+                                            <rect key="frame" x="46" y="35" width="20" height="20"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelpStar_0" translatesAutoresizingMaskIntoConstraints="NO" id="KAj-oc-lOq">
+                                            <rect key="frame" x="65" y="35" width="20" height="20"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelpStar_0" translatesAutoresizingMaskIntoConstraints="NO" id="5G6-hh-8eV">
+                                            <rect key="frame" x="84" y="35" width="20" height="20"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGy-KQ-iNm">
+                                            <rect key="frame" x="107" y="35" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="fifthYelpStar" destination="5G6-hh-8eV" id="ZMR-JP-a7H"/>
+                                    <outlet property="firstYelpStar" destination="LPQ-97-Gsf" id="R43-lU-Ol8"/>
+                                    <outlet property="fourthYelpStar" destination="KAj-oc-lOq" id="7zg-La-50h"/>
+                                    <outlet property="numYelpReviews" destination="MGy-KQ-iNm" id="nNC-25-UPh"/>
+                                    <outlet property="secondYelpStar" destination="Nme-8w-zOc" id="rWi-De-CF9"/>
+                                    <outlet property="thirdYelpStar" destination="QKt-Dt-Zvh" id="j3F-Be-gpB"/>
                                     <outlet property="yelpLocationName" destination="uXb-qY-R21" id="aer-aU-x0b"/>
                                 </connections>
                             </tableViewCell>
@@ -696,6 +723,7 @@
         <image name="leftArrow" width="350" height="350"/>
         <image name="locationsIcon" width="30" height="30"/>
         <image name="rightArrow" width="350" height="350"/>
+        <image name="yelpStar_0" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fRi-Cl-0HZ"/>
