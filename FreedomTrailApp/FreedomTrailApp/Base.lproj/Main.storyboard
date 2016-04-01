@@ -574,6 +574,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poweredByYelp" id="zd3-Ns-kUt">
+                            <rect key="frame" x="0.0" y="182" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="yelpLocationResultCell" id="kJU-bl-2WK" customClass="YelpLocationTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
@@ -739,6 +743,7 @@
         <image name="itineraryIcon" width="30" height="30"/>
         <image name="leftArrow" width="350" height="350"/>
         <image name="locationsIcon" width="30" height="30"/>
+        <image name="poweredByYelp" width="129" height="30"/>
         <image name="rightArrow" width="350" height="350"/>
         <image name="yelpStar_0" width="14" height="14"/>
     </resources>
