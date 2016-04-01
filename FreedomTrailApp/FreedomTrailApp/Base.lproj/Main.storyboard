@@ -648,14 +648,14 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="49"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at 9:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
-                                    <rect key="frame" x="203" y="8" width="194" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at 9:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
+                                    <rect key="frame" x="132" y="8" width="336" height="33"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="7h1-8y-4hT" firstAttribute="centerY" secondItem="nMD-T0-hgi" secondAttribute="centerY" id="0K7-TI-Zmo"/>
                                 <constraint firstItem="7h1-8y-4hT" firstAttribute="centerX" secondItem="nMD-T0-hgi" secondAttribute="centerX" id="Tdc-ag-7f5"/>
@@ -686,9 +686,11 @@
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="8" id="bLQ-wS-8ww"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="itineraryStopLabel" destination="QPU-4a-Mdb" id="YD1-zk-gVY"/>
                                     <outlet property="subheadingLabel" destination="qsp-Fr-WF8" id="DhU-qV-DsJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="I3K-HL-180" appends="YES" id="eEs-cJ-Cve"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -715,6 +717,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2S-8u-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="I3K-HL-180"/>
             </objects>
             <point key="canvasLocation" x="2307" y="-1465"/>
         </scene>
