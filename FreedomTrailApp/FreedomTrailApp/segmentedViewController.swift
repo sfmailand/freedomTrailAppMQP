@@ -93,7 +93,7 @@ class segmentedViewController: UIViewController {
         if segue.identifier == "ItineraryBuilderSegue" {
             let itineraryTabBarController = segue.destinationViewController as! ItineraryTabViewController
             itineraryTabBarController.itinerariesModel = itineraryModel;
-            itineraryTabBarController.isNewItinerary = true
+            itineraryModel?.createNewItinerary()
         }
         
     }

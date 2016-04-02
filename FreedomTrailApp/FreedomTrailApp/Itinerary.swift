@@ -14,6 +14,7 @@ public class Itinerary: NSObject, NSCoding {
     //Properties
     private var name: String
     private var itineraryDescription: String
+    private var startTime: NSDate
     
     private var trailLocationsArray = [Location]()
     
@@ -32,13 +33,15 @@ public class Itinerary: NSObject, NSCoding {
         static let nameKey = "name"
         static let descriptionKey = "description"
         static let locationsKey = "locations"
+        static let startTimeKey = "startTime"
     }
     //Initialization
     
-    init?(name: String, itineraryDescription: String, locations: [Location]){
+    init?(name: String, itineraryDescription: String, locations: [Location], startTime: NSDate){
         
         self.name = name
         self.itineraryDescription = itineraryDescription
+        self.startTime = startTime
         super.init()
         
         trailLocationsArray = locations
@@ -52,6 +55,7 @@ public class Itinerary: NSObject, NSCoding {
         
         self.name = name
         self.itineraryDescription = itineraryDescription
+        self.startTime = NSDate(timeIntervalSince1970: 0)
         super.init()
         
         if name.isEmpty || description.isEmpty{
@@ -109,17 +113,17 @@ public class Itinerary: NSObject, NSCoding {
         self.name = name
     }
     
+    public func swapLocations(newIndex: Int, oldIndex: Int){
+        swap(&trailLocationsArray[newIndex], &trailLocationsArray[oldIndex])
+    }
+    
     
     //MARK: NSCoding
     
     public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(description, forKey: PropertyKey.descriptionKey)
-        
-        //var locationIndexes: [Int]
-        
-        //locationIndexes = locationModel.getLocationIndexes(trailLocationsArray)
-        
+        aCoder.encodeObject(startTime, forKey: PropertyKey.startTimeKey)
         aCoder.encodeObject(trailLocationsArray, forKey: PropertyKey.locationsKey)
     }
     
@@ -127,8 +131,8 @@ public class Itinerary: NSObject, NSCoding {
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
         let locations = aDecoder.decodeObjectForKey(PropertyKey.locationsKey) as! [Location]
-        
-        self.init(name: name, itineraryDescription: description, locations: locations)
+        let startTime = aDecoder.decodeObjectForKey(PropertyKey.startTimeKey) as! NSDate
+        self.init(name: name, itineraryDescription: description, locations: locations, startTime: startTime)
     }
 
 

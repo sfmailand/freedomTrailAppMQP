@@ -30,11 +30,7 @@ class ItineraryTabViewController: UITabBarController {
         locationTableViewController = self.viewControllers?.first?.childViewControllers.first as! LocationTypesTableViewController
         
         itineraryLocationsTableViewController = self.viewControllers?.last?.childViewControllers.first as! ItineraryLocationsTableViewController
-        
-        if(isNewItinerary == true){
-            itinerariesModel?.tmpInitItinerary()
-        }
-        
+
         
         locationTableViewController.itineraryModel = self.itinerariesModel
         

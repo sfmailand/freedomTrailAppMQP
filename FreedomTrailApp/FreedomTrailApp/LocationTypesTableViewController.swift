@@ -43,6 +43,7 @@ class LocationTypesTableViewController: UITableViewController {
 
     
     @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
+        itineraryModel!.cancelItineraryCreation()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

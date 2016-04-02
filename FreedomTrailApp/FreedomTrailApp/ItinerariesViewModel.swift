@@ -16,8 +16,6 @@ public class ItinerariesViewModel{
     private var itineraries = [Itinerary]()
     
     
-    private var tempItinerary: Itinerary!
-    
     private var selectedItineraryIndex: Int!
     private var selectedLocationIndexAtSelectedItinerary: Int!
     
@@ -39,23 +37,25 @@ public class ItinerariesViewModel{
         }
     }
     
+    func createNewItinerary(){
+        let tempItinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description")
+        itineraries.append(tempItinerary!)
+        selectedItineraryIndex = itineraries.count - 1
+    }
+    
     func saveItinerary(){
-        if(isCreatingNewItinerary == true){
-            self.itineraries.append(tempItinerary)
-            notifyOfItineraryChange()
-            storeItineraries()
-            tempItinerary = nil
-            isCreatingNewItinerary = false
-        }
-        else{
-            notifyOfItineraryChange()
-            storeItineraries()
-        }
+        notifyOfItineraryChange()
+        storeItineraries()
     }
     
     
     func getCount() -> Int{
         return itineraries.count
+    }
+    
+    func cancelItineraryCreation(){
+        itineraries.removeLast()
+        selectedItineraryIndex = itineraries.count - 1
     }
     
     
@@ -64,25 +64,14 @@ public class ItinerariesViewModel{
     
     //For temparary itinerary when creating a new one
     
-    func tmpInitItinerary(){
-        isCreatingNewItinerary = true
-        tempItinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description")
-    }
-    
     func addLocationToItinerary(location: Location){
-        if(isCreatingNewItinerary == true){
-            tempItinerary.addLocation(location)
-        }
-        else{
-            itineraries[selectedItineraryIndex].addLocation(location)
-        }
+        itineraries[selectedItineraryIndex].addLocation(location)
     }
     
     func changeItineraryName(name: String){
-        if(isCreatingNewItinerary == true){
-            tempItinerary.updateName(name)
-        }
+        itineraries[selectedItineraryIndex].setName(name)
     }
+    
     
     
     func setCurrentItinerary(index: Int){
@@ -91,12 +80,7 @@ public class ItinerariesViewModel{
     
     
     func getCurrentItinerary() -> Itinerary{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary
-        }
-        else{
-            return itineraries[selectedItineraryIndex]
-        }
+        return itineraries[selectedItineraryIndex]
     }
     
     func setSelectedLocationIndex(index: Int){
@@ -104,23 +88,14 @@ public class ItinerariesViewModel{
     }
     
     public func getCurrentLocation() -> Location{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
-        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
     }
     
     public func getPreviousLocation() -> Location{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
-        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
     }
     
     public func getNextLocation() -> Location{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary.getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
-        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
     }
     
@@ -129,13 +104,7 @@ public class ItinerariesViewModel{
 
         
         if(selectedLocationIndexAtSelectedItinerary == 0){
-            if(isCreatingNewItinerary == true){
-                if(tempItinerary.getNumberOfLocations() == 1){
-                    print("From Boston -- Temp")
-                    return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
-                }
-            }
-            else if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
+            if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
                 print("From Boston -- Saved")
                 return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
             }
@@ -176,12 +145,7 @@ public class ItinerariesViewModel{
     }
     
     func finalizeYelpLocation(location: YelpLocation){
-        if(isCreatingNewItinerary == true){
-            tempItinerary.setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
-        }
-        else{
-            itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
-        }
+        itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
     }
     
     
@@ -193,13 +157,7 @@ public class ItinerariesViewModel{
         }
         
         else if(selectedIndex == 0){
-            if(isCreatingNewItinerary == true){
-                if(tempItinerary.getNumberOfLocations() == 0){
-                    print("From Boston -- Temp")
-                    return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
-                }
-            }
-            else if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
+            if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
                 print("From Boston -- Saved")
                 return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
             }
@@ -218,17 +176,16 @@ public class ItinerariesViewModel{
     }
     
     public func getPreviousLocation(selectedIndex: Int) -> Location{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary.getLocationAtIndex(selectedIndex - 1)
-        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex - 1)
     }
     
     public func getNextLocation(selectedIndex: Int) -> Location{
-        if(isCreatingNewItinerary == true){
-            return tempItinerary.getLocationAtIndex(selectedIndex + 1)
-        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex + 1)
+    }
+    
+    
+    public func swapLocations(newIndex: Int, oldIndex: Int){
+        itineraries[selectedItineraryIndex].swapLocations(newIndex, oldIndex: oldIndex)
     }
     
     
