@@ -16,6 +16,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
     var selectedCellIndex: Int!
 
+    @IBOutlet weak var editTimeIcon: UIImageView!
     
 
     override func viewDidLoad() {
@@ -23,11 +24,12 @@ class ItineraryLocationsTableViewController: UITableViewController {
         //Add observer for when a singlular itinerary is updated
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: singleItineraryUpdatedNotificationKey, object: nil)
         
-        let longpress = UILongPressGestureRecognizer(target: self, action: "longPressGestureRecognized:")
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureRecognized(_:)))
         
         tableView.addGestureRecognizer(longpress)
-        
+
     }
+
     
     func updateView(){
         self.tableView.reloadData()
@@ -42,6 +44,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
     
     
     

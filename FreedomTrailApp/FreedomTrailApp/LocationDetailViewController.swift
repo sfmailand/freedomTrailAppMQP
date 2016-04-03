@@ -39,14 +39,14 @@ class LocationDetailViewController: UIViewController {
         directionsIcon.addGestureRecognizer(directionsTapRecognizer)
         
         
-        let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("previousLocationIconTapped:"))
-        directionsIcon.userInteractionEnabled = true
-        directionsIcon.addGestureRecognizer(previousLocationTapRecognizer)
-        
-        
-        let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("nextLocationIconTapped:"))
-        directionsIcon.userInteractionEnabled = true
-        directionsIcon.addGestureRecognizer(nextLocationTapRecognizer)
+//        let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("previousLocationIconTapped:"))
+//        directionsIcon.userInteractionEnabled = true
+//        directionsIcon.addGestureRecognizer(previousLocationTapRecognizer)
+//        
+//        
+//        let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("nextLocationIconTapped:"))
+//        directionsIcon.userInteractionEnabled = true
+//        directionsIcon.addGestureRecognizer(nextLocationTapRecognizer)
         
         
         

@@ -14,7 +14,6 @@
 		F704C1FD1CA1DA0D00E1811A /* YelpLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704C1FC1CA1DA0D00E1811A /* YelpLocationTableViewCell.swift */; };
 		F7157D2E1CAD8ADC000DCCED /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7157D2D1CAD8ADC000DCCED /* MuseumTableViewCell.swift */; };
 		F72042181C5D0E4B0099747C /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */; };
-		F720421B1C5D15200099747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72042191C5D15200099747C /* Main.storyboard */; };
 		F7290FC71C852103003B8DAD /* LocationTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */; };
 		F731BC891CADA16B00C2BB6D /* PublicParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731BC881CADA16B00C2BB6D /* PublicParkTableViewCell.swift */; };
 		F73CB3CF1C9F50E2001F1A46 /* YelpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */; };
@@ -39,6 +38,8 @@
 		F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BDC1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift */; };
 		F7D514D91CAA2DD500C1D01A /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; };
 		F7D514DA1CAA2DD500C1D01A /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F7D8E17C1CB1B82200122956 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */; };
+		F7FF0F6B1CB1C43C00919F1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FF0F6A1CB1C43C00919F1C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,7 +130,6 @@
 		F704C1FC1CA1DA0D00E1811A /* YelpLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YelpLocationTableViewCell.swift; path = ../YelpLocationTableViewCell.swift; sourceTree = "<group>"; };
 		F7157D2D1CAD8ADC000DCCED /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
 		F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
-		F720421A1C5D15200099747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypesTableViewController.swift; sourceTree = "<group>"; };
 		F731BC881CADA16B00C2BB6D /* PublicParkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicParkTableViewCell.swift; sourceTree = "<group>"; };
 		F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpLocation.swift; sourceTree = "<group>"; };
@@ -155,6 +155,8 @@
 		F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BDA1C9C665C0045EC7D /* ParkTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BDC1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTypeTableViewCell.swift; sourceTree = "<group>"; };
+		F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = ../DatePickerViewController.swift; sourceTree = "<group>"; };
+		F7FF0F6A1CB1C43C00919F1C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		F75B8AD01C7FF04500C1F5F4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */,
 				F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */,
 				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				A219256B1C6C3F1A00C9E937 /* ItineraryLocationsTableViewController.swift */,
@@ -198,6 +201,7 @@
 				F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */,
 				F7D19BD41C9C66110045EC7D /* RestaurantTypeTableViewController.swift */,
 				F73CB3D01C9F585A001F1A46 /* YelpLocationsTableViewController.swift */,
+				F7FF0F6A1CB1C43C00919F1C /* Main.storyboard */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -248,7 +252,6 @@
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
 				F75B8ACF1C7FF02300C1F5F4 /* TableViewCells */,
 				F75B8AD01C7FF04500C1F5F4 /* ViewControllers */,
-				F72042191C5D15200099747C /* Main.storyboard */,
 				F75B8AD11C7FF06B00C1F5F4 /* ViewModels */,
 				A21925671C6C308B00C9E937 /* Itinerary.swift */,
 				F795E2D91C5C535900843632 /* FreedomTrailLocation.swift */,
@@ -382,7 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F720421B1C5D15200099747C /* Main.storyboard in Resources */,
+				F7FF0F6B1CB1C43C00919F1C /* Main.storyboard in Resources */,
 				F795E2CE1C5C4C0E00843632 /* LaunchScreen.storyboard in Resources */,
 				F795E2CB1C5C4C0E00843632 /* Assets.xcassets in Resources */,
 			);
@@ -411,6 +414,7 @@
 				F7D19BD71C9C66310045EC7D /* MuseumTypeTableViewController.swift in Sources */,
 				F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */,
 				F7C260091C7B530A006D8723 /* Location.swift in Sources */,
+				F7D8E17C1CB1B82200122956 /* DatePickerViewController.swift in Sources */,
 				F7C67F531CA5A34C000DF61E /* YelpFilters.swift in Sources */,
 				A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */,
 				A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */,
@@ -441,14 +445,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F72042191C5D15200099747C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F720421A1C5D15200099747C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

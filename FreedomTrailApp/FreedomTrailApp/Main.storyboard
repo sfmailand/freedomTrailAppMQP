@@ -663,33 +663,50 @@
         <scene sceneID="GSL-rc-JHX">
             <objects>
                 <tableViewController id="c2c-ce-QRO" customClass="ItineraryLocationsTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="vKx-gC-uVR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="vKx-gC-uVR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="nMD-T0-hgi">
-                            <rect key="frame" x="0.0" y="64" width="600" height="49"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at 9:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
-                                    <rect key="frame" x="132" y="8" width="336" height="33"/>
+                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lgq-UD-tmO">
+                                    <rect key="frame" x="136" y="0.0" width="464" height="60"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="481414144.31658">
+                                        <!--2016-04-03 22:09:04 +0000-->
+                                    </date>
+                                </datePicker>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
+                                    <rect key="frame" x="8" y="13" width="120" height="33"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="reR-Vf-Xq5">
-                                    <rect key="frame" x="524" y="8" width="30" height="30"/>
-                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.30449892241379312" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="7h1-8y-4hT" firstAttribute="centerY" secondItem="nMD-T0-hgi" secondAttribute="centerY" id="0K7-TI-Zmo"/>
+                                <constraint firstItem="Lgq-UD-tmO" firstAttribute="top" secondItem="nMD-T0-hgi" secondAttribute="top" id="JAc-8J-APS"/>
+                                <constraint firstItem="Lgq-UD-tmO" firstAttribute="leading" secondItem="7h1-8y-4hT" secondAttribute="trailing" constant="8" id="JP3-5Y-nIb"/>
+                                <constraint firstItem="Lgq-UD-tmO" firstAttribute="top" secondItem="nMD-T0-hgi" secondAttribute="top" id="M9h-bM-iFr"/>
                                 <constraint firstItem="7h1-8y-4hT" firstAttribute="centerX" secondItem="nMD-T0-hgi" secondAttribute="centerX" id="Tdc-ag-7f5"/>
+                                <constraint firstAttribute="bottom" secondItem="Lgq-UD-tmO" secondAttribute="bottom" id="YUj-E8-V0p"/>
+                                <constraint firstAttribute="trailing" secondItem="Lgq-UD-tmO" secondAttribute="trailing" id="kLn-Dn-KnX"/>
+                                <constraint firstAttribute="bottom" secondItem="Lgq-UD-tmO" secondAttribute="bottom" id="vqo-B2-dLA"/>
+                                <constraint firstItem="7h1-8y-4hT" firstAttribute="leading" secondItem="nMD-T0-hgi" secondAttribute="leading" constant="8" id="zFs-cb-LCk"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Tdc-ag-7f5"/>
+                                    <exclude reference="JAc-8J-APS"/>
+                                    <exclude reference="vqo-B2-dLA"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItineraryStopViewCell" rowHeight="90" id="fBI-Hz-VRz" customClass="ItineraryStopTableViewCell" customModule="FreedomTrailApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="152" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBI-Hz-VRz" id="JaL-am-PJY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -752,7 +769,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2S-8u-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307" y="-1465"/>
+            <point key="canvasLocation" x="2307" y="-1475"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2VW-x8-2tB">
