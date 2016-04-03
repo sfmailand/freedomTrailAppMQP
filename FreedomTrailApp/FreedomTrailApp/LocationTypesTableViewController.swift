@@ -74,7 +74,7 @@ class LocationTypesTableViewController: UITableViewController {
         saveItineraryAlert.addAction(confirmItinerarySave)
         saveItineraryAlert.addAction(cancelItinerarySave)
         
-        if(itineraryModel?.areCreatingNewItineary() == true){
+        if(itineraryModel?.isCreatingNewItineary() == true){
             presentViewController(saveItineraryAlert, animated: true, completion: nil)
         }
         else{

@@ -60,6 +60,8 @@ class LocationTableViewController: UITableViewController {
         
         cell.locationNameLabel.text = location.getName()
         
+        cell.locationPhoto.image = location.getPhoto()
+        
         return cell
     }
 

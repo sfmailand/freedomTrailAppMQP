@@ -41,11 +41,21 @@ public class ItinerariesViewModel{
         let tempItinerary = Itinerary(name: "Untitled Itinerary", itineraryDescription: "No Description")
         itineraries.append(tempItinerary!)
         selectedItineraryIndex = itineraries.count - 1
+        isCreatingNewItinerary = true
     }
+    
+    
+    func cancelItineraryCreation(){
+        itineraries.removeLast()
+        selectedItineraryIndex = itineraries.count - 1
+        isCreatingNewItinerary = false
+    }
+    
     
     func saveItinerary(){
         notifyOfItineraryChange()
         storeItineraries()
+        isCreatingNewItinerary = false
     }
     
     
@@ -53,10 +63,6 @@ public class ItinerariesViewModel{
         return itineraries.count
     }
     
-    func cancelItineraryCreation(){
-        itineraries.removeLast()
-        selectedItineraryIndex = itineraries.count - 1
-    }
     
     
     
@@ -128,7 +134,7 @@ public class ItinerariesViewModel{
     }
 
     
-    func areCreatingNewItineary() -> Bool{
+    func isCreatingNewItineary() -> Bool{
         return isCreatingNewItinerary
     }
     
