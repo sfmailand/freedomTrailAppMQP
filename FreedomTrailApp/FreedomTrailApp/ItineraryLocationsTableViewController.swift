@@ -49,7 +49,9 @@ class ItineraryLocationsTableViewController: UITableViewController {
     //to append the itinerary that's stored in that controller
     //to the ItineraryViewModel
     @IBAction func saveItinerary(sender: UIBarButtonItem) {
-
+        
+        
+        //POPUP
         let itineraryNameTextField = UITextField()
         itineraryNameTextField.placeholder = "Untitled Itinerary"
 
