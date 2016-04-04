@@ -20,6 +20,11 @@ class ItineraryLocationsTableViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
+    var arrivalTimeReference: NSDate!
+    
+    let timeFormatter = NSDateFormatter()
+    
+    
 
     override func viewDidLoad() {
         
@@ -32,7 +37,12 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         datePicker.setDate((itineraryModel?.getStartTime())!, animated: false)
         
-       datePicker.addTarget(self, action: "changedAction", forControlEvents: UIControlEvents.ValueChanged)
+        datePicker.addTarget(self, action: "changedAction", forControlEvents: UIControlEvents.ValueChanged)
+        
+        arrivalTimeReference = datePicker.date
+        
+        timeFormatter.dateFormat = "hh:mm a"
+        
 
     }
 
@@ -128,6 +138,9 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         cell.isTrailLocationFinalized = location?.isLocationFinalized()
         cell.subheadingLabel.text = ""
+        
+        
+        cell.arrivalTimeLabel.text = "Arrival: ~" + timeFormatter.stringFromDate(arrivalTimeReference)
         
         if(location?.isLocationFinalized() == false){
             let nearbyLocation = itineraryModel?.getNearbyLocation(indexPath.row)

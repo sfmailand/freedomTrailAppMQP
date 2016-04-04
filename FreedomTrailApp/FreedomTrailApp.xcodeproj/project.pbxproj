@@ -251,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				F795E2C31C5C4C0E00843632 /* AppDelegate.swift */,
-				F7D3B6411CB2E36A00528671 /* HttpRequest.swift */,
 				F75B8ACF1C7FF02300C1F5F4 /* TableViewCells */,
 				F75B8AD01C7FF04500C1F5F4 /* ViewControllers */,
 				F75B8AD11C7FF06B00C1F5F4 /* ViewModels */,
@@ -261,6 +260,7 @@
 				F7FF0F6C1CB1FBED00919F1C /* freedomTrailDescriptions.swift */,
 				F73CB3CE1C9F50E2001F1A46 /* YelpLocation.swift */,
 				F7C67F521CA5A34C000DF61E /* YelpFilters.swift */,
+				F7D3B6411CB2E36A00528671 /* HttpRequest.swift */,
 				F795E2CA1C5C4C0E00843632 /* Assets.xcassets */,
 				F795E2CC1C5C4C0E00843632 /* LaunchScreen.storyboard */,
 				F795E2CF1C5C4C0E00843632 /* Info.plist */,

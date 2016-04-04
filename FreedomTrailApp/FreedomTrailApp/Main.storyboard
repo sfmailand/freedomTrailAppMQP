@@ -732,14 +732,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
-                                            <rect key="frame" x="8" y="11" width="537" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Fr-WF8">
-                                            <rect key="frame" x="8" y="40" width="537" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Fr-WF8">
+                                            <rect key="frame" x="150" y="39" width="300" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -751,15 +745,47 @@
                                                 <constraint firstAttribute="height" constant="30" id="cCn-7N-OMw"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-i8-IUW">
+                                            <rect key="frame" x="150" y="68" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
+                                            <rect key="frame" x="8" y="10" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="top" secondItem="qsp-Fr-WF8" secondAttribute="bottom" constant="5" id="3Kb-r7-gqE"/>
+                                        <constraint firstItem="QPU-4a-Mdb" firstAttribute="top" secondItem="JaL-am-PJY" secondAttribute="topMargin" constant="2" id="5dz-5X-qPT"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="6Nw-Uy-OSU"/>
+                                        <constraint firstItem="qsp-Fr-WF8" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="CuJ-e4-ILf"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="Evk-3s-NGJ"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="top" secondItem="JaL-am-PJY" secondAttribute="topMargin" id="Jdw-Rj-IkQ"/>
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="trailing" secondItem="JaL-am-PJY" secondAttribute="trailingMargin" id="PU4-T0-3DW"/>
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="X7O-dH-yOP"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="XKZ-dm-CXb"/>
+                                        <constraint firstItem="QPU-4a-Mdb" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="YRR-Kx-mW3"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="8" id="bLQ-wS-8ww"/>
+                                        <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="5" id="fda-xZ-W0M"/>
+                                        <constraint firstItem="QPU-4a-Mdb" firstAttribute="top" secondItem="ebQ-i8-IUW" secondAttribute="bottom" constant="5" id="kOl-lx-MMP"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="kOl-lx-MMP"/>
+                                            <exclude reference="bLQ-wS-8ww"/>
+                                            <exclude reference="6Nw-Uy-OSU"/>
+                                            <exclude reference="Evk-3s-NGJ"/>
+                                            <exclude reference="Jdw-Rj-IkQ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="arrivalTimeLabel" destination="ebQ-i8-IUW" id="MQZ-EX-KsP"/>
                                     <outlet property="itineraryStopLabel" destination="QPU-4a-Mdb" id="YD1-zk-gVY"/>
                                     <outlet property="subheadingLabel" destination="qsp-Fr-WF8" id="DhU-qV-DsJ"/>
                                 </connections>
