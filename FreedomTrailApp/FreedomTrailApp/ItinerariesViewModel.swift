@@ -78,7 +78,13 @@ public class ItinerariesViewModel{
         itineraries[selectedItineraryIndex].setName(name)
     }
     
+    func getStartTime() -> NSDate{
+        return itineraries[selectedItineraryIndex].getStartTime()
+    }
     
+    func setStartTime(startTime: NSDate){
+        itineraries[selectedItineraryIndex].setStartTime(startTime)
+    }
     
     func setCurrentItinerary(index: Int){
         selectedItineraryIndex = index

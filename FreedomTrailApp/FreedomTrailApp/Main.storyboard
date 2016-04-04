@@ -677,10 +677,9 @@
                                         <!--2016-04-03 22:09:04 +0000-->
                                     </date>
                                 </datePicker>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start walk at:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-8y-4hT">
                                     <rect key="frame" x="8" y="13" width="120" height="33"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -763,6 +762,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="Lgq-UD-tmO" id="AvZ-2O-Kjh"/>
                         <segue destination="gVG-x6-l9b" kind="show" identifier="locationDetailSegue" id="ZyS-HN-bMW"/>
                         <segue destination="0Jp-NX-iRF" kind="show" identifier="yelpLocationSelectionSegue" id="mWI-lI-WH4"/>
                     </connections>

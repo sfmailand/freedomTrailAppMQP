@@ -8,6 +8,9 @@
 
 import Foundation
 
+//May 14th, 2016: 9AM
+let defaultStartTime = NSDate(timeIntervalSince1970: 1463230800)
+
 
 public class Itinerary: NSObject, NSCoding {
     
@@ -55,7 +58,7 @@ public class Itinerary: NSObject, NSCoding {
         
         self.name = name
         self.itineraryDescription = itineraryDescription
-        self.startTime = NSDate(timeIntervalSince1970: 0)
+        self.startTime = defaultStartTime
         super.init()
         
         if name.isEmpty || description.isEmpty{
@@ -73,6 +76,8 @@ public class Itinerary: NSObject, NSCoding {
             self.name = name
         }
     }
+    
+    
     
     func addLocation(trailLocation: Location){
         self.trailLocationsArray.append(trailLocation)
@@ -107,6 +112,14 @@ public class Itinerary: NSObject, NSCoding {
     
     func getName() -> String{
         return name
+    }
+    
+    func getStartTime() -> NSDate{
+        return self.startTime
+    }
+    
+    func setStartTime(startTime: NSDate){
+        self.startTime = startTime
     }
     
     func setName(name: String){

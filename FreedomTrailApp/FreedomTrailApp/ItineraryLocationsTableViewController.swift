@@ -17,6 +17,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     var selectedCellIndex: Int!
 
     @IBOutlet weak var editTimeIcon: UIImageView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     
 
     override func viewDidLoad() {
@@ -27,6 +29,10 @@ class ItineraryLocationsTableViewController: UITableViewController {
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureRecognized(_:)))
         
         tableView.addGestureRecognizer(longpress)
+        
+        datePicker.setDate((itineraryModel?.getStartTime())!, animated: false)
+        
+       datePicker.addTarget(self, action: "changedAction", forControlEvents: UIControlEvents.ValueChanged)
 
     }
 
@@ -43,6 +49,10 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
     @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func changedAction(){
+        print("Date Chagned")
     }
     
     
