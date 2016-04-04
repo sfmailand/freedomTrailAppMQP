@@ -90,6 +90,7 @@ public class Itinerary: NSObject, NSCoding {
     }
     
     func setLocationAtIndex(index: Int, location: Location){
+        print("Change number: " + String(index))
         trailLocationsArray[index] = location
     }
     

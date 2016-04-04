@@ -167,6 +167,8 @@ public class ItinerariesViewModel{
     }
     
     func finalizeYelpLocation(location: YelpLocation){
+        print("Finalize")
+        print("Location Index: " + String(selectedLocationIndexAtSelectedItinerary))
         itineraries[selectedItineraryIndex].setLocationAtIndex(selectedLocationIndexAtSelectedItinerary, location: location)
     }
     

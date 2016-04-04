@@ -254,7 +254,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
             itineraryModel?.setSelectedLocationIndex(selectedCellIndex)
             
             
-            selectedLocation.yelpRequest((itineraryModel?.getNearbyLocation())!)
+            selectedLocation.yelpRequest((itineraryModel?.getNearbyLocation(selectedCellIndex))!)
             
             
             yelpLocationTableViewController.itineraryModel = itineraryModel

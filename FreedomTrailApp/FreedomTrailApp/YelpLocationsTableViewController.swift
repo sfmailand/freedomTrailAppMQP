@@ -123,6 +123,10 @@ class YelpLocationsTableViewController: UITableViewController {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Confirm", handler:{action, indexpath in
             let selectedLocation = self.yelpLocations[indexPath.row]
+            
+            //TODO: Yelp Locaiton is not being finalized correctly. It's 
+            //finalizing either the one before or after it in the table
+            print("Index: " + String(indexPath.row))
             self.itineraryModel?.finalizeYelpLocation(selectedLocation)
             self.tableView.editing = false
             NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
