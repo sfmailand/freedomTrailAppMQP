@@ -35,7 +35,7 @@ public class YelpLocation: Location {
     private var yelpFilters = YelpFilters()
     
     
-    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool){
+    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String){
         
         self.photoURL = photoURL
         self.rating = rating
@@ -46,7 +46,7 @@ public class YelpLocation: Location {
         self.reviewCount = reviewCount
         
         
-        super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong)
+        super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary)
         
     }
     
@@ -73,7 +73,10 @@ public class YelpLocation: Location {
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
         let address = aDecoder.decodeObjectForKey(PropertyKey.addressKey) as! String
-        self.init(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false)
+        let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
+        let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
+
+        self.init(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false, description: description, summary: summary)
     }
     
     
@@ -132,9 +135,13 @@ public class YelpLocation: Location {
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
                 let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)
                 let address = ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[0] as! String) + " " + ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[1] as! String)
+                let summary = (json["businesses"]!![index]["snippet_text"] as! String)
+                
+                //TODO: Add reviews as the description
+                let description = (json["businesses"]!![index]["snippet_text"] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
                 
                 yelpLocations.append(tmpYelpLocation)
             }

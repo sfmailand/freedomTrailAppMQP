@@ -128,7 +128,7 @@ public class ItinerariesViewModel{
         if(selectedLocationIndexAtSelectedItinerary == 0){
             if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
                 print("From Boston -- Saved")
-                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656, locationDescription: "", summary: "")
             }
             print("Getting location of next stop")
             return getNextLocation()
@@ -175,13 +175,13 @@ public class ItinerariesViewModel{
         print(selectedIndex)
         if(selectedIndex + 1 > itineraries[selectedItineraryIndex].getNumberOfLocations()
             || selectedIndex - 1 < 0){
-            return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+            return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656, locationDescription: "", summary: "")
         }
         
         else if(selectedIndex == 0){
             if(itineraries[selectedItineraryIndex].getNumberOfLocations() == 1){
                 print("From Boston -- Saved")
-                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+                return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656, locationDescription: "", summary: "")
             }
             print("Getting location of next stop")
             if(getNextLocation(selectedIndex).isLocationFinalized() == true){
@@ -194,7 +194,7 @@ public class ItinerariesViewModel{
             return getPreviousLocation(selectedIndex)
         }
         
-        return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656)
+        return Location(name: "Boston", photo: nil, gpsLat: 42.3551, gpsLong: -71.0656, locationDescription: "", summary: "")
     }
     
     public func getPreviousLocation(selectedIndex: Int) -> Location{

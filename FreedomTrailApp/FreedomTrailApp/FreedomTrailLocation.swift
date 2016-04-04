@@ -14,8 +14,8 @@ public class FreedomTrailLocation: Location {
     //Initialization
 
     
-    override init(name: String, photo: UIImage?, gpsLat: Double, gpsLong : Double){
-        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
+    override init(name: String, photo: UIImage?, gpsLat: Double, gpsLong : Double, locationDescription: String, summary: String){
+        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: locationDescription, summary: summary)
     }
 
     required convenience public init?(coder aDecoder: NSCoder) {
@@ -23,7 +23,9 @@ public class FreedomTrailLocation: Location {
         let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
-        self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
+        let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
+        let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
+        self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary)
     }
 
 

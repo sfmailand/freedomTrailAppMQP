@@ -30,11 +30,7 @@ class LocationDetailViewController: UIViewController {
         
         location = itineraryModel.getCurrentLocation()
         
-        locationLabel.text = location!.getName()
-        
-        if((location!.getName()) != nil){
-            locationPhoto.image = location!.getPhoto()
-        }
+        reloadPage()
         
         let directionsTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.directionsIconTapped))
         directionsIcon.userInteractionEnabled = true
@@ -66,6 +62,9 @@ class LocationDetailViewController: UIViewController {
         if((location!.getName()) != nil){
             locationPhoto.image = location!.getPhoto()
         }
+        
+        locationSummary.text = location.getSummary()
+        locationDetails.text = location.getDescription()
     }
     
     //MARK: Actions:

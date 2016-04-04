@@ -92,7 +92,9 @@ class RestaurantTypeTableViewController: UITableViewController {
                 gpsLat: 0,
                 gpsLong: 0,
                 address: "",
-                isClosed: false)
+                isClosed: false,
+                description: "",
+                summary: "")
             
             self.itineraryModel?.addLocationToItinerary(newLocation)
             self.tableView.editing = false

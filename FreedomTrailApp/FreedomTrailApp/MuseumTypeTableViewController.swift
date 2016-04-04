@@ -190,9 +190,13 @@ class MuseumTypeTableViewController: UITableViewController {
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
                 let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)
                 let address = ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[0] as! String) + " " + ((json["businesses"]!![index]["location"]!!["display_address"] as! NSArray)[1] as! String)
+                let summary = (json["businesses"]!![index]["snippet_text"] as! String)
+                
+                //TODO: Add reviews as the description
+                let description = (json["businesses"]!![index]["snippet_text"] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
                 
                 yelpLocations.append(tmpYelpLocation)
             }
