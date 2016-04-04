@@ -59,6 +59,8 @@ class YelpLocationsTableViewController: UITableViewController {
         
         cell.yelpLocationName.text = location.getName()
         cell.numYelpReviews.text = String(location.reviewCount) + " reviews"
+        cell.yelpURL = location.yelpURL
+        
         
         setYelpStarRatings(location, cell: cell)
         

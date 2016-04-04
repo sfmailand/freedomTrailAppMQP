@@ -645,12 +645,24 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="informationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="k9M-dW-BGn">
+                                            <rect key="frame" x="562" y="30" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="ZTV-cj-PpJ"/>
+                                                <constraint firstAttribute="width" constant="30" id="p7f-TO-VaX"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="k9M-dW-BGn" firstAttribute="trailing" secondItem="oib-Ec-ZTe" secondAttribute="trailingMargin" id="Qgp-7I-8v2"/>
+                                        <constraint firstItem="k9M-dW-BGn" firstAttribute="centerY" secondItem="oib-Ec-ZTe" secondAttribute="centerY" id="hPk-Wf-FUM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="fifthYelpStar" destination="5G6-hh-8eV" id="ZMR-JP-a7H"/>
                                     <outlet property="firstYelpStar" destination="LPQ-97-Gsf" id="R43-lU-Ol8"/>
                                     <outlet property="fourthYelpStar" destination="KAj-oc-lOq" id="7zg-La-50h"/>
+                                    <outlet property="informationIcon" destination="k9M-dW-BGn" id="Vvp-PO-VrB"/>
                                     <outlet property="numYelpReviews" destination="MGy-KQ-iNm" id="nNC-25-UPh"/>
                                     <outlet property="secondYelpStar" destination="Nme-8w-zOc" id="rWi-De-CF9"/>
                                     <outlet property="thirdYelpStar" destination="QKt-Dt-Zvh" id="j3F-Be-gpB"/>
@@ -803,6 +815,7 @@
         <image name="defaultPhoto" width="320" height="320"/>
         <image name="directionIcon" width="256" height="256"/>
         <image name="editOrderIcon" width="350" height="350"/>
+        <image name="informationIcon" width="350" height="350"/>
         <image name="itineraryIcon" width="30" height="30"/>
         <image name="leftArrow" width="350" height="350"/>
         <image name="locationsIcon" width="30" height="30"/>
