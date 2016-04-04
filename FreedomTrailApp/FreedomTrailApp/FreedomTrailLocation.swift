@@ -20,10 +20,10 @@ public class FreedomTrailLocation: Location {
 
     required convenience public init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        //let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
+        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
-        self.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong)
+        self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong)
     }
 
 

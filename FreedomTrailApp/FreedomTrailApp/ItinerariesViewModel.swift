@@ -104,11 +104,21 @@ public class ItinerariesViewModel{
     }
     
     public func getPreviousLocation() -> Location{
-        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
+        var returnLocation = itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
+        if(selectedLocationIndexAtSelectedItinerary != 0){
+            returnLocation = itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary - 1)
+            selectedLocationIndexAtSelectedItinerary = selectedLocationIndexAtSelectedItinerary - 1
+        }
+        return returnLocation
     }
     
     public func getNextLocation() -> Location{
-        return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
+        var returnLocation = itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary)
+        if(selectedLocationIndexAtSelectedItinerary < itineraries[selectedItineraryIndex].getLocations().count - 1){
+            returnLocation = itineraries[selectedItineraryIndex].getLocationAtIndex(selectedLocationIndexAtSelectedItinerary + 1)
+            selectedLocationIndexAtSelectedItinerary = selectedLocationIndexAtSelectedItinerary + 1
+        }
+        return returnLocation
     }
     
     

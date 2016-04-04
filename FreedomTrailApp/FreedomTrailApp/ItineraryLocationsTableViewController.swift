@@ -52,7 +52,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     }
     
     func changedAction(){
-        print("Date Chagned")
+        itineraryModel?.setStartTime(datePicker.date)
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     
     

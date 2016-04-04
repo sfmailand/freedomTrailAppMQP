@@ -17,6 +17,8 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var addToItineraryButton: UIButton!
     @IBOutlet weak var locationSummary: UITextView!
     @IBOutlet weak var locationDetails: UITextView!
+    @IBOutlet weak var previousLocationIcon: UIImageView!
+    @IBOutlet weak var nextLocationIcon: UIImageView!
 
     var location: Location!
 
@@ -34,19 +36,20 @@ class LocationDetailViewController: UIViewController {
             locationPhoto.image = location!.getPhoto()
         }
         
-        let directionsTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("directionsIconTapped:"))
+        let directionsTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.directionsIconTapped))
         directionsIcon.userInteractionEnabled = true
         directionsIcon.addGestureRecognizer(directionsTapRecognizer)
         
         
-//        let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("previousLocationIconTapped:"))
-//        directionsIcon.userInteractionEnabled = true
-//        directionsIcon.addGestureRecognizer(previousLocationTapRecognizer)
-//        
-//        
-//        let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:Selector("nextLocationIconTapped:"))
-//        directionsIcon.userInteractionEnabled = true
-//        directionsIcon.addGestureRecognizer(nextLocationTapRecognizer)
+        let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.previousLocationIconTapped))
+        previousLocationIcon.userInteractionEnabled = true
+        previousLocationIcon.addGestureRecognizer(previousLocationTapRecognizer)
+        
+        
+        let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.nextLocationIconTapped))
+        nextLocationIcon.userInteractionEnabled = true
+        nextLocationIcon.addGestureRecognizer(nextLocationTapRecognizer)
+
         
         
         
@@ -57,8 +60,26 @@ class LocationDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func reloadPage(){
+        locationLabel.text = location!.getName()
+        
+        if((location!.getName()) != nil){
+            locationPhoto.image = location!.getPhoto()
+        }
+    }
     
     //MARK: Actions:
+    
+    
+    func previousLocationIconTapped(){
+        location = itineraryModel.getPreviousLocation()
+        reloadPage()
+    }
+    
+    func nextLocationIconTapped(){
+        location = itineraryModel.getNextLocation()
+        reloadPage()
+    }
     
     func directionsIconTapped(img: AnyObject)
     {

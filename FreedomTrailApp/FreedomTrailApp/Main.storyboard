@@ -155,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-H6-Mxq">
                                 <rect key="frame" x="250" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Fgq-RN-b02"/>
@@ -185,11 +185,14 @@
                                     <constraint firstAttribute="height" constant="60" id="nD3-oc-3WE"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2y7-PO-zVw">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2y7-PO-zVw">
                                 <rect key="frame" x="0.0" y="270" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2x2-yV-D7b"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-AU-JvK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-AU-JvK">
                                 <rect key="frame" x="20" y="338" width="560" height="23"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,6 +252,7 @@
                             <constraint firstItem="2y7-PO-zVw" firstAttribute="top" secondItem="m9l-gU-4ge" secondAttribute="bottom" constant="5" id="g2Z-RQ-Hth"/>
                             <constraint firstItem="wyF-AU-JvK" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" id="htZ-2b-vMn"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="kpt-DY-53Y"/>
+                            <constraint firstItem="2y7-PO-zVw" firstAttribute="top" secondItem="Hh0-qm-4Mp" secondAttribute="bottom" constant="6" id="pqD-PG-AEa"/>
                             <constraint firstItem="m9l-gU-4ge" firstAttribute="trailing" secondItem="ebc-bS-vbm" secondAttribute="trailingMargin" id="qRq-kO-0I0"/>
                             <constraint firstItem="Kjv-SO-3ZF" firstAttribute="top" secondItem="2PV-H6-Mxq" secondAttribute="bottom" constant="8" id="yBD-i4-pVb"/>
                             <constraint firstItem="4OO-rz-fMX" firstAttribute="trailing" secondItem="ebc-bS-vbm" secondAttribute="trailingMargin" id="zOq-SE-mvs"/>
@@ -267,6 +271,8 @@
                         <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
                         <outlet property="locationPhoto" destination="2PV-H6-Mxq" id="p2S-Mb-Ev8"/>
                         <outlet property="locationSummary" destination="4OO-rz-fMX" id="fMR-zZ-XRj"/>
+                        <outlet property="nextLocationIcon" destination="m9l-gU-4ge" id="Z3O-sS-kKQ"/>
+                        <outlet property="previousLocationIcon" destination="lri-bj-0Fg" id="X0S-v1-mB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eli-wM-tOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

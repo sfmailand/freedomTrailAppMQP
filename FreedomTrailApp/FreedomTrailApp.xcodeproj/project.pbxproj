@@ -38,7 +38,6 @@
 		F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D19BDC1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift */; };
 		F7D514D91CAA2DD500C1D01A /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; };
 		F7D514DA1CAA2DD500C1D01A /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77750CF1CA0903C00F958C8 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F7D8E17C1CB1B82200122956 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */; };
 		F7FF0F6B1CB1C43C00919F1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FF0F6A1CB1C43C00919F1C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -155,7 +154,6 @@
 		F7D19BD61C9C66310045EC7D /* MuseumTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BDA1C9C665C0045EC7D /* ParkTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTypeTableViewController.swift; sourceTree = "<group>"; };
 		F7D19BDC1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTypeTableViewCell.swift; sourceTree = "<group>"; };
-		F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = ../DatePickerViewController.swift; sourceTree = "<group>"; };
 		F7FF0F6A1CB1C43C00919F1C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,7 +187,6 @@
 		F75B8AD01C7FF04500C1F5F4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F7D8E17B1CB1B82200122956 /* DatePickerViewController.swift */,
 				F7290FC61C852103003B8DAD /* LocationTypesTableViewController.swift */,
 				F72042171C5D0E4B0099747C /* LocationDetailViewController.swift */,
 				A219256B1C6C3F1A00C9E937 /* ItineraryLocationsTableViewController.swift */,
@@ -414,7 +411,6 @@
 				F7D19BD71C9C66310045EC7D /* MuseumTypeTableViewController.swift in Sources */,
 				F7D19BDD1C9C67610045EC7D /* RestaurantTypeTableViewCell.swift in Sources */,
 				F7C260091C7B530A006D8723 /* Location.swift in Sources */,
-				F7D8E17C1CB1B82200122956 /* DatePickerViewController.swift in Sources */,
 				F7C67F531CA5A34C000DF61E /* YelpFilters.swift in Sources */,
 				A21925681C6C308B00C9E937 /* Itinerary.swift in Sources */,
 				A219256A1C6C3E2000C9E937 /* ItineraryStopTableViewCell.swift in Sources */,
