@@ -16,7 +16,8 @@ public class HttpRequest{
     }
     
     
-    public func getRequest(requestString: String) -> NSDictionary{
+    public func getRequest(requestString: String, completion: (result: NSDictionary) -> Void){
+        //print("GET REQUEST: " + requestString)
         
         var returnDictionary = NSDictionary()
         
@@ -44,14 +45,16 @@ public class HttpRequest{
             
             // Print out response string
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+            //print("responseString = \(responseString)")
             
             
             // Convert server json response to NSDictionary
             do {
                 if let convertedJson = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                     
+                    //print(convertedJson)
                     returnDictionary = convertedJson
+                    completion(result: returnDictionary)
                     
                 }
             } catch let error as NSError {
@@ -62,7 +65,7 @@ public class HttpRequest{
         
         task.resume()
         
-        return returnDictionary
+
         
     }
 }

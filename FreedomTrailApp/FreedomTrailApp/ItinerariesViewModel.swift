@@ -200,10 +200,16 @@ public class ItinerariesViewModel{
     }
     
     public func getPreviousLocation(selectedIndex: Int) -> Location{
+        if(selectedIndex == 0){
+            return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex - 1)
+        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex - 1)
     }
     
     public func getNextLocation(selectedIndex: Int) -> Location{
+        if(selectedIndex >= itineraries[selectedItineraryIndex].getNumberOfLocations() - 1){
+            return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex)
+        }
         return itineraries[selectedItineraryIndex].getLocationAtIndex(selectedIndex + 1)
     }
     

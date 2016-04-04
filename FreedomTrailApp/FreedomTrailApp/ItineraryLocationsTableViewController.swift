@@ -19,6 +19,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     @IBOutlet weak var editTimeIcon: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var httpRequest = HttpRequest()
+    
     
     var arrivalTimeReference: NSDate!
     
@@ -48,6 +50,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
 
     
     func updateView(){
+        arrivalTimeReference = datePicker.date
         self.tableView.reloadData()
     }
 
@@ -134,22 +137,52 @@ class ItineraryLocationsTableViewController: UITableViewController {
         let location = itineraryModel?.getCurrentItinerary().getLocationAtIndex(indexPath.row)
 
         
-        cell.itineraryStopLabel.text = location!.getName()
         
         cell.isTrailLocationFinalized = location?.isLocationFinalized()
         cell.subheadingLabel.text = ""
         
         
-        cell.arrivalTimeLabel.text = "Arrival: ~" + timeFormatter.stringFromDate(arrivalTimeReference)
         
         if(location?.isLocationFinalized() == false){
             let nearbyLocation = itineraryModel?.getNearbyLocation(indexPath.row)
             cell.backgroundColor = colorSetter(220, green: 220, blue: 220)
             cell.subheadingLabel.text = "(Near " + nearbyLocation!.getName()! + ")"
+            cell.arrivalTimeLabel.text = ""
+            cell.itineraryStopLabel.text = "Find nearby " + location!.getName()!
+            
         }
         else{
             cell.backgroundColor = colorSetter(255, green: 255, blue: 255)
+            cell.arrivalTimeLabel.text = "Arrival: ~" + timeFormatter.stringFromDate(arrivalTimeReference)
+            cell.itineraryStopLabel.text = location!.getName()
+            
+            
+            let nextLocation = itineraryModel?.getNextLocation(indexPath.row)
+            
+            if(nextLocation?.isLocationFinalized() == true){
+                var requestURL = "https://maps.googleapis.com/maps/api/directions/json?"
+                requestURL += "origin=" + String(format:"%f", (location?.getGpsLat())!) + "," + String(format:"%f", (location?.getGpsLong())!) //"42.3550,-71.0656"
+                requestURL += "&destination=" + String(format:"%f", (nextLocation?.getGpsLat())!) + "," + String(format:"%f", (nextLocation?.getGpsLong())!)
+                requestURL += "&mode=walking&key=AIzaSyDFN9FlWd3FzLGOF3oEyp98o-TGDwLLd0s"
+
+                var directionResults = NSDictionary()
+                
+                httpRequest?.getRequest(requestURL){
+                    (result: NSDictionary) in
+                    
+                    directionResults = result
+                    //print(directionResults)
+                    print(directionResults["routes"]![0]["legs"]!![0]["duration"]!!["text"])
+                    
+                }
+                
+                //print(directionResults)
+                
+            }
         }
+        
+        
+        
         
         return cell
     }
