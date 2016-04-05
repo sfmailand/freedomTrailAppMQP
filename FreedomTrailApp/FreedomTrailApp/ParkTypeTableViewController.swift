@@ -59,6 +59,26 @@ class ParkTypeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let yelpURLString = yelpLocations[indexPath.row].yelpURL
+        
+        let tmpYelpLocation = yelpLocations[indexPath.row]
+        
+        
+        if let appURL = NSURL(string: "yelp:///biz/"+tmpYelpLocation.getYelpID()) {
+            let canOpen = UIApplication.sharedApplication().canOpenURL(appURL)
+            
+            if(canOpen == true){
+                UIApplication.sharedApplication().openURL(appURL)
+            }
+            else{
+                UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+            }
+        }
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -168,7 +188,7 @@ class ParkTypeTableViewController: UITableViewController {
                 let rating = (json["businesses"]!![index]["rating"] as! Double)
                 let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
                 //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
-                let yelpURL = (json["businesses"]!![index]["url"] as! String)
+                let yelpURL = (json["businesses"]!![index]["mobile_url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
                 let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)

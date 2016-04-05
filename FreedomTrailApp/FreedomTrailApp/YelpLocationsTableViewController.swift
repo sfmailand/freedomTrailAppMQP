@@ -105,8 +105,20 @@ class YelpLocationsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let yelpURLString = yelpLocations[indexPath.row].yelpURL
         
+        let tmpYelpLocation = yelpLocations[indexPath.row]
         
-        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+        
+        if let appURL = NSURL(string: "yelp:///biz/"+tmpYelpLocation.getYelpID()) {
+            let canOpen = UIApplication.sharedApplication().canOpenURL(appURL)
+            
+            if(canOpen == true){
+                UIApplication.sharedApplication().openURL(appURL)
+            }
+            else{
+                UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+            }
+        }
+
     }
     
     // Override to support editing the table view.

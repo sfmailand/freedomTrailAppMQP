@@ -103,6 +103,8 @@ class RestaurantTypeTableViewController: UITableViewController {
         
         return [moreRowAction];
     }
+    
+    
 
     /*
     // Override to support rearranging the table view.

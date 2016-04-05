@@ -94,6 +94,10 @@ public class YelpLocation: Location {
         
     }
     
+    public func getYelpID() -> String{
+        return yelpID
+    }
+    
     
     
     required convenience public init?(coder aDecoder: NSCoder) {
@@ -175,7 +179,7 @@ public class YelpLocation: Location {
                     print(json["businesses"]!![index]["image_url"])
                     hasImageURL = true
                 }
-                let yelpURL = (json["businesses"]!![index]["url"] as! String)
+                let yelpURL = (json["businesses"]!![index]["mobile_url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
                 let gpsLong = (json["businesses"]!![index]["location"]!!["coordinate"]!!["longitude"] as! Double)
