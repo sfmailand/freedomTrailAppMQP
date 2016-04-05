@@ -67,6 +67,10 @@ public class ItinerariesViewModel{
         return itineraries.count
     }
     
+    func getNumberOfLocations() -> Int{
+        return itineraries[selectedItineraryIndex].getNumberOfLocations()
+    }
+    
     
     
     

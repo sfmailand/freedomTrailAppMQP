@@ -19,7 +19,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
     @IBOutlet weak var editTimeIcon: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var httpRequest = HttpRequest()
+    var httpRequest: HttpRequest!
     
     
     var arrivalTimeReference: NSDate!
@@ -29,6 +29,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
 
     override func viewDidLoad() {
+        
+        httpRequest = HttpRequest(itineraryModel: itineraryModel!)
         
         //Add observer for when a singlular itinerary is updated
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: singleItineraryUpdatedNotificationKey, object: nil)
@@ -54,6 +56,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
     func updateView(){
         arrivalTimeReference = datePicker.date
         self.tableView.reloadData()
+        httpRequest.getArrivalTimeRequest()
     }
 
     override func didReceiveMemoryWarning() {
@@ -157,50 +160,6 @@ class ItineraryLocationsTableViewController: UITableViewController {
         else{
             cell.backgroundColor = colorSetter(255, green: 255, blue: 255)
             cell.itineraryStopLabel.text = location!.getName()
-            
-            
-            
-//            itineraryModel?.setArrivalTime(indexPath.row, arrivalTime: arrivalTimeReference)
-//            
-//            cell.arrivalTimeLabel.text = "Arrival: ~" + self.timeFormatter.stringFromDate((location?.getArrivalTime())!)
-//            
-//            
-//            let nextLocation = itineraryModel?.getNextLocation(indexPath.row)
-//            
-//            if(nextLocation?.isLocationFinalized() == true){
-//                var requestURL = "https://maps.googleapis.com/maps/api/directions/json?"
-//                requestURL += "origin=" + String(format:"%f", (location?.getGpsLat())!) + "," + String(format:"%f", (location?.getGpsLong())!) //"42.3550,-71.0656"
-//                requestURL += "&destination=" + String(format:"%f", (nextLocation?.getGpsLat())!) + "," + String(format:"%f", (nextLocation?.getGpsLong())!)
-//                requestURL += "&mode=walking&key=AIzaSyDFN9FlWd3FzLGOF3oEyp98o-TGDwLLd0s"
-//
-//                
-//                httpRequest?.getRequest(requestURL){
-//                    (result: NSDictionary) in
-//                    
-//                    
-//                    
-//                    
-//                    //print(self.arrivalTimeReference)
-//                    
-//                    let numSecondsToWalk = result["routes"]![0]["legs"]!![0]["duration"]!!["value"] as! Int
-//                    //print(directionResults["routes"]![0]["legs"]!![0]["duration"]!!["value"])
-//                    
-//                    let tmpDate = NSDate(timeIntervalSince1970: self.arrivalTimeReference.timeIntervalSince1970 + Double(numSecondsToWalk))
-//                    
-//                    self.arrivalTimeReference = tmpDate
-//                    
-//                }
-//                
-//
-//                
-//                
-//                
-//                
-//                
-//                
-//                //print(directionResults)
-//                
-//            }
         }
         
         
