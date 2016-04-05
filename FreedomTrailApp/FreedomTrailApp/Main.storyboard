@@ -822,14 +822,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
-                                            <rect key="frame" x="96" y="10" width="458" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Fr-WF8">
-                                            <rect key="frame" x="96" y="39" width="458" height="21"/>
+                                            <rect key="frame" x="96" y="39" width="409" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -842,7 +836,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-i8-IUW">
-                                            <rect key="frame" x="96" y="68" width="458" height="21"/>
+                                            <rect key="frame" x="96" y="68" width="409" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -854,6 +848,12 @@
                                                 <constraint firstAttribute="height" constant="88" id="t4h-Ls-HhD"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
+                                            <rect key="frame" x="96" y="10" width="409" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="top" secondItem="qsp-Fr-WF8" secondAttribute="bottom" constant="5" id="3Kb-r7-gqE"/>
@@ -869,10 +869,13 @@
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="X7O-dH-yOP"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="XKZ-dm-CXb"/>
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="YRR-Kx-mW3"/>
+                                        <constraint firstItem="qsp-Fr-WF8" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="YrB-5V-cbZ"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="8" id="bLQ-wS-8ww"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="5" id="fda-xZ-W0M"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="g8K-DH-E3q"/>
+                                        <constraint firstItem="QPU-4a-Mdb" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="j5W-yE-GMf"/>
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="top" secondItem="ebQ-i8-IUW" secondAttribute="bottom" constant="5" id="kOl-lx-MMP"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="lWR-LS-8lB"/>
                                         <constraint firstItem="qva-Gy-JcO" firstAttribute="leading" secondItem="JaL-am-PJY" secondAttribute="leadingMargin" constant="-8" id="ocE-E6-yCf"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="xBF-or-4ls"/>
                                     </constraints>
@@ -882,10 +885,14 @@
                                             <exclude reference="kOl-lx-MMP"/>
                                             <exclude reference="CuJ-e4-ILf"/>
                                             <exclude reference="bLQ-wS-8ww"/>
+                                            <exclude reference="xBF-or-4ls"/>
                                             <exclude reference="6Nw-Uy-OSU"/>
+                                            <exclude reference="9nS-1c-oFd"/>
                                             <exclude reference="Evk-3s-NGJ"/>
                                             <exclude reference="Jdw-Rj-IkQ"/>
                                             <exclude reference="XKZ-dm-CXb"/>
+                                            <exclude reference="g8K-DH-E3q"/>
+                                            <exclude reference="T2Q-fm-HVJ"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

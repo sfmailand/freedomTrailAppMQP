@@ -50,7 +50,7 @@ public class YelpLocation: Location {
         
     }
     
-    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String, arrivalTime: NSDate, photo: UIImage){
+    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String, arrivalTime: NSDate, photo: UIImage?){
         
         self.photoURL = photoURL
         self.rating = rating
@@ -59,6 +59,8 @@ public class YelpLocation: Location {
         self.address = address
         self.isClosed = isClosed
         self.reviewCount = reviewCount
+        
+        
         
         
         super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary, arrivalTime: arrivalTime)
@@ -107,7 +109,7 @@ public class YelpLocation: Location {
         let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
         let arrivalTime = aDecoder.decodeObjectForKey(PropertyKey.arrivalTimeKey) as! NSDate
-        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
+        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as? UIImage
         
         
         self.init(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false, description: description, summary: summary, arrivalTime: arrivalTime, photo: photo)
@@ -171,6 +173,7 @@ public class YelpLocation: Location {
                 else{
                     photoURL = tmpPhotoURL
                     print(json["businesses"]!![index]["image_url"])
+                    hasImageURL = true
                 }
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
