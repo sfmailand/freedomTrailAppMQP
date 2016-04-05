@@ -27,8 +27,6 @@ public class HttpRequest{
         
         if(numLocations >= 0){
             for index in 0...numLocations{
-                print("INDEX")
-                print(index)
                 var previousGpsLat: Double
                 var previousGpsLong: Double
                 let currentGpsLat = locations[index].getGpsLat()

@@ -121,7 +121,6 @@ public class Itinerary: NSObject, NSCoding {
     
     func setStartTime(startTime: NSDate){
         self.startTime = startTime
-        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     
     func setName(name: String){

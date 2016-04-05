@@ -84,7 +84,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
     func changedAction(){
         itineraryModel?.setStartTime(datePicker.date)
-        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
+        print("Changed Time")
+        httpRequest.getArrivalTimeRequest()
     }
     
     
