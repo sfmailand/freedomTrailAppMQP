@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FreedomTrailApp/ItinerariesViewModel.swift"
-            timestampString = "481479693.989049"
+            timestampString = "481558840.051799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "getNearbyLocation(_:)"
             landmarkType = "5">
          </BreakpointContent>

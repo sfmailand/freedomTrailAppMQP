@@ -61,8 +61,9 @@ class ItineraryLocationsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //Cancel Button
     @IBAction func cancelItineraryCreation(sender: UIBarButtonItem) {
+        self.itineraryModel!.cancelItineraryCreation()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -74,7 +75,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
     
     
     
-    
+    //Save Button
     //Calls the delegate method from ItineraryBuilderTabViewController
     //to append the itinerary that's stored in that controller
     //to the ItineraryViewModel

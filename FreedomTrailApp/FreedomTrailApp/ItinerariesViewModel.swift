@@ -46,13 +46,17 @@ public class ItinerariesViewModel{
     
     
     func cancelItineraryCreation(){
-        itineraries.removeLast()
-        selectedItineraryIndex = itineraries.count - 1
-        isCreatingNewItinerary = false
+        if(isCreatingNewItinerary == true){
+            print("Canceling Itinerary Creation")
+            itineraries.removeLast()
+            isCreatingNewItinerary = false
+        }
     }
     
     
     func saveItinerary(){
+        print("SAVING")
+        print(itineraries.count)
         notifyOfItineraryChange()
         storeItineraries()
         isCreatingNewItinerary = false
@@ -144,6 +148,10 @@ public class ItinerariesViewModel{
         return itineraries[selectedItineraryIndex].getLocations()
     }
     
+    public func endItineraryCreation(){
+        isCreatingNewItinerary = false
+    }
+    
     
     public func getItineraryArray() -> [Itinerary]{
         return self.itineraries
@@ -161,6 +169,8 @@ public class ItinerariesViewModel{
     
     
     func deleteItinerary(index: Int){
+        print("DELETING: ")
+        print(itineraries.count)
         itineraries.removeAtIndex(index)
         notifyOfItineraryChange()
         saveItinerary()
