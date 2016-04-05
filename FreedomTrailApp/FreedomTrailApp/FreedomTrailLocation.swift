@@ -15,7 +15,7 @@ public class FreedomTrailLocation: Location {
 
     
     override init(name: String, photo: UIImage?, gpsLat: Double, gpsLong : Double, locationDescription: String, summary: String){
-        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: locationDescription, summary: summary)
+        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: locationDescription, summary: summary, arrivalTime: NSDate(timeIntervalSince1970: 0))
     }
 
     required convenience public init?(coder aDecoder: NSCoder) {

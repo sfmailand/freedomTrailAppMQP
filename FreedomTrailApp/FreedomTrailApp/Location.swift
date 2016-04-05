@@ -17,8 +17,19 @@ public class Location: NSObject, NSCoding{
     private var gpsLat: Double
     private var summary: String
     private var locationDescription: String
+    private var arrivalTime: NSDate
     
     //Initialization
+    
+    init(name: String, photo: UIImage?, gpsLat: Double, gpsLong: Double, locationDescription: String, summary: String, arrivalTime: NSDate){
+        self.name = name
+        self.photo = photo
+        self.gpsLat = gpsLat
+        self.gpsLong = gpsLong
+        self.locationDescription = locationDescription
+        self.summary = summary
+        self.arrivalTime = arrivalTime
+    }
     
     init(name: String, photo: UIImage?, gpsLat: Double, gpsLong: Double, locationDescription: String, summary: String){
         self.name = name
@@ -27,6 +38,7 @@ public class Location: NSObject, NSCoding{
         self.gpsLong = gpsLong
         self.locationDescription = locationDescription
         self.summary = summary
+        self.arrivalTime = NSDate(timeIntervalSince1970: 0)
     }
     
     func getName() -> String?{
@@ -35,6 +47,11 @@ public class Location: NSObject, NSCoding{
     
     func getPhoto() -> UIImage?{
         return photo
+    }
+    
+    func setPhoto(photo: UIImage){
+        self.photo = photo
+        print("PHOTO SET")
     }
     
     func getGpsLat() -> Double{
@@ -53,6 +70,15 @@ public class Location: NSObject, NSCoding{
         return locationDescription 
     }
     
+    func setArrivalTime(arrivalTime: NSDate){
+        self.arrivalTime = arrivalTime
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
+    }
+    
+    func getArrivalTime() -> NSDate{
+        return arrivalTime
+    }
+    
     
     //MARK: NSCoding
     
@@ -63,6 +89,7 @@ public class Location: NSObject, NSCoding{
         static let gpsLatKey = "gpsLat"
         static let summaryKey = "summary"
         static let descriptionKey = "description"
+        static let arrivalTimeKey = "arrivalTime"
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
@@ -72,6 +99,7 @@ public class Location: NSObject, NSCoding{
         aCoder.encodeObject(gpsLat, forKey: PropertyKey.gpsLatKey)
         aCoder.encodeObject(summary, forKey: PropertyKey.summaryKey)
         aCoder.encodeObject(locationDescription, forKey: PropertyKey.descriptionKey)
+        aCoder.encodeObject(arrivalTime, forKey: PropertyKey.arrivalTimeKey)
     }
     
     required convenience public init?(coder aDecoder: NSCoder){
@@ -81,7 +109,8 @@ public class Location: NSObject, NSCoding{
         let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
         let gpsLong = aDecoder.decodeObjectForKey(PropertyKey.gpsLongKey) as! Double
         let gpsLat = aDecoder.decodeObjectForKey(PropertyKey.gpsLatKey) as! Double
-        self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary)
+        let arrivalTime = aDecoder.decodeObjectForKey(PropertyKey.arrivalTimeKey) as! NSDate
+        self.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary, arrivalTime: arrivalTime)
     }
     
     

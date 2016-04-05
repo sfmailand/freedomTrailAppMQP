@@ -121,6 +121,7 @@ public class Itinerary: NSObject, NSCoding {
     
     func setStartTime(startTime: NSDate){
         self.startTime = startTime
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     
     func setName(name: String){
@@ -129,6 +130,7 @@ public class Itinerary: NSObject, NSCoding {
     
     public func swapLocations(newIndex: Int, oldIndex: Int){
         swap(&trailLocationsArray[newIndex], &trailLocationsArray[oldIndex])
+        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     
     

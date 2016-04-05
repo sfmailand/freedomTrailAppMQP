@@ -240,4 +240,9 @@ public class ItinerariesViewModel{
     }
     
     
+    func setArrivalTime(locationIndex: Int, arrivalTime: NSDate){
+        itineraries[selectedItineraryIndex].getLocationAtIndex(locationIndex).setArrivalTime(arrivalTime)
+    }
+    
+    
 }

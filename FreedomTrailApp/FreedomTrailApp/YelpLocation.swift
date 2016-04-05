@@ -35,6 +35,36 @@ public class YelpLocation: Location {
     private var yelpFilters = YelpFilters()
     
     
+    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String, arrivalTime: NSDate){
+        
+        self.photoURL = photoURL
+        self.rating = rating
+        self.yelpURL = yelpURL
+        self.yelpID = yelpID
+        self.address = address
+        self.isClosed = isClosed
+        self.reviewCount = reviewCount
+        
+        
+        super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary, arrivalTime: arrivalTime)
+        
+    }
+    
+    init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String, arrivalTime: NSDate, photo: UIImage){
+        
+        self.photoURL = photoURL
+        self.rating = rating
+        self.yelpURL = yelpURL
+        self.yelpID = yelpID
+        self.address = address
+        self.isClosed = isClosed
+        self.reviewCount = reviewCount
+        
+        
+        super.init(name: name, photo: photo, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary, arrivalTime: arrivalTime)
+        
+    }
+    
     init(name: String, photoURL: String, rating: Double, reviewCount: Int, yelpURL: String, yelpID: String, gpsLat: Double, gpsLong : Double, address: String, isClosed: Bool, description: String, summary: String){
         
         self.photoURL = photoURL
@@ -46,7 +76,7 @@ public class YelpLocation: Location {
         self.reviewCount = reviewCount
         
         
-        super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary)
+        super.init(name: name, photo: nil, gpsLat: gpsLat, gpsLong: gpsLong, locationDescription: description, summary: summary, arrivalTime: NSDate(timeIntervalSince1970: 0))
         
     }
     
@@ -59,13 +89,14 @@ public class YelpLocation: Location {
         aCoder.encodeObject(yelpID, forKey: PropertyKey.yelpIDKey)
         aCoder.encodeObject(address, forKey: PropertyKey.addressKey)
         aCoder.encodeObject(reviewCount, forKey: PropertyKey.reviewCountKey)
+        
     }
     
     
     
     required convenience public init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        //let photoURL = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! String
+        let photoURL = aDecoder.decodeObjectForKey(PropertyKey.photoURLKey) as! String
         let rating = aDecoder.decodeObjectForKey(PropertyKey.ratingKey) as! Double
         let reviewCount = aDecoder.decodeObjectForKey(PropertyKey.reviewCountKey) as! Int
         let yelpURL = aDecoder.decodeObjectForKey(PropertyKey.yelpURLKey) as! String
@@ -75,8 +106,11 @@ public class YelpLocation: Location {
         let address = aDecoder.decodeObjectForKey(PropertyKey.addressKey) as! String
         let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
         let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-
-        self.init(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false, description: description, summary: summary)
+        let arrivalTime = aDecoder.decodeObjectForKey(PropertyKey.arrivalTimeKey) as! NSDate
+        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage
+        
+        
+        self.init(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong : gpsLong, address: address, isClosed: false, description: description, summary: summary, arrivalTime: arrivalTime, photo: photo)
     }
     
     
@@ -103,9 +137,9 @@ public class YelpLocation: Location {
         print(yelpRequestURL)
         
         oauthswift.client.get("https://api.yelp.com/v2/search/?sort=1&limit=20&category_filter="+yelpFilters.getRestaurantIdentifierByType(getName()!)+"&ll="+String(format:"%f", nearbyLocation.getGpsLat()) + ","+String(format:"%f", nearbyLocation.getGpsLong()),
-            success: {
-                data, response in
-                return self.saveYelpData(data)
+                              success: {
+                                data, response in
+                                return self.saveYelpData(data)
             }
             , failure: { error in
                 print(error)
@@ -129,7 +163,7 @@ public class YelpLocation: Location {
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let rating = (json["businesses"]!![index]["rating"] as! Double)
                 let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
-                //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
+                let photoURL = (json["businesses"]!![index]["image_url"] as! String)
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
@@ -141,7 +175,10 @@ public class YelpLocation: Location {
                 let description = (json["businesses"]!![index]["snippet_text"] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
+                
+                
+                downloadImage(NSURL(string: photoURL)!, location: tmpYelpLocation)
                 
                 yelpLocations.append(tmpYelpLocation)
             }
@@ -155,6 +192,26 @@ public class YelpLocation: Location {
     
     private func getYelpLocationTypeString() -> String{
         return ""
+    }
+    
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
+    func downloadImage(url: NSURL, location: YelpLocation){
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                location.setPhoto(UIImage(data: data)!)
+            }
+        }
     }
     
     

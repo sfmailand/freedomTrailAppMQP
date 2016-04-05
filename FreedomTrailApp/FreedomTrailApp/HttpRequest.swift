@@ -43,18 +43,12 @@ public class HttpRequest{
                 return
             }
             
-            // Print out response string
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            //print("responseString = \(responseString)")
-            
-            
+
             // Convert server json response to NSDictionary
             do {
                 if let convertedJson = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    
-                    //print(convertedJson)
-                    returnDictionary = convertedJson
-                    completion(result: returnDictionary)
+
+                    completion(result: convertedJson)
                     
                 }
             } catch let error as NSError {
