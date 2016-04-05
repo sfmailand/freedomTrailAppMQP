@@ -160,10 +160,14 @@ public class YelpLocation: Location {
             }
             
             for index in 0...numResults-1{
+                var hasImageURL = false
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let rating = (json["businesses"]!![index]["rating"] as! Double)
                 let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
-                let photoURL = (json["businesses"]!![index]["image_url"] as! String)
+                if let tmpPhotoURL = (json["businesses"]!![index]["image_url"]){
+                    photoURL = tmpPhotoURL as! String
+                    hasImageURL = true
+                }
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
@@ -175,10 +179,14 @@ public class YelpLocation: Location {
                 let description = (json["businesses"]!![index]["snippet_text"] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
-                let tmpYelpLocation = YelpLocation(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
+                let tmpYelpLocation = YelpLocation(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: "")
                 
-                
-                downloadImage(NSURL(string: photoURL)!, location: tmpYelpLocation)
+                if(hasImageURL == true){
+                    downloadImage(NSURL(string: photoURL)!, location: tmpYelpLocation)
+                }
+                else{
+                    tmpYelpLocation.setPhoto(UIImage(named: "no_image")!)
+                }
                 
                 yelpLocations.append(tmpYelpLocation)
             }
