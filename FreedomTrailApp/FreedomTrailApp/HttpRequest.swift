@@ -13,43 +13,54 @@ public class HttpRequest{
     
     var itineraryModel: ItinerariesViewModel!
     
+    var startTime: NSDate!
+    
     
     init?(itineraryModel: ItinerariesViewModel){
         self.itineraryModel = itineraryModel
     }
     
     public func getArrivalTimeRequest(){
-        let numLocations = itineraryModel.getNumberOfLocations()
+        startTime = itineraryModel.getStartTime()
+        let numLocations = itineraryModel.getNumberOfLocations() - 1
         let locations = itineraryModel.getAllLocationsInItinerary()
         
-        for index in 0...numLocations{
-            var previousGpsLat: Double
-            var previousGpsLong: Double
-            let currentGpsLat = locations[index].getGpsLat()
-            let currentGpsLong = locations[index].getGpsLong()
-            
-            
-            if(index == 0){
-                previousGpsLat = currentGpsLat
-                previousGpsLong = currentGpsLong
+        if(numLocations >= 0){
+            for index in 0...numLocations{
+                print("INDEX")
+                print(index)
+                var previousGpsLat: Double
+                var previousGpsLong: Double
+                let currentGpsLat = locations[index].getGpsLat()
+                let currentGpsLong = locations[index].getGpsLong()
+                
+                
+                if(index == 0){
+                    previousGpsLat = currentGpsLat
+                    previousGpsLong = currentGpsLong
+                }
+                else{
+                    previousGpsLat = locations[index - 1].getGpsLat()
+                    previousGpsLong = locations[index - 1].getGpsLong()
+                }
+                
+                var requestURL = "https://maps.googleapis.com/maps/api/directions/json?"
+                requestURL += "origin=" + String(format:"%f", (previousGpsLat)) + "," + String(format:"%f", (previousGpsLong)) //"42.3550,-71.0656"
+                requestURL += "&destination=" + String(format:"%f", currentGpsLat) + "," + String(format:"%f", currentGpsLong)
+                requestURL += "&mode=walking&key=AIzaSyDFN9FlWd3FzLGOF3oEyp98o-TGDwLLd0s"
+                
+                if(locations[index].isLocationFinalized()){
+                    getRequest(requestURL, index: index)
+                }
+                
+                
             }
-            else{
-                previousGpsLat = locations[index - 1].getGpsLat()
-                previousGpsLong = locations[index - 1].getGpsLong()
-            }
-            
-            var requestURL = "https://maps.googleapis.com/maps/api/directions/json?"
-            requestURL += "origin=" + String(format:"%f", (previousGpsLat)) + "," + String(format:"%f", (previousGpsLong)) //"42.3550,-71.0656"
-            requestURL += "&destination=" + String(format:"%f", currentGpsLat) + "," + String(format:"%f", currentGpsLong)
-            requestURL += "&mode=walking&key=AIzaSyDFN9FlWd3FzLGOF3oEyp98o-TGDwLLd0s"
 
-            
         }
-        
     }
     
     
-    public func getRequest(requestString: String){
+    public func getRequest(requestString: String, index: Int){
         //print("GET REQUEST: " + requestString)
         
         
@@ -81,7 +92,11 @@ public class HttpRequest{
                 if let convertedJson = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
 
                     //TODO Update Location Arrival Times
-                    print(convertedJson)
+                    let numSecondsToWalk = convertedJson["routes"]![0]["legs"]!![0]["duration"]!!["value"] as! Double
+                    let newTime = NSDate(timeIntervalSince1970: self.startTime.timeIntervalSince1970 + numSecondsToWalk)
+                    self.startTime = newTime
+                    self.itineraryModel?.setArrivalTime(index, arrivalTime: newTime)
+                    NSNotificationCenter.defaultCenter().postNotificationName(completedArrivalTimeGetRequest, object: self)
                     
                 }
             } catch let error as NSError {

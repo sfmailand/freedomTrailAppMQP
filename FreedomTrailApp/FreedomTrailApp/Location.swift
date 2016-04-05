@@ -72,7 +72,7 @@ public class Location: NSObject, NSCoding{
     
     func setArrivalTime(arrivalTime: NSDate){
         self.arrivalTime = arrivalTime
-        NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
+        print(self.arrivalTime)
     }
     
     func getArrivalTime() -> NSDate{

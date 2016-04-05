@@ -30,10 +30,16 @@ class ItineraryLocationsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         
+        print("DID LOAD")
+        
         httpRequest = HttpRequest(itineraryModel: itineraryModel!)
         
         //Add observer for when a singlular itinerary is updated
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateView", name: singleItineraryUpdatedNotificationKey, object: nil)
+
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.updateViewWithOutReload), name: completedArrivalTimeGetRequest, object: nil)
+
         
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureRecognized(_:)))
         
@@ -47,6 +53,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
         
         timeFormatter.dateFormat = "hh:mm a"
         
+        httpRequest.getArrivalTimeRequest()
         
         
 
@@ -56,7 +63,12 @@ class ItineraryLocationsTableViewController: UITableViewController {
     func updateView(){
         arrivalTimeReference = datePicker.date
         self.tableView.reloadData()
+        print("Update View")
         httpRequest.getArrivalTimeRequest()
+    }
+    
+    func updateViewWithOutReload(){
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -160,6 +172,7 @@ class ItineraryLocationsTableViewController: UITableViewController {
         else{
             cell.backgroundColor = colorSetter(255, green: 255, blue: 255)
             cell.itineraryStopLabel.text = location!.getName()
+            cell.arrivalTimeLabel.text = "Arrival: ~" + self.timeFormatter.stringFromDate((location?.getArrivalTime())!)
         }
         
         

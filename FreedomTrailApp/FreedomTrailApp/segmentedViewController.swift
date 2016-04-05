@@ -17,6 +17,8 @@ let yelpLocationLoadedNotificationKey = "yelplocationLoaded"
 
 let yelpLocatoinFinalizedNotificationKey = "yelplocationfinalized"
 
+let completedArrivalTimeGetRequest = "arrivalTimeRequest"
+
 class segmentedViewController: UIViewController {
 
     @IBOutlet weak var segmentedControlButtons: UISegmentedControl!

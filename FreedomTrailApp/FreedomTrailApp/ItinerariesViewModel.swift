@@ -77,6 +77,7 @@ public class ItinerariesViewModel{
     
     
     //For temparary itinerary when creating a new one
+
     
     func addLocationToItinerary(location: Location){
         itineraries[selectedItineraryIndex].addLocation(location)
@@ -146,6 +147,8 @@ public class ItinerariesViewModel{
         return getPreviousLocation()
     }
     
+    
+
     
     
     public func getAllLocationsInItinerary() -> [Location]{
