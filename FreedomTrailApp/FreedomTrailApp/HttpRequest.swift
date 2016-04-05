@@ -41,12 +41,7 @@ public class HttpRequest{
                 else{
                     var minusIndex = 1
                     var loop = true
-                    print("STARTING LOOP")
                     while(loop == true){
-                        print("Minus Index")
-                        print(minusIndex)
-                        print("Index")
-                        print(index)
                         if(locations[index-minusIndex].isLocationFinalized() == true){
                             previousGpsLat = locations[index - minusIndex].getGpsLat()
                             previousGpsLong = locations[index - minusIndex].getGpsLong()
@@ -109,11 +104,23 @@ public class HttpRequest{
                 if let convertedJson = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
 
                     //TODO Update Location Arrival Times
-                    let numSecondsToWalk = convertedJson["routes"]![0]["legs"]!![0]["duration"]!!["value"] as! Double
-                    let newTime = NSDate(timeIntervalSince1970: self.startTime.timeIntervalSince1970 + numSecondsToWalk)
-                    self.startTime = newTime
-                    self.itineraryModel?.setArrivalTime(index, arrivalTime: newTime)
+                    self.itineraryModel.getAllLocationsInItinerary()[index].numSecondsToHere = (convertedJson["routes"]![0]["legs"]!![0]["duration"]!!["value"]) as? Double
                     if(index == self.itineraryModel.getAllLocationsInItinerary().count - 1){
+                        print("HERE")
+                        
+                        var initialTime = NSDate(timeIntervalSince1970: self.itineraryModel.getStartTime().timeIntervalSince1970)
+                        
+                        for locationIndex in 0...self.itineraryModel.getAllLocationsInItinerary().count - 1{
+                            let location = self.itineraryModel.getAllLocationsInItinerary()[locationIndex]
+                            print(initialTime)
+                            
+                            if(location.isLocationFinalized() == true){
+                                location.setArrivalTime(NSDate(timeIntervalSince1970: initialTime.timeIntervalSince1970 + location.numSecondsToHere!))
+                                initialTime = location.getArrivalTime()
+
+                            }
+                            
+                        }
                         print("Finished all HTTP Requests - Notification")
                         NSNotificationCenter.defaultCenter().postNotificationName(completedArrivalTimeGetRequest, object: self)
                     }

@@ -68,6 +68,8 @@ class ItineraryLocationsTableViewController: UITableViewController {
     }
     
     func updateViewWithOutReload(){
+        print("Update View -- No Reload")
+
         self.tableView.reloadData()
     }
 
