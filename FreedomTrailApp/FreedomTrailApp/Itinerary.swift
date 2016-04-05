@@ -81,6 +81,7 @@ public class Itinerary: NSObject, NSCoding {
     
     func addLocation(trailLocation: Location){
         self.trailLocationsArray.append(trailLocation)
+        print("Location Added - Notification")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
         
     }
@@ -107,6 +108,7 @@ public class Itinerary: NSObject, NSCoding {
     
     func deleteLocation(index: Int){
         trailLocationsArray.removeAtIndex(index)
+        print("Location Deleted - Notification")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     
@@ -129,6 +131,7 @@ public class Itinerary: NSObject, NSCoding {
     
     public func swapLocations(newIndex: Int, oldIndex: Int){
         swap(&trailLocationsArray[newIndex], &trailLocationsArray[oldIndex])
+        print("Locations Swapped - Notification")
         NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
     }
     

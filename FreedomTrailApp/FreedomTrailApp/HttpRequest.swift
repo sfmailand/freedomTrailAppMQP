@@ -27,10 +27,11 @@ public class HttpRequest{
         
         if(numLocations >= 0){
             for index in 0...numLocations{
-                var previousGpsLat: Double
-                var previousGpsLong: Double
+                var previousGpsLat: Double = 0
+                var previousGpsLong: Double = 0
                 let currentGpsLat = locations[index].getGpsLat()
                 let currentGpsLong = locations[index].getGpsLong()
+                let isLocationFinalize = locations[index].isLocationFinalized()
                 
                 
                 if(index == 0){
@@ -38,8 +39,26 @@ public class HttpRequest{
                     previousGpsLong = currentGpsLong
                 }
                 else{
-                    previousGpsLat = locations[index - 1].getGpsLat()
-                    previousGpsLong = locations[index - 1].getGpsLong()
+                    var minusIndex = 1
+                    var loop = true
+                    print("STARTING LOOP")
+                    while(loop == true){
+                        print("Minus Index")
+                        print(minusIndex)
+                        print("Index")
+                        print(index)
+                        if(locations[index-minusIndex].isLocationFinalized() == true){
+                            previousGpsLat = locations[index - minusIndex].getGpsLat()
+                            previousGpsLong = locations[index - minusIndex].getGpsLong()
+                            loop = false
+                        }
+                        else if(index - minusIndex == 0){
+                            previousGpsLat = currentGpsLat
+                            previousGpsLong = currentGpsLong
+                            loop = false
+                        }
+                        minusIndex += 1
+                    }
                 }
                 
                 var requestURL = "https://maps.googleapis.com/maps/api/directions/json?"
@@ -47,7 +66,7 @@ public class HttpRequest{
                 requestURL += "&destination=" + String(format:"%f", currentGpsLat) + "," + String(format:"%f", currentGpsLong)
                 requestURL += "&mode=walking&key=AIzaSyDFN9FlWd3FzLGOF3oEyp98o-TGDwLLd0s"
                 
-                if(locations[index].isLocationFinalized()){
+                if(isLocationFinalize == true){
                     getRequest(requestURL, index: index)
                 }
                 
@@ -94,7 +113,10 @@ public class HttpRequest{
                     let newTime = NSDate(timeIntervalSince1970: self.startTime.timeIntervalSince1970 + numSecondsToWalk)
                     self.startTime = newTime
                     self.itineraryModel?.setArrivalTime(index, arrivalTime: newTime)
-                    NSNotificationCenter.defaultCenter().postNotificationName(completedArrivalTimeGetRequest, object: self)
+                    if(index == self.itineraryModel.getAllLocationsInItinerary().count - 1){
+                        print("Finished all HTTP Requests - Notification")
+                        NSNotificationCenter.defaultCenter().postNotificationName(completedArrivalTimeGetRequest, object: self)
+                    }
                     
                 }
             } catch let error as NSError {

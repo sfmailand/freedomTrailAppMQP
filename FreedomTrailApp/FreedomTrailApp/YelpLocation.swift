@@ -203,7 +203,7 @@ public class YelpLocation: Location {
                 print(photoURL)
                 yelpLocations.append(tmpYelpLocation)
             }
-            
+            print("Yelp Location Loaded - Notification")
             NSNotificationCenter.defaultCenter().postNotificationName(yelpLocationLoadedNotificationKey, object: self, userInfo: ["location": yelpLocations])
         }catch{
             print("error serializing JSON: \(error)")

@@ -19,6 +19,8 @@ public class Location: NSObject, NSCoding{
     private var locationDescription: String
     private var arrivalTime: NSDate
     
+    public var numSecondsToHere: Double?
+    
     //Initialization
     
     init(name: String, photo: UIImage?, gpsLat: Double, gpsLong: Double, locationDescription: String, summary: String, arrivalTime: NSDate){
@@ -72,7 +74,6 @@ public class Location: NSObject, NSCoding{
     
     func setArrivalTime(arrivalTime: NSDate){
         self.arrivalTime = arrivalTime
-        print(self.arrivalTime)
     }
     
     func getArrivalTime() -> NSDate{

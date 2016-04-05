@@ -141,6 +141,7 @@ class YelpLocationsTableViewController: UITableViewController {
             print("Index: " + String(indexPath.row))
             self.itineraryModel?.finalizeYelpLocation(selectedLocation)
             self.tableView.editing = false
+            print("Itinerary Updated - Notification")
             NSNotificationCenter.defaultCenter().postNotificationName(singleItineraryUpdatedNotificationKey, object: self)
             self.navigationController?.popViewControllerAnimated(true)
         });

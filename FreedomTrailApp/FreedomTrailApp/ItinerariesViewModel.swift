@@ -143,7 +143,6 @@ public class ItinerariesViewModel{
             return getNextLocation()
             
         }
-        print("Get previous location")
         return getPreviousLocation()
     }
     
@@ -208,7 +207,6 @@ public class ItinerariesViewModel{
             }
             
         }
-        print("Get previous location")
         if(getPreviousLocation(selectedIndex).isLocationFinalized() == true){
             return getPreviousLocation(selectedIndex)
         }
@@ -253,6 +251,7 @@ public class ItinerariesViewModel{
     
     
     func notifyOfItineraryChange(){
+        print("Itinerary Changed - Notification")
         NSNotificationCenter.defaultCenter().postNotificationName(itinerariesListNotificationKey, object: self)
     }
     
