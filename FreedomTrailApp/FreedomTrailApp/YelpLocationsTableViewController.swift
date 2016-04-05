@@ -102,12 +102,12 @@ class YelpLocationsTableViewController: UITableViewController {
     }
     */
     
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-//        let yelpURLString = yelpLocations[indexPath.row].yelpURL
-//        
-//        
-//        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let yelpURLString = yelpLocations[indexPath.row].yelpURL
+        
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: yelpURLString)!)
+    }
     
     // Override to support editing the table view.
     // REQUIRED for iOS8
@@ -149,48 +149,60 @@ class YelpLocationsTableViewController: UITableViewController {
     
     
     func setYelpStarRatings(location: YelpLocation, cell: YelpLocationTableViewCell){
+        print(location.getName())
+        print(location.rating)
         cell.firstYelpStar.image = UIImage(named: "yelpStar_0")
         cell.secondYelpStar.image = UIImage(named: "yelpStar_0")
         cell.thirdYelpStar.image = UIImage(named: "yelpStar_0")
         cell.fourthYelpStar.image = UIImage(named: "yelpStar_0")
         cell.fifthYelpStar.image = UIImage(named: "yelpStar_0")
         
-        if(location.rating == 5){
+        if(location.rating == 5.0){
+            print("5 Stars")
             cell.firstYelpStar.image = UIImage(named: "yelpStar_5")
             cell.secondYelpStar.image = UIImage(named: "yelpStar_5")
             cell.thirdYelpStar.image = UIImage(named: "yelpStar_5")
             cell.fourthYelpStar.image = UIImage(named: "yelpStar_5")
             cell.fifthYelpStar.image = UIImage(named: "yelpStar_5")
         }
-        else if(location.rating >= 4){
+        else if(location.rating >= 4.0){
+            print("4 Stars")
             cell.firstYelpStar.image = UIImage(named: "yelpStar_4")
             cell.secondYelpStar.image = UIImage(named: "yelpStar_4")
             cell.thirdYelpStar.image = UIImage(named: "yelpStar_4")
             cell.fourthYelpStar.image = UIImage(named: "yelpStar_4")
             if(location.rating == 4.5){
-                cell.fifthYelpStar.image = UIImage(named: "yelpStar_4.5")
+                cell.fifthYelpStar.image = UIImage(named: "yelpStar_4_5")
             }
         }
-        else if(location.rating >= 3){
+        else if(location.rating >= 3.0){
             cell.firstYelpStar.image = UIImage(named: "yelpStar_3")
             cell.secondYelpStar.image = UIImage(named: "yelpStar_3")
             cell.thirdYelpStar.image = UIImage(named: "yelpStar_3")
             if(location.rating == 3.5){
-                cell.fourthYelpStar.image = UIImage(named: "yelpStar_3.5")
+                print("3.5 Stars")
+
+                cell.fourthYelpStar.image = UIImage(named: "yelpStar_3_5")
             }
         }
-        else if(location.rating >= 2){
+        else if(location.rating >= 2.0){
+            print("2 Stars")
             cell.firstYelpStar.image = UIImage(named: "yelpStar_2")
             cell.secondYelpStar.image = UIImage(named: "yelpStar_2")
-            if(location.rating == 3.5){
-                cell.thirdYelpStar.image = UIImage(named: "yelpStar_2.5")
+            if(location.rating == 2.5){
+                cell.thirdYelpStar.image = UIImage(named: "yelpStar_2_5")
             }
         }
-        else if(location.rating >= 1){
+        else if(location.rating >= 1.0){
+            print("1 Star")
             cell.firstYelpStar.image = UIImage(named: "yelpStar_1")
-            if(location.rating == 3.5){
-                cell.secondYelpStar.image = UIImage(named: "yelpStar_1.5")
+            if(location.rating == 1.5){
+                cell.secondYelpStar.image = UIImage(named: "yelpStar_1_5")
             }
+        }
+        else if(location.rating == 0.5){
+            print("0.5 Star")
+            cell.firstYelpStar.image = UIImage(named: "yelpStar_1_5")
         }
 
 

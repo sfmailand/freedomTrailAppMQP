@@ -164,9 +164,13 @@ public class YelpLocation: Location {
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let rating = (json["businesses"]!![index]["rating"] as! Double)
                 let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
-                if let tmpPhotoURL = (json["businesses"]!![index]["image_url"]){
-                    photoURL = tmpPhotoURL as! String
-                    hasImageURL = true
+                let tmpPhotoURL = json["businesses"]!![index]["image_url"] as? String
+                if(tmpPhotoURL  == nil){
+                    photoURL = ""
+                }
+                else{
+                    photoURL = tmpPhotoURL
+                    print(json["businesses"]!![index]["image_url"])
                 }
                 let yelpURL = (json["businesses"]!![index]["url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
@@ -179,6 +183,8 @@ public class YelpLocation: Location {
                 let description = (json["businesses"]!![index]["snippet_text"] as! String)
                 
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
+
+                
                 let tmpYelpLocation = YelpLocation(name: name, photoURL: photoURL, rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: "")
                 
                 if(hasImageURL == true){
@@ -187,7 +193,7 @@ public class YelpLocation: Location {
                 else{
                     tmpYelpLocation.setPhoto(UIImage(named: "no_image")!)
                 }
-                
+                print(photoURL)
                 yelpLocations.append(tmpYelpLocation)
             }
             
@@ -212,6 +218,7 @@ public class YelpLocation: Location {
     func downloadImage(url: NSURL, location: YelpLocation){
         print("Download Started")
         print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        print(location.getName())
         getDataFromUrl(url) { (data, response, error)  in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 guard let data = data where error == nil else { return }
