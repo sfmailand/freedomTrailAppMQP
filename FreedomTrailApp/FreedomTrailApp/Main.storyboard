@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Freedom Trail Locations-->
+        <!--Trail Locations-->
         <scene sceneID="JUL-XD-pGj">
             <objects>
                 <tableViewController id="Zza-cb-H9a" customClass="LocationTableViewController" customModule="FreedomTrailApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,6 +54,7 @@
                                 <connections>
                                     <outlet property="locationNameLabel" destination="qeZ-1e-ipU" id="mnF-d2-nGm"/>
                                     <outlet property="locationPhoto" destination="ZPM-yW-VkW" id="ZEp-ax-Z7Z"/>
+                                    <segue destination="gVG-x6-l9b" kind="show" id="npR-6U-2zm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,7 +63,7 @@
                             <outlet property="delegate" destination="Zza-cb-H9a" id="7gk-U8-wRZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Freedom Trail Locations" id="rnF-Op-oMP"/>
+                    <navigationItem key="navigationItem" title="Trail Locations" id="rnF-Op-oMP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-aS-B0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,6 +243,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGI-me-4hG">
+                                <rect key="frame" x="247" y="226" width="106" height="30"/>
+                                <state key="normal" title="Add to Itinerary"/>
+                                <connections>
+                                    <action selector="addToItineraryAction:" destination="gVG-x6-l9b" eventType="touchUpInside" id="9c8-AR-BEF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -253,6 +261,7 @@
                             <constraint firstItem="4OO-rz-fMX" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" id="6Bn-s6-Eg6"/>
                             <constraint firstItem="X1b-SE-aHU" firstAttribute="top" secondItem="OdR-PV-O1f" secondAttribute="bottom" constant="8" id="BPj-Eg-zdR"/>
                             <constraint firstItem="2y7-PO-zVw" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" constant="-20" id="E4T-ds-FMs"/>
+                            <constraint firstItem="OGI-me-4hG" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="E9k-FN-r2k"/>
                             <constraint firstItem="X1b-SE-aHU" firstAttribute="trailing" secondItem="ebc-bS-vbm" secondAttribute="trailingMargin" id="FdM-LB-MPJ"/>
                             <constraint firstItem="2PV-H6-Mxq" firstAttribute="top" secondItem="iFU-HE-ZgJ" secondAttribute="bottom" constant="8" id="Gyr-yE-IIN"/>
                             <constraint firstItem="Hh0-qm-4Mp" firstAttribute="centerX" secondItem="ebc-bS-vbm" secondAttribute="centerX" id="IHZ-6a-Fcz"/>
@@ -264,6 +273,7 @@
                             <constraint firstItem="OdR-PV-O1f" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" id="RsL-qa-oG1"/>
                             <constraint firstItem="lri-bj-0Fg" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" id="SCc-bh-bZV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wyF-AU-JvK" secondAttribute="trailing" id="SKf-Eb-Rrv"/>
+                            <constraint firstItem="OGI-me-4hG" firstAttribute="top" secondItem="Kjv-SO-3ZF" secondAttribute="bottom" constant="8" id="Tar-32-H9e"/>
                             <constraint firstItem="Hh0-qm-4Mp" firstAttribute="top" secondItem="Kjv-SO-3ZF" secondAttribute="bottom" constant="8" id="X14-Xu-M9O"/>
                             <constraint firstItem="BH8-Ig-pWH" firstAttribute="top" secondItem="X1b-SE-aHU" secondAttribute="bottom" id="a1p-oX-NGA"/>
                             <constraint firstItem="lri-bj-0Fg" firstAttribute="leading" secondItem="ebc-bS-vbm" secondAttribute="leadingMargin" id="fp4-SC-v2p"/>
@@ -284,6 +294,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addToItineraryButton" destination="OGI-me-4hG" id="29z-j4-xAK"/>
                         <outlet property="directionsIcon" destination="Hh0-qm-4Mp" id="MNq-af-LLq"/>
                         <outlet property="locationDetails" destination="X1b-SE-aHU" id="dkD-fx-lML"/>
                         <outlet property="locationLabel" destination="Kjv-SO-3ZF" id="4LZ-10-03C"/>
@@ -295,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eli-wM-tOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3240" y="-1465"/>
+            <point key="canvasLocation" x="3212" y="-627"/>
         </scene>
         <!--Segmented View Controller-->
         <scene sceneID="BW1-Ip-bjJ">
@@ -850,7 +861,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-i8-IUW">
                                             <rect key="frame" x="96" y="68" width="409" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qva-Gy-JcO">
@@ -981,5 +992,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fRi-Cl-0HZ"/>
+        <segue reference="ZyS-HN-bMW"/>
     </inferredMetricsTieBreakers>
 </document>

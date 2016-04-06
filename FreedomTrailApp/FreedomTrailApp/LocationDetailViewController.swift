@@ -14,11 +14,13 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var locationPhoto: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var directionsIcon: UIImageView!
-    @IBOutlet weak var addToItineraryButton: UIButton!
     @IBOutlet weak var locationSummary: UITextView!
     @IBOutlet weak var locationDetails: UITextView!
     @IBOutlet weak var previousLocationIcon: UIImageView!
     @IBOutlet weak var nextLocationIcon: UIImageView!
+    @IBOutlet weak var addToItineraryButton: UIButton!
+    
+    var isAddingToItinerary = false
 
     var location: Location!
 
@@ -28,29 +30,46 @@ class LocationDetailViewController: UIViewController {
         super.viewDidLoad()
 
         
-        location = itineraryModel.getCurrentLocation()
+        
+        
+        
+        if(isAddingToItinerary == true){
+            print("Adding to Itinerary")
+            previousLocationIcon.hidden = true
+            nextLocationIcon.hidden = true
+            directionsIcon.hidden = true
+            
+        }
+        else{
+            addToItineraryButton.hidden = true
+            print("Not adding to itinerary")
+            location = itineraryModel.getCurrentLocation()
+
+            let directionsTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.directionsIconTapped))
+            directionsIcon.userInteractionEnabled = true
+            directionsIcon.addGestureRecognizer(directionsTapRecognizer)
+            
+            
+            let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.previousLocationIconTapped))
+            previousLocationIcon.userInteractionEnabled = true
+            previousLocationIcon.addGestureRecognizer(previousLocationTapRecognizer)
+            
+            
+            let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.nextLocationIconTapped))
+            nextLocationIcon.userInteractionEnabled = true
+            nextLocationIcon.addGestureRecognizer(nextLocationTapRecognizer)
+        }
+        
         
         reloadPage()
-        
-        let directionsTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.directionsIconTapped))
-        directionsIcon.userInteractionEnabled = true
-        directionsIcon.addGestureRecognizer(directionsTapRecognizer)
-        
-        
-        let previousLocationTapRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.previousLocationIconTapped))
-        previousLocationIcon.userInteractionEnabled = true
-        previousLocationIcon.addGestureRecognizer(previousLocationTapRecognizer)
-        
-        
-        let nextLocationTapRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.nextLocationIconTapped))
-        nextLocationIcon.userInteractionEnabled = true
-        nextLocationIcon.addGestureRecognizer(nextLocationTapRecognizer)
 
-        
-        
         
     }
 
+    @IBAction func addToItineraryAction(sender: UIButton) {
+        itineraryModel.addLocationToItinerary(location)
+        navigationController!.popViewControllerAnimated(true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

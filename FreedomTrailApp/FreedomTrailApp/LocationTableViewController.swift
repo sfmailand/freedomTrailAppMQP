@@ -20,6 +20,8 @@ class LocationTableViewController: UITableViewController {
     
     var trailLocationsModel =  FreedomTrailLocationModel()
     
+    var selectedCellIndex: Int!
+    
     
     var locations: [FreedomTrailLocation]!
     
@@ -112,7 +114,7 @@ class LocationTableViewController: UITableViewController {
         return true
     }
     */
-    
+
 
     
     
@@ -123,12 +125,10 @@ class LocationTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let locationDetailViewController = segue.destinationViewController as! LocationDetailViewController
-        
-        if let selectedLocationCell = sender as? LocationTableViewCell{
-            let indexPath = tableView.indexPathForCell(selectedLocationCell)!
-            let selectedLocation = locations[indexPath.row]
-            locationDetailViewController.location = selectedLocation
-        }
+        let selectedCellIndex = self.tableView.indexPathForCell(sender as! LocationTableViewCell)
+        locationDetailViewController.location = self.locations[selectedCellIndex!.row]
+        locationDetailViewController.itineraryModel = itineraryModel
+        locationDetailViewController.isAddingToItinerary = true
         
         
     }
