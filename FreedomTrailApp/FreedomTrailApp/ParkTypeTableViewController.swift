@@ -184,10 +184,20 @@ class ParkTypeTableViewController: UITableViewController {
             }
             
             for index in 0...numResults-1{
+                var hasImageURL = false
+                var photoURL = ""
                 let name = (json["businesses"]!![index]["name"] as! String)
                 let rating = (json["businesses"]!![index]["rating"] as! Double)
                 let reviewCount = (json["businesses"]!![index]["review_count"] as! Int)
-                //let imageURL = "iURL: " + (json["businesses"]!![index]["image_url"] as! String)
+                let tmpPhotoURL = json["businesses"]!![index]["image_url"] as? String
+                if(tmpPhotoURL  == nil){
+                    photoURL = ""
+                }
+                else{
+                    photoURL = tmpPhotoURL!
+                    print(json["businesses"]!![index]["image_url"])
+                    hasImageURL = true
+                }
                 let yelpURL = (json["businesses"]!![index]["mobile_url"] as! String)
                 let yelpID = (json["businesses"]!![index]["id"] as! String)
                 let gpsLat = (json["businesses"]!![index]["location"]!!["coordinate"]!!["latitude"] as! Double)
@@ -201,6 +211,12 @@ class ParkTypeTableViewController: UITableViewController {
                 let isClosedResults = (json["businesses"]!![index]["is_closed"] as! Bool)
                 let tmpYelpLocation = YelpLocation(name: name, photoURL: "", rating: rating, reviewCount: reviewCount, yelpURL: yelpURL, yelpID: yelpID, gpsLat: gpsLat, gpsLong: gpsLong, address: address, isClosed: isClosedResults, description: description, summary: summary)
                 
+                if(hasImageURL == true){
+                    downloadImage(NSURL(string: photoURL)!, location: tmpYelpLocation)
+                }
+                else{
+                    tmpYelpLocation.setPhoto(UIImage(named: "no_image")!)
+                }
                 yelpLocations.append(tmpYelpLocation)
             }
             
@@ -210,6 +226,27 @@ class ParkTypeTableViewController: UITableViewController {
             
         }catch{
             print("error serializing JSON: \(error)")
+        }
+    }
+    
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
+    func downloadImage(url: NSURL, location: YelpLocation){
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        print(location.getName())
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                location.setPhoto(UIImage(data: data)!)
+            }
         }
     }
 
