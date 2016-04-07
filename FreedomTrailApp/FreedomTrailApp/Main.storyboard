@@ -846,7 +846,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Fr-WF8">
-                                            <rect key="frame" x="96" y="39" width="409" height="21"/>
+                                            <rect key="frame" x="96" y="39" width="458" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -859,7 +859,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-i8-IUW">
-                                            <rect key="frame" x="96" y="68" width="409" height="21"/>
+                                            <rect key="frame" x="96" y="68" width="458" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -871,8 +871,8 @@
                                                 <constraint firstAttribute="height" constant="88" id="t4h-Ls-HhD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
-                                            <rect key="frame" x="96" y="10" width="409" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-4a-Mdb">
+                                            <rect key="frame" x="96" y="10" width="458" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -883,19 +883,26 @@
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="top" secondItem="JaL-am-PJY" secondAttribute="topMargin" constant="2" id="5dz-5X-qPT"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="6Nw-Uy-OSU"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="ebQ-i8-IUW" secondAttribute="trailing" constant="38" id="9nS-1c-oFd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ebQ-i8-IUW" secondAttribute="trailing" constant="38" id="A6y-QW-yAZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QPU-4a-Mdb" secondAttribute="trailing" constant="87" id="Cm5-Fn-XOu"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="CuJ-e4-ILf"/>
+                                        <constraint firstItem="qsp-Fr-WF8" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="DKK-4k-BRv"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="Evk-3s-NGJ"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="top" secondItem="JaL-am-PJY" secondAttribute="topMargin" id="Jdw-Rj-IkQ"/>
+                                        <constraint firstItem="QPU-4a-Mdb" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="Ngn-u8-kWN"/>
                                         <constraint firstItem="qva-Gy-JcO" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="Oie-LO-JbO"/>
+                                        <constraint firstItem="ayK-ml-cpk" firstAttribute="leading" secondItem="qsp-Fr-WF8" secondAttribute="trailing" constant="8" id="PG5-OZ-TCs"/>
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="trailing" secondItem="JaL-am-PJY" secondAttribute="trailingMargin" id="PU4-T0-3DW"/>
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="leading" secondItem="qsp-Fr-WF8" secondAttribute="trailing" constant="8" id="T2Q-fm-HVJ"/>
                                         <constraint firstItem="ayK-ml-cpk" firstAttribute="centerY" secondItem="JaL-am-PJY" secondAttribute="centerY" id="X7O-dH-yOP"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="XKZ-dm-CXb"/>
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="YRR-Kx-mW3"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="YrB-5V-cbZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QPU-4a-Mdb" secondAttribute="trailing" constant="38" id="bAK-8w-riC"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="8" id="bLQ-wS-8ww"/>
                                         <constraint firstItem="qsp-Fr-WF8" firstAttribute="top" secondItem="QPU-4a-Mdb" secondAttribute="bottom" constant="5" id="fda-xZ-W0M"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="g8K-DH-E3q"/>
+                                        <constraint firstItem="ebQ-i8-IUW" firstAttribute="leading" secondItem="qva-Gy-JcO" secondAttribute="trailing" constant="8" id="gJc-4u-Xkn"/>
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="j5W-yE-GMf"/>
                                         <constraint firstItem="QPU-4a-Mdb" firstAttribute="top" secondItem="ebQ-i8-IUW" secondAttribute="bottom" constant="5" id="kOl-lx-MMP"/>
                                         <constraint firstItem="ebQ-i8-IUW" firstAttribute="centerX" secondItem="JaL-am-PJY" secondAttribute="centerX" id="lWR-LS-8lB"/>
@@ -904,9 +911,12 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="Cm5-Fn-XOu"/>
                                             <exclude reference="YRR-Kx-mW3"/>
+                                            <exclude reference="j5W-yE-GMf"/>
                                             <exclude reference="kOl-lx-MMP"/>
                                             <exclude reference="CuJ-e4-ILf"/>
+                                            <exclude reference="YrB-5V-cbZ"/>
                                             <exclude reference="bLQ-wS-8ww"/>
                                             <exclude reference="xBF-or-4ls"/>
                                             <exclude reference="6Nw-Uy-OSU"/>
@@ -915,6 +925,7 @@
                                             <exclude reference="Jdw-Rj-IkQ"/>
                                             <exclude reference="XKZ-dm-CXb"/>
                                             <exclude reference="g8K-DH-E3q"/>
+                                            <exclude reference="lWR-LS-8lB"/>
                                             <exclude reference="T2Q-fm-HVJ"/>
                                         </mask>
                                     </variation>
