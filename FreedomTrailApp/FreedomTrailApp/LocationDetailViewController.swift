@@ -20,6 +20,8 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var nextLocationIcon: UIImageView!
     @IBOutlet weak var addToItineraryButton: UIButton!
     
+    
+    
     var isAddingToItinerary = false
 
     var location: Location!
@@ -29,7 +31,6 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         
         
         
